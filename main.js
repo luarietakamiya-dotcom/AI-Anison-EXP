@@ -16,7 +16,7 @@ const TIMETABLE_DATA = [
 // url:  HPリンク（空文字の場合はボタン非表示）
 // song: 楽曲情報
 const LINEUP_DATA = [
-  { name: "高宮ルアリエ",      icon: "./icons/1.png",  art: "./art/1.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "高宮ルアリエ",      icon: "./icons/1.png",  art: "./art/1.png",  url: "https://x.com/LuarieTakamiya",  song: "楽曲情報 準備中..." },
   { name: "五島雅",            icon: "./icons/2.png",  art: "./art/2.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "森川P",             icon: "./icons/3.png",  art: "./art/3.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "ゆーき",            icon: "./icons/4.png",  art: "./art/4.jpg",  url: "",  song: "楽曲情報 準備中..." },
