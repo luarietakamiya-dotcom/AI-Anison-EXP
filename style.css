@@ -698,26 +698,34 @@ a {
   .countdown-num { font-size: 1.6rem; }
 }
 
-/* --- Creator Card hint --- */
-.card-view-hint {
-  font-size: 0.8rem;
-  color: var(--accent-sf);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  margin-top: auto;
+/* --- Creator Card: Large Icon --- */
+.card-header {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  margin: -30px -30px 16px -30px !important;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
 }
 
-.creator-card {
-  cursor: pointer;
+.creator-icon {
+  width: 110px !important;
+  height: 110px !important;
+  border-radius: 0 !important;
+  object-fit: cover !important;
+  border: none !important;
+  box-shadow: none !important;
+  flex-shrink: 0;
 }
 
-.creator-card:hover .card-view-hint {
-  opacity: 1;
+.card-header > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px;
 }
 
-/* --- Modal Overlay --- */
+/* --- Modal --- */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -740,16 +748,17 @@ a {
 }
 
 .modal-box {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.97);
   border-radius: 24px;
   box-shadow: 0 30px 80px rgba(2, 132, 199, 0.15);
-  max-width: 560px;
+  max-width: 580px;
   width: 100%;
   overflow: hidden;
   position: relative;
   transform: translateY(20px) scale(0.97);
   transition: transform 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-overlay.open .modal-box {
@@ -758,11 +767,11 @@ a {
 
 .modal-close {
   position: absolute;
-  top: 16px; right: 16px;
+  top: 14px; right: 14px;
   width: 36px; height: 36px;
   border-radius: 50%;
   border: none;
-  background: rgba(0,0,0,0.06);
+  background: rgba(0,0,0,0.07);
   color: var(--text-secondary);
   font-size: 0.9rem;
   cursor: pointer;
@@ -771,26 +780,27 @@ a {
   z-index: 1;
 }
 
-.modal-close:hover {
-  background: rgba(0,0,0,0.12);
-}
+.modal-close:hover { background: rgba(0,0,0,0.14); }
 
+/* 画像はアスペクト比そのまま・見切れなし */
 .modal-art-wrap {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #e8f4fb;
+  background: #0a0a12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
 .modal-art {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
+  object-fit: contain;
 }
 
 .modal-info {
-  padding: 28px 32px 32px;
+  padding: 24px 28px 28px;
 }
 
 .modal-creator-label {
@@ -805,7 +815,7 @@ a {
 
 .modal-name {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 8px;
@@ -814,7 +824,7 @@ a {
 .modal-song {
   font-size: 0.95rem;
   color: var(--text-secondary);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .modal-link-btn {
@@ -838,8 +848,23 @@ a {
   box-shadow: 0 10px 28px rgba(2, 132, 199, 0.45);
 }
 
+/* --- Card view hint --- */
+.card-view-hint {
+  font-size: 0.8rem;
+  color: var(--accent-sf);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  margin-top: auto;
+}
+
+.creator-card { cursor: pointer; }
+.creator-card:hover .card-view-hint { opacity: 1; }
+
 @media (max-width: 768px) {
   .modal-box { border-radius: 16px; }
-  .modal-info { padding: 20px 20px 24px; }
+  .modal-info { padding: 18px 18px 22px; }
   .modal-name { font-size: 1.4rem; }
+  .creator-icon { width: 90px !important; height: 90px !important; }
 }
