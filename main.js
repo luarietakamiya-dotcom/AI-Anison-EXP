@@ -10,17 +10,29 @@ const TIMETABLE_DATA = [
   { time: "22:00", title: "Ending & Announcement", desc: "エンディングと、今後の展開に関する重大発表。" },
 ];
 
-const creators = [
-  "高宮ルアリエ", "五島雅", "森川P", "ゆーき", "ハルイロナツイロ", "結音",
-  "rui", "トミオ", "Felis Catus", "Sort5691", "To", "ユミリアの夢案内",
-  "Katsunn AI", "Hina", "LUCY", "前野凌"
+// クリエイターデータ
+// icon: アイコン画像パス
+// art:  一枚絵パス（モーダルで表示）
+// url:  HPリンク（空文字の場合はボタン非表示）
+// song: 楽曲情報
+const LINEUP_DATA = [
+  { name: "高宮ルアリエ",      icon: "./icons/1.png",  art: "./art/1.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "五島雅",            icon: "./icons/2.png",  art: "./art/2.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "森川P",             icon: "./icons/3.png",  art: "./art/3.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "ゆーき",            icon: "./icons/4.png",  art: "./art/4.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "ハルイロナツイロ",  icon: "./icons/5.png",  art: "./art/5.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "結音",              icon: "./icons/6.png",  art: "./art/6.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "rui",               icon: "./icons/7.png",  art: "./art/7.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "トミオ",            icon: "./icons/8.png",  art: "./art/8.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "Felis Catus",       icon: "./icons/9.png",  art: "./art/9.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "Sort5691",          icon: "./icons/10.png", art: "./art/10.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "To",                icon: "./icons/11.png", art: "./art/11.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "ユミリアの夢案内",  icon: "./icons/12.png", art: "./art/12.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "Katsunn AI",        icon: "./icons/13.png", art: "./art/13.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "Hina",              icon: "./icons/14.png", art: "./art/14.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "LUCY",              icon: "./icons/15.png", art: "./art/15.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "前野凌",            icon: "./icons/16.png", art: "./art/16.jpg", url: "",  song: "楽曲情報 準備中..." },
 ];
-
-const LINEUP_DATA = creators.map((name, index) => ({
-  name: name,
-  icon: `./icons/${index + 1}.png`, // Placeholder rule for icons
-  song: "楽曲情報 準備中...",
-}));
 
 const PETIT_EVENTS_DATA = [
   { 
@@ -51,8 +63,7 @@ function escapeHtml(str) {
 function renderTimetable() {
   const root = document.getElementById('timetable-root');
   if (!root) return;
-
-  const html = TIMETABLE_DATA.map(item => `
+  root.innerHTML = TIMETABLE_DATA.map(item => `
     <div class="time-row">
       <div class="time-label">${escapeHtml(item.time)}</div>
       <div class="time-content">
@@ -61,38 +72,39 @@ function renderTimetable() {
       </div>
     </div>
   `).join('');
-
-  root.innerHTML = html;
 }
 
-// Default SVG placeholder for missing icons
-const defaultAvatar = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTBhMGIwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwIDIxdi0yYTQgNCAwIDAgMC00LTRINThhNCA0IDAgMCAwLTQgMnYyIi8+PGNpcmNsZSBjeD0iMTIiIGN5PSI3IiByPSI0Ii8+PC9zdmc+';
+const defaultAvatar = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTBhMGIwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwIDIxdi0yYTQgNCAwIDAgMC00LTRINWE0IDQgMCAwIDAtNCAydjIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjciIHI9IjQiLz48L3N2Zz4=';
 
 function renderLineup() {
   const root = document.getElementById('lineup-root');
   if (!root) return;
-
-  const html = LINEUP_DATA.map(item => `
-    <div class="card">
+  root.innerHTML = LINEUP_DATA.map((item, i) => `
+    <div class="card creator-card" data-index="${i}" role="button" tabindex="0" aria-label="${escapeHtml(item.name)}の詳細を見る">
       <div class="card-header">
-         <img src="${escapeHtml(item.icon)}" alt="${escapeHtml(item.name)}" class="creator-icon" onerror="this.src='${defaultAvatar}'" />
-         <div>
-            <div class="card-category">CREATOR</div>
-            <h3 class="card-title">${escapeHtml(item.name)}</h3>
-         </div>
+        <img src="${escapeHtml(item.icon)}" alt="${escapeHtml(item.name)}" class="creator-icon" onerror="this.src='${defaultAvatar}'" />
+        <div>
+          <div class="card-category">CREATOR</div>
+          <h3 class="card-title">${escapeHtml(item.name)}</h3>
+        </div>
       </div>
       <p class="card-desc">${escapeHtml(item.song)}</p>
+      <div class="card-view-hint">クリックで詳細を見る →</div>
     </div>
   `).join('');
 
-  root.innerHTML = html;
+  // カードクリックでモーダルを開く
+  root.querySelectorAll('.creator-card').forEach(card => {
+    const open = () => openModal(parseInt(card.dataset.index));
+    card.addEventListener('click', open);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
+  });
 }
 
 function renderPetitEvents() {
   const root = document.getElementById('petit-events-root');
   if (!root) return;
-
-  const html = PETIT_EVENTS_DATA.map(item => `
+  root.innerHTML = PETIT_EVENTS_DATA.map(item => `
     <div class="card">
       <div>
         <div class="card-category">${escapeHtml(item.category)}</div>
@@ -101,123 +113,125 @@ function renderPetitEvents() {
       <p class="card-desc">${escapeHtml(item.desc)}</p>
       <div class="card-footer">
         <span class="card-meta">${escapeHtml(item.meta)}</span>
-        ${item.link ? 
-          `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" style="font-weight: 600; color: var(--accent-sf); transition: opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">会場へ →</a>` : 
-          `<span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Coming Soon</span>`
+        ${item.link
+          ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" style="font-weight:600;color:var(--accent-sf);transition:opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">会場へ →</a>`
+          : `<span style="font-size:0.85rem;color:var(--text-secondary);font-weight:600;">Coming Soon</span>`
         }
       </div>
     </div>
   `).join('');
+}
 
-  root.innerHTML = html;
+// --- Modal ---
+
+function buildModal() {
+  if (document.getElementById('creator-modal')) return;
+  const modal = document.createElement('div');
+  modal.id = 'creator-modal';
+  modal.className = 'modal-overlay';
+  modal.innerHTML = `
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="閉じる">✕</button>
+      <div class="modal-art-wrap">
+        <img id="modal-art" src="" alt="" class="modal-art" />
+      </div>
+      <div class="modal-info">
+        <p class="modal-creator-label">CREATOR</p>
+        <h2 class="modal-name" id="modal-name"></h2>
+        <p class="modal-song" id="modal-song"></p>
+        <a id="modal-link" href="" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
+          詳細はこちら →
+        </a>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+}
+
+function openModal(index) {
+  const item = LINEUP_DATA[index];
+  if (!item) return;
+
+  document.getElementById('modal-art').src = item.art || defaultAvatar;
+  document.getElementById('modal-art').alt = item.name;
+  document.getElementById('modal-name').textContent = item.name;
+  document.getElementById('modal-song').textContent = item.song;
+
+  const link = document.getElementById('modal-link');
+  if (item.url) {
+    link.href = item.url;
+    link.style.display = 'inline-flex';
+  } else {
+    link.style.display = 'none';
+  }
+
+  const modal = document.getElementById('creator-modal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  const modal = document.getElementById('creator-modal');
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
 }
 
 // --- Live Status Logic ---
 
-// イベント日時 (JST = UTC+9)
 const EVENT_START = new Date('2026-05-30T21:00:00+09:00');
-const EVENT_END   = new Date('2026-05-30T23:00:00+09:00'); // 終了時刻 (適宜変更)
+const EVENT_END   = new Date('2026-05-30T23:00:00+09:00');
 
 function renderLiveStatus() {
   const statusEl = document.getElementById('live-status');
   const buttonEl = document.getElementById('live-button');
   if (!statusEl || !buttonEl) return;
-
   const now = new Date();
-
-  let badgeClass, dotHtml, badgeText;
-  let buttonClass = '';
-  let buttonText  = '▶︎ LIVEを見る';
-  let buttonHref  = '#archive';
+  let badgeClass, badgeText, buttonClass = '', buttonText = '▶︎ LIVEを見る';
 
   if (now < EVENT_START) {
-    // --- 配信前 ---
-    badgeClass = 'pre-live';
-    badgeText  = 'Coming Soon';
-    buttonText = '▶︎ 待機所へ';
-  } else if (now >= EVENT_START && now <= EVENT_END) {
-    // --- 配信中 ---
-    badgeClass = 'is-live';
-    badgeText  = 'Now Live';
-    buttonClass = 'is-live';
-    buttonText  = '▶︎ LIVEを見る';
+    badgeClass = 'pre-live'; badgeText = 'Coming Soon'; buttonText = '▶︎ 待機所へ';
+  } else if (now <= EVENT_END) {
+    badgeClass = 'is-live'; badgeText = 'Now Live'; buttonClass = 'is-live';
   } else {
-    // --- アーカイブ ---
-    badgeClass = 'archived';
-    badgeText  = 'Archive';
-    buttonClass = 'archived';
-    buttonText  = '▶︎ アーカイブを見る';
+    badgeClass = 'archived'; badgeText = 'Archive'; buttonClass = 'archived'; buttonText = '▶︎ アーカイブを見る';
   }
 
-  statusEl.innerHTML = `
-    <span class="live-badge ${badgeClass}">
-      <span class="badge-dot"></span>
-      ${badgeText}
-    </span>
-  `;
-
+  statusEl.innerHTML = `<span class="live-badge ${badgeClass}"><span class="badge-dot"></span>${badgeText}</span>`;
   buttonEl.className = `live-button${buttonClass ? ' ' + buttonClass : ''}`;
   buttonEl.textContent = buttonText;
-  buttonEl.href = buttonHref;
+  buttonEl.href = '#archive';
 }
 
-// --- Initialization ---
-
-document.addEventListener('DOMContentLoaded', () => {
-  initLangSwitch();
-  renderLiveStatus();
-  renderTimetable();
-  renderLineup();
-  renderPetitEvents();
-  
-  // Smooth scroll for nav links
-  document.querySelectorAll('.nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId.startsWith('#')) {
-        e.preventDefault();
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80, // adjust for header
-            behavior: 'smooth'
-          });
-        }
-      }
-    });
-  });
-});
-
-// --- i18n (言語切り替え) ---
+// --- i18n ---
 
 const TRANSLATIONS = {
   ja: {
-    "nav.archive":      "Live / Archive",
-    "nav.timetable":    "Timetable",
-    "nav.lineup":       "Lineup",
-    "nav.petit":        "Petit Events",
-    "hero.subtitle":    "Generative Anime Song Festival",
-    "hero.title":       "AI アニソン EXP",
-    "hero.desc":        "AI技術と人の感性が交差する、次世代音楽フェス。\n幻想と未来が共存するステージへようこそ。",
-    "hero.catchcopy":   "一夜限りのアニソンフェス、ここでしか聴けない音がある",
-    "archive.caption":  "※配信開始前は待機所となります。終了後はアーカイブをご視聴いただけます。",
-    "timetable.desc":   "当日の進行スケジュールです。",
-    "lineup.desc":      "出演クリエイター及び披露楽曲のご紹介",
-    "petit.desc":       "本編とあわせて楽しめる関連企画",
+    "nav.archive": "Live / Archive", "nav.timetable": "Timetable",
+    "nav.lineup": "Lineup", "nav.petit": "Petit Events",
+    "hero.subtitle": "Generative Anime Song Festival",
+    "hero.title": "AI アニソン EXP",
+    "hero.desc": "AI技術と人の感性が交差する、次世代音楽フェス。\n幻想と未来が共存するステージへようこそ。",
+    "hero.catchcopy": "一夜限りのアニソンフェス、ここでしか聴けない音がある",
+    "archive.caption": "※配信開始前は待機所となります。終了後はアーカイブをご視聴いただけます。",
+    "timetable.desc": "当日の進行スケジュールです。",
+    "lineup.desc": "出演クリエイター及び披露楽曲のご紹介",
+    "petit.desc": "本編とあわせて楽しめる関連企画",
   },
   en: {
-    "nav.archive":      "Live / Archive",
-    "nav.timetable":    "Timetable",
-    "nav.lineup":       "Lineup",
-    "nav.petit":        "Petit Events",
-    "hero.subtitle":    "Generative Anime Song Festival",
-    "hero.title":       "AI Anison EXP",
-    "hero.desc":        "A next-gen music festival where AI meets human creativity.\nWelcome to a stage where fantasy and the future coexist.",
-    "hero.catchcopy":   "One night only — sounds you can only hear here.",
-    "archive.caption":  "※ This will serve as the waiting room before the stream. The archive will be available after the event.",
-    "timetable.desc":   "The schedule for the event day.",
-    "lineup.desc":      "Introducing the creators and their featured tracks.",
-    "petit.desc":       "Side events to enjoy alongside the main show.",
+    "nav.archive": "Live / Archive", "nav.timetable": "Timetable",
+    "nav.lineup": "Lineup", "nav.petit": "Petit Events",
+    "hero.subtitle": "Generative Anime Song Festival",
+    "hero.title": "AI Anison EXP",
+    "hero.desc": "A next-gen music festival where AI meets human creativity.\nWelcome to a stage where fantasy and the future coexist.",
+    "hero.catchcopy": "One night only — sounds you can only hear here.",
+    "archive.caption": "※ This will serve as the waiting room before the stream. The archive will be available after the event.",
+    "timetable.desc": "The schedule for the event day.",
+    "lineup.desc": "Introducing the creators and their featured tracks.",
+    "petit.desc": "Side events to enjoy alongside the main show.",
   }
 };
 
@@ -228,12 +242,8 @@ function applyLang(lang) {
   const dict = TRANSLATIONS[lang];
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (!dict[key]) return;
-    // 改行を <br> に変換
-    el.innerHTML = dict[key].replace(/\n/g, '<br>');
+    if (dict[key]) el.innerHTML = dict[key].replace(/\n/g, '<br>');
   });
-
-  // アクティブ状態を更新
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.classList.toggle('active', opt.dataset.lang === lang);
   });
@@ -242,9 +252,28 @@ function applyLang(lang) {
 function initLangSwitch() {
   const btn = document.getElementById('lang-switch');
   if (!btn) return;
-  btn.addEventListener('click', () => {
-    applyLang(currentLang === 'ja' ? 'en' : 'ja');
-  });
-  // 初期状態: JAがアクティブ
+  btn.addEventListener('click', () => applyLang(currentLang === 'ja' ? 'en' : 'ja'));
   applyLang('ja');
 }
+
+// --- Initialization ---
+
+document.addEventListener('DOMContentLoaded', () => {
+  buildModal();
+  initLangSwitch();
+  renderLiveStatus();
+  renderTimetable();
+  renderLineup();
+  renderPetitEvents();
+
+  document.querySelectorAll('.nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.startsWith('#')) {
+        e.preventDefault();
+        const el = document.querySelector(targetId);
+        if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+      }
+    });
+  });
+});
