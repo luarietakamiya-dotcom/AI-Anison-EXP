@@ -824,3 +824,45 @@ a {
   .modal-info { padding: 18px 18px 22px; }
   .modal-name { font-size: 1.4rem; }
 }
+
+/* ===== Creator Card 再設計 ===== */
+
+.creator-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 36px 20px;
+}
+
+/* 横並びを無効化 */
+.creator-card .card-header {
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* アイコン小さく */
+.creator-card .creator-icon {
+  width: 90px;
+  height: 90px;
+}
+
+/* 名前強調 */
+.creator-card .card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+/* CREATORラベル */
+.creator-card .card-category {
+  order: -1;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
+
+/* 説明ちょい余白 */
+.creator-card .card-desc {
+  margin-top: 8px;
+}
