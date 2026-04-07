@@ -3,8 +3,7 @@
 // --- Mock Data ---
 
 const TIMETABLE_DATA = [
-  { time: "20:00", title: "Opening Ceremony", desc: "案内人キルケによるイベント開会の挨拶とコンセプト説明。
-AIアニソンEXPがいよいよスタート！" },
+  { time: "20:00", title: "Opening Ceremony", desc: "案内人キルケによるイベント開会の挨拶。AIアニソンEXPがいよいよスタート！" },
   { time: "20:07", title: "Part 1: First Stage", desc: "気鋭のクリエイター陣による最新AIアニソンの作品展示。" },
   { time: "22:05", title: "Special Second Stage", desc: "案内人ルアリエによるトークに続き、第二ステージの始まりです！" },
   { time: "23:05", title: "Part 2: Third Stage", desc: "案内人アリスによるトークに続き、第三ステージの始まりです！" },
