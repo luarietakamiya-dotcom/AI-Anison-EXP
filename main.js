@@ -3,11 +3,11 @@
 // --- Mock Data ---
 
 const TIMETABLE_DATA = [
-  { time: "20:00", title: "Opening Ceremony", desc: "イベント開会の挨拶とコンセプト説明。AIアニソンEXPがいよいよスタート！" },
-  { time: "20:15", title: "Part 1: The Rising Stars", desc: "気鋭のクリエイター陣による最新AIアニソンのお披露目セッション。" },
-  { time: "21:00", title: "Special Future Talk", desc: "『AIと音楽の融合が魅せる未来』をテーマにしたショートトークセッション。" },
-  { time: "21:15", title: "Part 2: Cyber Fantasy", desc: "イベントの目玉となる、SFとファンタジーが交差する超大作楽曲の連続プレイ！" },
-  { time: "22:00", title: "Ending & Announcement", desc: "エンディングと、今後の展開に関する重大発表。" },
+  { time: "20:00", title: "Opening Ceremony", desc: "案内人キルケによるイベント開会の挨拶とコンセプト説明。AIアニソンEXPがいよいよスタート！" },
+  { time: "20:07", title: "Part 1: First Stage", desc: "気鋭のクリエイター陣による最新AIアニソンのお披露目セッション。" },
+  { time: "22:05", title: "Special Second Stage", desc: "案内人ルアリエによるトークに続き、第二ステージの始まりです！" },
+  { time: "23:05", title: "Part 2: Third Stage", desc: "案内人アリスによるトークに続き、第三ステージの始まりです！" },
+  { time: "23:43", title: "Ending & Announcement", desc: "案内人たちによるお礼とお別れの挨拶。そしてエンドロールです。" },
 ];
 
 // クリエイターデータ
