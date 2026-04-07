@@ -16,8 +16,9 @@ const TIMETABLE_DATA = [
 // url:  HPリンク（空文字の場合はボタン非表示）
 // song: 楽曲情報
 const LINEUP_DATA = [
-  { name: "高宮ルアリエ",      icon: "./icons/1.png",  art: "./art/1.png",  url: "https://x.com/LuarieTakamiya",  song: "楽曲情報 準備中..." },
+  { name: "To",                icon: "./icons/11.png", art: "./art/11.jpg", url: "",  song: "楽曲情報 準備中..." },
   { name: "五島雅",            icon: "./icons/2.png",  art: "./art/2.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "高宮ルアリエ",      icon: "./icons/1.png",  art: "./art/1.png",  url: "https://x.com/LuarieTakamiya",  song: "楽曲情報 準備中..." },
   { name: "森川P",             icon: "./icons/3.png",  art: "./art/3.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "ゆーき",            icon: "./icons/4.png",  art: "./art/4.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "ハルイロナツイロ",  icon: "./icons/5.png",  art: "./art/5.jpg",  url: "",  song: "楽曲情報 準備中..." },
@@ -26,7 +27,6 @@ const LINEUP_DATA = [
   { name: "トミオ",            icon: "./icons/8.png",  art: "./art/8.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "Felis Catus",       icon: "./icons/9.png",  art: "./art/9.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "Sort5691",          icon: "./icons/10.png", art: "./art/10.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "To",                icon: "./icons/11.png", art: "./art/11.jpg", url: "",  song: "楽曲情報 準備中..." },
   { name: "ユミリアの夢案内",  icon: "./icons/12.png", art: "./art/12.jpg", url: "",  song: "楽曲情報 準備中..." },
   { name: "Katsunn AI",        icon: "./icons/13.png", art: "./art/13.jpg", url: "",  song: "楽曲情報 準備中..." },
   { name: "Hina",              icon: "./icons/14.png", art: "./art/14.jpg", url: "",  song: "楽曲情報 準備中..." },
