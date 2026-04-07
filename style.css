@@ -854,15 +854,50 @@ a {
   font-weight: 800;
 }
 
-/* CREATORラベル */
-.creator-card .card-category {
-  order: -1;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  margin-bottom: 4px;
+/* ===== 強制レイアウト修正（絶対効く） ===== */
+
+/* カード全体を縦中央に */
+.creator-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
 }
 
-/* 説明ちょい余白 */
+/* 中身全部縦並びにする */
+.creator-card * {
+  text-align: center !important;
+}
+
+/* header強制縦 */
+.creator-card .card-header {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* アイコンサイズ矯正 */
+.creator-card .creator-icon {
+  width: 90px !important;
+  height: 90px !important;
+  margin-bottom: 10px !important;
+}
+
+/* 名前を中央＆強調 */
+.creator-card .card-title {
+  font-size: 1.4rem !important;
+  font-weight: 800 !important;
+}
+
+/* CREATORラベルを上に */
+.creator-card .card-category {
+  order: -1 !important;
+  margin-bottom: 6px !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.15em !important;
+}
+
+/* 説明余白 */
 .creator-card .card-desc {
-  margin-top: 8px;
+  margin-top: 10px !important;
 }
