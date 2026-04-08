@@ -3,11 +3,11 @@
 // --- Mock Data ---
 
 const TIMETABLE_DATA = [
-  { time: "20:00", title: "Opening Ceremony", desc: "案内人キルケによるイベント開会の挨拶。AIアニソンEXPがいよいよスタート！" },
-  { time: "20:07", title: "Part 1: First Stage", desc: "気鋭のクリエイター陣による最新AIアニソンの作品展示。" },
-  { time: "22:05", title: "Special Second Stage", desc: "案内人ルアリエによるトークに続き、第二ステージの始まりです！" },
-  { time: "23:05", title: "Part 2: Third Stage", desc: "案内人アリスによるトークに続き、第三ステージの始まりです！" },
-  { time: "23:43", title: "Ending & Announcement", desc: "案内人たちによるお礼とお別れの挨拶。そしてエンドロールです。" },
+  { time: "20:00", title: "Opening Ceremony", desc: "イベント開会の挨拶とコンセプト説明。AIアニソンEXPがいよいよスタート！" },
+  { time: "20:15", title: "Part 1: The Rising Stars", desc: "気鋭のクリエイター陣による最新AIアニソンのお披露目セッション。" },
+  { time: "21:00", title: "Special Future Talk", desc: "『AIと音楽の融合が魅せる未来』をテーマにしたショートトークセッション。" },
+  { time: "21:15", title: "Part 2: Cyber Fantasy", desc: "イベントの目玉となる、SFとファンタジーが交差する超大作楽曲の連続プレイ！" },
+  { time: "22:00", title: "Ending & Announcement", desc: "エンディングと、今後の展開に関する重大発表。" },
 ];
 
 // クリエイターデータ
@@ -16,10 +16,9 @@ const TIMETABLE_DATA = [
 // url:  HPリンク（空文字の場合はボタン非表示）
 // song: 楽曲情報
 const LINEUP_DATA = [
-  { name: "To",                icon: "./icons/11.png", art: "./art/11.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "五島雅",            icon: "./icons/2.png",  art: "./art/2.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "高宮ルアリエ",      icon: "./icons/1.png",  art: "./art/1.png",  url: "https://x.com/LuarieTakamiya",  song: "楽曲情報 準備中..." },
-  { name: "森川P",             icon: "./icons/3.png",  art: "./art/3.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "五島雅",            icon: "./icons/2.png",  art: "./art/2.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "森川P",             icon: "./icons/3.png",  art: "./art/3.jpg",  url: "https://note.com/moriizu/n/nbae0cc2bf5f9",  song: "楽曲情報 準備中..." },
   { name: "ゆーき",            icon: "./icons/4.png",  art: "./art/4.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "ハルイロナツイロ",  icon: "./icons/5.png",  art: "./art/5.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "結音",              icon: "./icons/6.png",  art: "./art/6.jpg",  url: "",  song: "楽曲情報 準備中..." },
@@ -27,6 +26,7 @@ const LINEUP_DATA = [
   { name: "トミオ",            icon: "./icons/8.png",  art: "./art/8.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "Felis Catus",       icon: "./icons/9.png",  art: "./art/9.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "Sort5691",          icon: "./icons/10.png", art: "./art/10.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "To",                icon: "./icons/11.png", art: "./art/11.jpg", url: "",  song: "楽曲情報 準備中..." },
   { name: "ユミリアの夢案内",  icon: "./icons/12.png", art: "./art/12.jpg", url: "",  song: "楽曲情報 準備中..." },
   { name: "Katsunn AI",        icon: "./icons/13.png", art: "./art/13.jpg", url: "",  song: "楽曲情報 準備中..." },
   { name: "Hina",              icon: "./icons/14.png", art: "./art/14.jpg", url: "",  song: "楽曲情報 準備中..." },
