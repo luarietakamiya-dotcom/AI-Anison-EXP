@@ -18,7 +18,7 @@ const TIMETABLE_DATA = [
 const LINEUP_DATA = [
   { name: "高宮ルアリエ",      icon: "./icons/1.png",  art: "./art/1.png",  url: "https://x.com/LuarieTakamiya",  song: "楽曲情報 準備中..." },
   { name: "五島雅",            icon: "./icons/2.png",  art: "./art/2.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "森川P",             icon: "./icons/3.png",  art: "./art/3.jpg",  url: "https://note.com/moriizu/n/nbae0cc2bf5f9",  song: "楽曲情報 準備中..." },
+  { name: "森川P",             icon: "./icons/3.png",  art: "./art/3.png",  url: "https://note.com/moriizu/n/nbae0cc2bf5f9",  song: "楽曲情報 準備中..." },
   { name: "ゆーき",            icon: "./icons/4.png",  art: "./art/4.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "ハルイロナツイロ",  icon: "./icons/5.png",  art: "./art/5.jpg",  url: "",  song: "楽曲情報 準備中..." },
   { name: "結音",              icon: "./icons/6.png",  art: "./art/6.jpg",  url: "",  song: "楽曲情報 準備中..." },
