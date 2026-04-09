@@ -3,11 +3,11 @@
 // --- Mock Data ---
 
 const TIMETABLE_DATA = [
-  { time: "20:00", title: "Opening Ceremony", desc: "イベント開会の挨拶とコンセプト説明。AIアニソンEXPがいよいよスタート！" },
-  { time: "20:15", title: "Part 1: The Rising Stars", desc: "気鋭のクリエイター陣による最新AIアニソンのお披露目セッション。" },
-  { time: "21:00", title: "Special Future Talk", desc: "『AIと音楽の融合が魅せる未来』をテーマにしたショートトークセッション。" },
-  { time: "21:15", title: "Part 2: Cyber Fantasy", desc: "イベントの目玉となる、SFとファンタジーが交差する超大作楽曲の連続プレイ！" },
-  { time: "22:00", title: "Ending & Announcement", desc: "エンディングと、今後の展開に関する重大発表。" },
+  { time: "21:00", title: "Opening Ceremony", desc: " 案内人キルケによるOPと出演者紹介。AIアニソンEXPがいよいよスタート！" },
+  { time: "21:07", title: "Part 1: First Stage", desc: " 案内人キルケがお送りする、ファーストステージ！" },
+  { time: "22:05", title: "Part 2: Second Stage", desc: "案内人ルアリエがお送りする、セカンドステージ！" },
+  { time: "23:05", title: "Part 3: Third Stage", desc: " 案内人アリス（五島雅）がお送りする、ファイナルステージ！" },
+  { time: "23:43", title: "Ending & Announcement", desc: "案内人３人によるエンディング。テーマ曲「Never Enging Stories」" },
 ];
 
 // クリエイターデータ
