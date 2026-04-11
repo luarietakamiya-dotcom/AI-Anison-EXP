@@ -101,7 +101,7 @@ function renderLineup() {
           <h3 class="card-title">${escapeHtml(item.name)}</h3>
         </div>
       </div>
-      <p class="card-desc">${escapeHtml(item.song)}</p>
+      <p class="card-desc card-song-preview">${escapeHtml((item.song || '').split('\n').find(l => l.trim()) || item.song)}</p>
       <div class="card-view-hint">クリックで詳細を見る →</div>
     </div>
   `).join('');

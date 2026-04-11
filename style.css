@@ -932,3 +932,14 @@ a {
 .creator-card .card-desc {
   margin-top: 10px !important;
 }
+
+/* --- Card song preview: 1行省略 --- */
+.card-song-preview {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
