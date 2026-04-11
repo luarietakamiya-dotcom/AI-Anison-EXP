@@ -24,13 +24,13 @@ const LINEUP_DATA = [
   { name: "森川P",            icon: "./icons/4.png",  art: "./art/4.png",  links: [
       { label: "X (Twitter)", url: "https://x.com/Moriizu_AI" },
       { label: "Note記事", url: "https://note.com/moriizu/n/nbae0cc2bf5f9" }
-    ], song: "「アニメタイトル」
+    ], song: `「アニメタイトル」
 永遠を抱くイヴ - A Soulless World -
 
 ・無魂劇
 ・Nosmetipsos Domino offeremus, Hanc canticum Domino offeremus.
 ・Soulless
-・My Precious" },
+・My Precious` },
   { name: "ゆーき",           icon: "./icons/5.png",  art: "./art/5.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "ハルイロナツイロ", icon: "./icons/6.png",  art: "./art/6.png",  links: [
     { label: "X (Twitter)", url: "https://x.com/harunatsu_tuber" },
@@ -47,16 +47,17 @@ const LINEUP_DATA = [
   { name: "トミオ",           icon: "./icons/9.png",  art: "./art/9.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "Felis Catus",      icon: "./icons/10.png", art: "./art/10.png", links: [], song: "楽曲情報 準備中..." },
   { name: "Sort5691",         icon: "./icons/11.png", art: "./art/11.png", links: [], song: "楽曲情報 準備中..." },
-  { name: "ユミリアの夢案内", icon: "./icons/12.png", art: "./art/12.png", links: [], song: "『ユミリアの夢案内』オリジナルMV
+  { name: "ユミリアの夢案内", icon: "./icons/12.png", art: "./art/12.png", links: [
+      { label: "相対性リボン",         url: "https://www.youtube.com/watch?v=UnLB8Tib8d4" },
+      { label: "沈黙のカデンツァは誰の夢", url: "https://www.youtube.com/watch?v=zgLTfTLhucI" },
+      { label: "＃すぴ",              url: "https://www.youtube.com/watch?v=XVx3hnGfdX0" },
+      { label: "傀儡人形と白い彼岸花", url: "https://www.youtube.com/watch?v=yHdI9T2osLo" },
+    ], song: `『ユミリアの夢案内』オリジナルMV
 
-相対性リボン
-    { label: "YouTube",     url: "https://www.youtube.com/watch?v=UnLB8Tib8d4" },
-沈黙のカデンツァは誰の夢
-    { label: "YouTube",     url: "https://www.youtube.com/watch?v=zgLTfTLhucI" },
-＃すぴ
-    { label: "YouTube",     url: "https://www.youtube.com/watch?v=XVx3hnGfdX0" },
-傀儡人形と白い彼岸花
-    { label: "YouTube",     url: "https://www.youtube.com/watch?v=yHdI9T2osLo" },
+・相対性リボン
+・沈黙のカデンツァは誰の夢
+・＃すぴ
+・傀儡人形と白い彼岸花` },
   { name: "Katsunn AI",       icon: "./icons/13.png", art: "./art/13.png", links: [], song: "楽曲情報 準備中..." },
   { name: "Hina",             icon: "./icons/14.png", art: "./art/14.png", links: [], song: "楽曲情報 準備中..." },
   { name: "LUCY",             icon: "./icons/15.png", art: "./art/15.png", links: [], song: "楽曲情報 準備中..." },
