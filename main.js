@@ -47,7 +47,7 @@ const LINEUP_DATA = [
   { name: "トミオ",           icon: "./icons/9.png",  art: "./art/9.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "Felis Catus",      icon: "./icons/10.png", art: "./art/10.png", links: [], song: "楽曲情報 準備中..." },
   { name: "Sort5691",         icon: "./icons/11.png", art: "./art/11.png", links: [], song: "楽曲情報 準備中..." },
-  { name: "ユミリアの夢案内", icon: "./icons/12.pjg", art: "./art/12.png", links: [
+  { name: "ユミリアの夢案内", icon: "./icons/12.jpg", art: "./art/12.png", links: [
       { label: "相対性リボン",         url: "https://www.youtube.com/watch?v=UnLB8Tib8d4" },
       { label: "沈黙のカデンツァは誰の夢", url: "https://www.youtube.com/watch?v=zgLTfTLhucI" },
       { label: "＃すぴ",              url: "https://www.youtube.com/watch?v=XVx3hnGfdX0" },
