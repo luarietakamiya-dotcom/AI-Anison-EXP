@@ -11,27 +11,42 @@ const TIMETABLE_DATA = [
 ];
 
 // クリエイターデータ
-// icon: アイコン画像パス
-// art:  一枚絵パス（モーダルで表示）
-// url:  HPリンク（空文字の場合はボタン非表示）
-// song: 楽曲情報
+// icon:  アイコン画像パス
+// art:   一枚絵パス（モーダルで表示）
+// links: リンク配列 { label: ボタン表示名, url: リンク先 }（空配列の場合はボタン非表示）
+// song:  楽曲情報（長文OK、改行は \n で可）
 const LINEUP_DATA = [
-  { name: "To",                icon: "./icons/1.png", art: "./art/1.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "五島雅",            icon: "./icons/2.png",  art: "./art/2.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "3-Sync",      icon: "./icons/3.png",  art: "./art/3.png",  url: "https://x.com/LuarieTakamiya",  song: "楽曲情報 準備中..." },
-  { name: "森川P",             icon: "./icons/4.png",  art: "./art/4.png",  url: "https://note.com/moriizu/n/nbae0cc2bf5f9",  song: "楽曲情報 準備中..." },
-  { name: "ゆーき",            icon: "./icons/5.png",  art: "./art/5.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "ハルイロナツイロ",  icon: "./icons/6.png",  art: "./art/6.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "結音",              icon: "./icons/7.png",  art: "./art/7.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "rui",               icon: "./icons/8.png",  art: "./art/8.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "トミオ",            icon: "./icons/9.png",  art: "./art/9.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "Felis Catus",       icon: "./icons/10.png",  art: "./art/10.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "Sort5691",          icon: "./icons/11.png", art: "./art/11.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "ユミリアの夢案内",  icon: "./icons/12.png", art: "./art/12.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "Katsunn AI",        icon: "./icons/13.png", art: "./art/13.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "Hina",              icon: "./icons/14.png", art: "./art/14.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "LUCY",              icon: "./icons/15.png", art: "./art/15.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "前野凌",            icon: "./icons/16.png", art: "./art/16.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "To",               icon: "./icons/1.png",  art: "./art/1.png",  links: [], song: "楽曲情報 準備中..." },
+  { name: "五島雅",           icon: "./icons/2.png",  art: "./art/2.png",  links: [], song: "楽曲情報 準備中..." },
+  { name: "3-Sync",           icon: "./icons/3.png",  art: "./art/3.png",  links: [
+      { label: "X (Twitter)", url: "https://x.com/LuarieTakamiya" }
+    ], song: "楽曲情報 準備中..." },
+  { name: "森川P",            icon: "./icons/4.png",  art: "./art/4.png",  links: [
+      { label: "Note記事", url: "https://note.com/moriizu/n/nbae0cc2bf5f9" }
+    ], song: "楽曲情報 準備中..." },
+  { name: "ゆーき",           icon: "./icons/5.png",  art: "./art/5.png",  links: [], song: "楽曲情報 準備中..." },
+  { name: "ハルイロナツイロ", icon: "./icons/6.png",  art: "./art/6.png",  links: [
+    { label: "X (Twitter)", url: "https://x.com/harunatsu_tuber" },
+    { label: "YouTube",     url: "https://www.youtube.com/@Harunatsu-Shiki" },
+    { label: "NOTE",  url: "https://note.com/shiki_harunatsu" },], song: "
+・孤高の賢者、名もなき少年　/　ごめんね…
+・茜の空に響く空　/　茜
+・宇宙戦姫エンジェル-GLORIA HISTORY-　/　グロリア
+・きらめけ！アビス学園　/　それいけ！アビスセレナーデ！！
+・ILiDeLia 私立彩音学園高等学校 第2軽音部　/　三色のアンサンブル
+・「タイトル未定」　/　Voyage Memory
+・「タイトル未定」　/　楽曲未定
+" },
+  { name: "結音",             icon: "./icons/7.png",  art: "./art/7.png",  links: [], song: "楽曲情報 準備中..." },
+  { name: "rui",              icon: "./icons/8.png",  art: "./art/8.png",  links: [], song: "楽曲情報 準備中..." },
+  { name: "トミオ",           icon: "./icons/9.png",  art: "./art/9.png",  links: [], song: "楽曲情報 準備中..." },
+  { name: "Felis Catus",      icon: "./icons/10.png", art: "./art/10.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "Sort5691",         icon: "./icons/11.png", art: "./art/11.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "ユミリアの夢案内", icon: "./icons/12.png", art: "./art/12.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "Katsunn AI",       icon: "./icons/13.png", art: "./art/13.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "Hina",             icon: "./icons/14.png", art: "./art/14.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "LUCY",             icon: "./icons/15.png", art: "./art/15.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "前野凌",           icon: "./icons/16.png", art: "./art/16.png", links: [], song: "楽曲情報 準備中..." },
 ];
 
 const PETIT_EVENTS_DATA = [
@@ -138,10 +153,10 @@ function buildModal() {
       <div class="modal-info">
         <p class="modal-creator-label">CREATOR</p>
         <h2 class="modal-name" id="modal-name"></h2>
-        <p class="modal-song" id="modal-song"></p>
-        <a id="modal-link" href="" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
-          詳細はこちら →
-        </a>
+        <div class="modal-song-wrap">
+          <p class="modal-song" id="modal-song"></p>
+        </div>
+        <div class="modal-links" id="modal-links"></div>
       </div>
     </div>
   `;
@@ -159,14 +174,24 @@ function openModal(index) {
   document.getElementById('modal-art').src = item.art || defaultAvatar;
   document.getElementById('modal-art').alt = item.name;
   document.getElementById('modal-name').textContent = item.name;
-  document.getElementById('modal-song').textContent = item.song;
 
-  const link = document.getElementById('modal-link');
-  if (item.url) {
-    link.href = item.url;
-    link.style.display = 'inline-flex';
+  // 楽曲情報：改行対応
+  const songEl = document.getElementById('modal-song');
+  songEl.innerHTML = escapeHtml(item.song || '').replace(/\n/g, '<br>');
+
+  // リンクボタン：複数対応
+  const linksEl = document.getElementById('modal-links');
+  const links = item.links || [];
+  if (links.length > 0) {
+    linksEl.innerHTML = links.map(link => `
+      <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
+        ${escapeHtml(link.label)} →
+      </a>
+    `).join('');
+    linksEl.style.display = 'flex';
   } else {
-    link.style.display = 'none';
+    linksEl.innerHTML = '';
+    linksEl.style.display = 'none';
   }
 
   const modal = document.getElementById('creator-modal');

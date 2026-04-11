@@ -797,8 +797,37 @@ a {
 .modal-song {
   font-size: 0.95rem;
   color: var(--text-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 0;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
+
+.modal-song-wrap {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(2, 132, 199, 0.25) transparent;
+}
+
+.modal-song-wrap::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-song-wrap::-webkit-scrollbar-thumb {
+  background: rgba(2, 132, 199, 0.25);
+  border-radius: 4px;
+}
+
+/* 複数リンクボタンコンテナ */
+.modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .modal-link-btn {
   display: inline-flex;
   align-items: center;
@@ -823,6 +852,8 @@ a {
   .modal-box { border-radius: 16px; }
   .modal-info { padding: 18px 18px 22px; }
   .modal-name { font-size: 1.4rem; }
+  .modal-song-wrap { max-height: 150px; }
+  .modal-link-btn { padding: 10px 20px; font-size: 0.88rem; }
 }
 
 /* ===== Creator Card 再設計 ===== */
