@@ -44,7 +44,7 @@ const LINEUP_DATA = [
   { name: "Katsunn AI",       icon: "./icons/13.png", art: "./art/13.png", links: [], song: "楽曲情報 準備中..." },
   { name: "Hina",             icon: "./icons/14.png", art: "./art/14.png", links: [], song: "楽曲情報 準備中..." },
   { name: "LUCY",             icon: "./icons/15.png", art: "./art/15.png", links: [], song: "楽曲情報 準備中..." },
-  { name: "前野凌",           icon: "./icons/16.png", art: "./art/16.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "前野凌",           icon: "./icons/16.png", art: "./art/16.png", links: [], song: "仮想通貨アイドル★さくらちゃん" },
 ];
 
 const PETIT_EVENTS_DATA = [
