@@ -28,15 +28,13 @@ const LINEUP_DATA = [
   { name: "ハルイロナツイロ", icon: "./icons/6.png",  art: "./art/6.png",  links: [
     { label: "X (Twitter)", url: "https://x.com/harunatsu_tuber" },
     { label: "YouTube",     url: "https://www.youtube.com/@Harunatsu-Shiki" },
-    { label: "NOTE",  url: "https://note.com/shiki_harunatsu" },], song: "
-・孤高の賢者、名もなき少年　/　ごめんね…
+    { label: "NOTE",  url: "https://note.com/shiki_harunatsu" },], song: `・孤高の賢者、名もなき少年　/　ごめんね…
 ・茜の空に響く空　/　茜
 ・宇宙戦姫エンジェル-GLORIA HISTORY-　/　グロリア
 ・きらめけ！アビス学園　/　それいけ！アビスセレナーデ！！
 ・ILiDeLia 私立彩音学園高等学校 第2軽音部　/　三色のアンサンブル
 ・「タイトル未定」　/　Voyage Memory
-・「タイトル未定」　/　楽曲未定
-" },
+・「タイトル未定」　/　楽曲未定` },
   { name: "結音",             icon: "./icons/7.png",  art: "./art/7.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "rui",              icon: "./icons/8.png",  art: "./art/8.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "トミオ",           icon: "./icons/9.png",  art: "./art/9.png",  links: [], song: "楽曲情報 準備中..." },
