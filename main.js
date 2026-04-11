@@ -23,11 +23,11 @@ const LINEUP_DATA = [
       { label: "HP", url: "https://luarietakamiya-dotcom.github.io/luarie-takamiya/" }
       { label: "X (Twitter)", url: "https://x.com/LuarieTakamiya" }
       { label: "Youtube", url: "https://www.youtube.com/@LuarieTakamiya" }
-    ], song: "
+    ], song: `
 ・3-Sync
 ・3-Sync: Error 0
 ・Sisters
-" },
+` },
   { name: "森川P",            icon: "./icons/4.png",  art: "./art/4.png",  links: [
       { label: "X (Twitter)", url: "https://x.com/Moriizu_AI" },
       { label: "Note記事", url: "https://note.com/moriizu/n/nbae0cc2bf5f9" }
