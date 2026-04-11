@@ -19,8 +19,15 @@ const LINEUP_DATA = [
   { name: "To",               icon: "./icons/1.png",  art: "./art/1.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "五島雅",           icon: "./icons/2.png",  art: "./art/2.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "3-Sync",           icon: "./icons/3.png",  art: "./art/3.png",  links: [
+      { label: "NOTE", url: "https://note.com/luarie_takamiya/n/ne8753ec36714?sub_rt=share_pw" }
+      { label: "HP", url: "https://luarietakamiya-dotcom.github.io/luarie-takamiya/" }
       { label: "X (Twitter)", url: "https://x.com/LuarieTakamiya" }
-    ], song: "楽曲情報 準備中..." },
+      { label: "Youtube", url: "https://www.youtube.com/@LuarieTakamiya" }
+    ], song: "
+・3-Sync
+・3-Sync: Error 0
+・Sisters
+" },
   { name: "森川P",            icon: "./icons/4.png",  art: "./art/4.png",  links: [
       { label: "X (Twitter)", url: "https://x.com/Moriizu_AI" },
       { label: "Note記事", url: "https://note.com/moriizu/n/nbae0cc2bf5f9" }
