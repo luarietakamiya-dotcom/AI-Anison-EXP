@@ -22,6 +22,7 @@ const LINEUP_DATA = [
       { label: "DIVARIAS代表曲「破天」", url: "https://youtu.be/7WJfeQmZyJ8" },
       { label: "√MAYONAKA代表曲「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" },
     ], song: `
+・エデンと狼
 ・黒縄に呼ばれて
 ` },
   { name: "五島雅",           icon: "./icons/2.png",  art: "./art/2.png",  links: [], song: "楽曲情報 準備中..." },
