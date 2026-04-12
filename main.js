@@ -16,7 +16,19 @@ const TIMETABLE_DATA = [
 // links: リンク配列 { label: ボタン表示名, url: リンク先 }（空配列の場合はボタン非表示）
 // song:  楽曲情報（長文OK、改行は \n で可）
 const LINEUP_DATA = [
-  { name: "To",               icon: "./icons/1.png",  art: "./art/1.png",  links: [], song: "楽曲情報 準備中..." },
+  { name: "To",               icon: "./icons/1.png",  art: "./art/1.png",  links: [
+      { label: "【エデンと狼（設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/ndfe1b8e52134?sub_rt=share_pw" },
+      { label: "【黒縄に呼ばれて（公式設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/n546762967881?sub_rt=share_pw" },
+      { label: "【DIVARIAS代表曲リンク】
+「破天」", url: "https://youtu.be/7WJfeQmZyJ8" },
+      { label: "【√MAYONAKA代表曲リンク】
+「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" },
+    ], song: `
+・3-Sync
+・3-Sync: Error 0
+・Sisters
+` },
+
   { name: "五島雅",           icon: "./icons/2.png",  art: "./art/2.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "3-Sync",           icon: "./icons/3.png",  art: "./art/3.png",  links: [
       { label: "NOTE", url: "https://note.com/luarie_takamiya/n/ne8753ec36714?sub_rt=share_pw" },
