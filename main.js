@@ -24,11 +24,8 @@ const LINEUP_DATA = [
       { label: "【√MAYONAKA代表曲リンク】
 「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" },
     ], song: `
-・3-Sync
-・3-Sync: Error 0
-・Sisters
+・黒縄に呼ばれて
 ` },
-
   { name: "五島雅",           icon: "./icons/2.png",  art: "./art/2.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "3-Sync",           icon: "./icons/3.png",  art: "./art/3.png",  links: [
       { label: "NOTE", url: "https://note.com/luarie_takamiya/n/ne8753ec36714?sub_rt=share_pw" },
