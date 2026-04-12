@@ -19,10 +19,8 @@ const LINEUP_DATA = [
   { name: "To",               icon: "./icons/1.png",  art: "./art/1.png",  links: [
       { label: "【エデンと狼（設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/ndfe1b8e52134?sub_rt=share_pw" },
       { label: "【黒縄に呼ばれて（公式設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/n546762967881?sub_rt=share_pw" },
-      { label: "【DIVARIAS代表曲リンク】
-「破天」", url: "https://youtu.be/7WJfeQmZyJ8" },
-      { label: "【√MAYONAKA代表曲リンク】
-「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" },
+      { label: "DIVARIAS代表曲「破天」", url: "https://youtu.be/7WJfeQmZyJ8" },
+      { label: "√MAYONAKA代表曲「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" },
     ], song: `
 ・黒縄に呼ばれて
 ` },
