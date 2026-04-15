@@ -46,7 +46,7 @@ const LINEUP_DATA = [
 ・Nosmetipsos Domino offeremus, Hanc canticum Domino offeremus.
 ・Soulless
 ・My Precious` },
-  { name: "ゆーき",           icon: "./icons/5.png",  art: "./art/5.png",  links: [], song: "
+  { name: "ゆーき",           icon: "./icons/5.png",  art: "./art/5.png",  links: [], song: `
 アニメタイトル
 ・「血染めの花魁」
 
