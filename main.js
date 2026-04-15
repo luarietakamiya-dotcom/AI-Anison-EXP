@@ -46,7 +46,14 @@ const LINEUP_DATA = [
 ・Nosmetipsos Domino offeremus, Hanc canticum Domino offeremus.
 ・Soulless
 ・My Precious` },
-  { name: "ゆーき",           icon: "./icons/5.png",  art: "./art/5.png",  links: [], song: "楽曲情報 準備中..." },
+  { name: "ゆーき",           icon: "./icons/5.png",  art: "./art/5.png",  links: [], song: "
+アニメタイトル
+・「血染めの花魁」
+
+楽曲
+・OP「血染めの花魁」
+・ED「蒼夜遊女」
+` },	
   { name: "ハルイロナツイロ", icon: "./icons/6.png",  art: "./art/6.png",  links: [
     { label: "X (Twitter)", url: "https://x.com/harunatsu_tuber" },
     { label: "YouTube",     url: "https://www.youtube.com/@Harunatsu-Shiki" },
@@ -60,7 +67,13 @@ const LINEUP_DATA = [
   { name: "結音",             icon: "./icons/7.png",  art: "./art/7.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "rui",              icon: "./icons/8.png",  art: "./art/8.png",  links: [], song: "楽曲情報 準備中..." },
   { name: "トミオ",           icon: "./icons/9.png",  art: "./art/9.png",  links: [], song: "楽曲情報 準備中..." },
-  { name: "Felis Catus",      icon: "./icons/10.png", art: "./art/10.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "Felis Catus",      icon: "./icons/10.jpg", art: "./art/10.jpg", links: [], song: "
+アニメタイトル
+・『星護りの白銀』
+
+楽曲
+・『白銀』
+・『真紅』ほか` },
   { name: "Sort5691",         icon: "./icons/11.png", art: "./art/11.png", links: [], song: "楽曲情報 準備中..." },
   { name: "ユミリアの夢案内", icon: "./icons/12.jpg", art: "./art/12.png", links: [
       { label: "相対性リボン",         url: "https://www.youtube.com/watch?v=UnLB8Tib8d4" },
@@ -73,7 +86,14 @@ const LINEUP_DATA = [
 ・沈黙のカデンツァは誰の夢
 ・＃すぴ
 ・傀儡人形と白い彼岸花` },
-  { name: "Katsunn AI",       icon: "./icons/13.png", art: "./art/13.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "Katsunn AI",       icon: "./icons/13.jpeg", art: "./art/13.jpeg", links: [], song: "
+アニメタイトル　
+・猫乙女-The Animation-
+
+楽曲
+・OPテーマ曲　猫乙女
+・EDテーマ曲　Otome Walk Journey♪
+` },
   { name: "Hina",             icon: "./icons/14.png", art: "./art/14.png", links: [], song: "楽曲情報 準備中..." },
   { name: "LUCY",             icon: "./icons/15.png", art: "./art/15.png", links: [], song: "楽曲情報 準備中..." },
   { name: "前野凌",           icon: "./icons/16.png", art: "./art/16.png", links: [], song: "仮想通貨アイドル★さくらちゃん" },
