@@ -20,7 +20,7 @@ const LINEUP_DATA = [
       { label: "【エデンと狼（設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/ndfe1b8e52134?sub_rt=share_pw" },
       { label: "【黒縄に呼ばれて（公式設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/n546762967881?sub_rt=share_pw" },
       { label: "DIVARIAS代表曲「破天」", url: "https://youtu.be/7WJfeQmZyJ8" },
-      { label: "√MAYONAKA代表曲「Night Howl"", url: "https://youtu.be/dnT70ZWOsaU" }
+      { label: "√MAYONAKA代表曲「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" }
     ], song: `・エデンと狼
 ・黒縄に呼ばれて` },
   { name: "五島雅", icon: "./icons/2.png", art: "./art/2.png", links: [], song: "楽曲情報 準備中..." },
