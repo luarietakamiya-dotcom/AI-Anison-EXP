@@ -3,40 +3,36 @@
 // --- Mock Data ---
 
 const TIMETABLE_DATA = [
-  { time: "21:00", title: "Opening Ceremony", desc: " 案内人キルケによるOPと出演者紹介。AIアニソンEXPがいよいよスタート！" },
-  { time: "21:07", title: "Part 1: First Stage", desc: " 案内人キルケがお送りする、ファーストステージ！" },
+  { time: "21:00", title: "Opening Ceremony", desc: "案内人キルケによるOPと出演者紹介。AIアニソンEXPがいよいよスタート！" },
+  { time: "21:07", title: "Part 1: First Stage", desc: "案内人キルケがお送りする、ファーストステージ！" },
   { time: "22:05", title: "Part 2: Second Stage", desc: "案内人ルアリエがお送りする、セカンドステージ！" },
-  { time: "23:05", title: "Part 3: Third Stage", desc: " 案内人アリス（五島雅）がお送りする、ファイナルステージ！" },
-  { time: "23:43", title: "Ending & Announcement", desc: "案内人３人によるエンディング。テーマ曲「Never Enging Stories」" },
+  { time: "23:05", title: "Part 3: Third Stage", desc: "案内人アリス（五島雅）がお送りする、ファイナルステージ！" },
+  { time: "23:43", title: "Ending & Announcement", desc: "案内人３人によるエンディング。テーマ曲「Never Enging Stories」" }
 ];
 
 // クリエイターデータ
 // icon:  アイコン画像パス
 // art:   一枚絵パス（モーダルで表示）
 // links: リンク配列 { label: ボタン表示名, url: リンク先 }（空配列の場合はボタン非表示）
-// song:  楽曲情報（長文OK、改行は \n で可）
+// song:  楽曲情報（長文OK、改行あり）
 const LINEUP_DATA = [
-  { name: "To",               icon: "./icons/1.png",  art: "./art/1.png",  links: [
+  { name: "To", icon: "./icons/1.png", art: "./art/1.png", links: [
       { label: "【エデンと狼（設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/ndfe1b8e52134?sub_rt=share_pw" },
       { label: "【黒縄に呼ばれて（公式設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/n546762967881?sub_rt=share_pw" },
       { label: "DIVARIAS代表曲「破天」", url: "https://youtu.be/7WJfeQmZyJ8" },
-      { label: "√MAYONAKA代表曲「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" },
-    ], song: `
-・エデンと狼
-・黒縄に呼ばれて
-` },
-  { name: "五島雅",           icon: "./icons/2.png",  art: "./art/2.png",  links: [], song: "楽曲情報 準備中..." },
-  { name: "3-Sync",           icon: "./icons/3.png",  art: "./art/3.png",  links: [
+      { label: "√MAYONAKA代表曲「Night Howl"", url: "https://youtu.be/dnT70ZWOsaU" }
+    ], song: `・エデンと狼
+・黒縄に呼ばれて` },
+  { name: "五島雅", icon: "./icons/2.png", art: "./art/2.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "3-Sync", icon: "./icons/3.png", art: "./art/3.png", links: [
       { label: "NOTE", url: "https://note.com/luarie_takamiya/n/ne8753ec36714?sub_rt=share_pw" },
       { label: "HP", url: "https://luarietakamiya-dotcom.github.io/luarie-takamiya/" },
       { label: "X (Twitter)", url: "https://x.com/LuarieTakamiya" },
-      { label: "Youtube", url: "https://www.youtube.com/@LuarieTakamiya" },
-    ], song: `
-・3-Sync
+      { label: "Youtube", url: "https://www.youtube.com/@LuarieTakamiya" }
+    ], song: `・3-Sync
 ・3-Sync: Error 0
-・Sisters
-` },
-  { name: "森川P",            icon: "./icons/4.png",  art: "./art/4.png",  links: [
+・Sisters` },
+  { name: "森川P", icon: "./icons/4.png", art: "./art/4.png", links: [
       { label: "X (Twitter)", url: "https://x.com/Moriizu_AI" },
       { label: "Note記事", url: "https://note.com/moriizu/n/nbae0cc2bf5f9" }
     ], song: `「アニメタイトル」
@@ -46,68 +42,69 @@ const LINEUP_DATA = [
 ・Nosmetipsos Domino offeremus, Hanc canticum Domino offeremus.
 ・Soulless
 ・My Precious` },
-  { name: "ゆーき",           icon: "./icons/5.png",  art: "./art/5.png",  links: [], song: `
-アニメタイトル
+  { name: "ゆーき", icon: "./icons/5.png", art: "./art/5.png", links: [], song: `アニメタイトル
 ・「血染めの花魁」
 
 楽曲
 ・OP「血染めの花魁」
-・ED「蒼夜遊女」
-` },	
-  { name: "ハルイロナツイロ", icon: "./icons/6.png",  art: "./art/6.png",  links: [
-    { label: "X (Twitter)", url: "https://x.com/harunatsu_tuber" },
-    { label: "YouTube",     url: "https://www.youtube.com/@Harunatsu-Shiki" },
-    { label: "NOTE",  url: "https://note.com/shiki_harunatsu" },], song: `・孤高の賢者、名もなき少年　/　ごめんね…
+・ED「蒼夜遊女」` },
+  { name: "ハルイロナツイロ", icon: "./icons/6.png", art: "./art/6.png", links: [
+      { label: "X (Twitter)", url: "https://x.com/harunatsu_tuber" },
+      { label: "YouTube", url: "https://www.youtube.com/@Harunatsu-Shiki" },
+      { label: "NOTE", url: "https://note.com/shiki_harunatsu" }
+    ], song: `・孤高の賢者、名もなき少年　/　ごめんね…
 ・茜の空に響く空　/　茜
 ・宇宙戦姫エンジェル-GLORIA HISTORY-　/　グロリア
 ・きらめけ！アビス学園　/　それいけ！アビスセレナーデ！！
 ・ILiDeLia 私立彩音学園高等学校 第2軽音部　/　三色のアンサンブル
 ・「タイトル未定」　/　Voyage Memory
 ・「タイトル未定」　/　楽曲未定` },
-  { name: "結音",             icon: "./icons/7.png",  art: "./art/7.png",  links: [], song: "楽曲情報 準備中..." },
-  { name: "rui",              icon: "./icons/8.png",  art: "./art/8.png",  links: [], song: "楽曲情報 準備中..." },
-  { name: "トミオ",           icon: "./icons/9.png",  art: "./art/9.png",  links: [], song: "楽曲情報 準備中..." },
-  { name: "Felis Catus",      icon: "./icons/10.jpg", art: "./art/10.jpg", links: [], song: `アニメタイトル
+  { name: "結音", icon: "./icons/7.png", art: "./art/7.png", links: [], song: `エンディングテーマ
+『致死量の糖分と君の笑顔』` },
+  { name: "rui", icon: "./icons/8.png", art: "./art/8.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "トミオ", icon: "./icons/9.png", art: "./art/9.png", links: [], song: `アニメタイトル
+「放課後パレット」` },
+  { name: "Felis Catus", icon: "./icons/10.jpg", art: "./art/10.jpg", links: [], song: `アニメタイトル
 ・『星護りの白銀』
 
 楽曲
 ・『白銀』
 ・『真紅』ほか` },
-  { name: "Sort5691",         icon: "./icons/11.png", art: "./art/11.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "Sort5691", icon: "./icons/11.png", art: "./art/11.png", links: [], song: "楽曲情報 準備中..." },
   { name: "ユミリアの夢案内", icon: "./icons/12.jpg", art: "./art/12.png", links: [
-      { label: "相対性リボン",         url: "https://www.youtube.com/watch?v=UnLB8Tib8d4" },
+      { label: "相対性リボン", url: "https://www.youtube.com/watch?v=UnLB8Tib8d4" },
       { label: "沈黙のカデンツァは誰の夢", url: "https://www.youtube.com/watch?v=zgLTfTLhucI" },
-      { label: "＃すぴ",              url: "https://www.youtube.com/watch?v=XVx3hnGfdX0" },
-      { label: "傀儡人形と白い彼岸花", url: "https://www.youtube.com/watch?v=yHdI9T2osLo" },
+      { label: "＃すぴ", url: "https://www.youtube.com/watch?v=XVx3hnGfdX0" },
+      { label: "傀儡人形と白い彼岸花", url: "https://www.youtube.com/watch?v=yHdI9T2osLo" }
     ], song: `『ユミリアの夢案内』オリジナルMV
 
 ・相対性リボン
 ・沈黙のカデンツァは誰の夢
 ・＃すぴ
 ・傀儡人形と白い彼岸花` },
-  { name: "Katsunn AI",       icon: "./icons/13.jpg", art: "./art/13.jpg", links: [], song: `アニメタイトル　
+  { name: "Katsunn AI", icon: "./icons/13.jpeg", art: "./art/13.jpeg", links: [], song: `アニメタイトル
 ・猫乙女-The Animation-
 
 楽曲
 ・OPテーマ曲　猫乙女
 ・EDテーマ曲　Otome Walk Journey♪` },
-  { name: "Hina",             icon: "./icons/14.png", art: "./art/14.png", links: [], song: "楽曲情報 準備中..." },
-  { name: "LUCY",             icon: "./icons/15.png", art: "./art/15.png", links: [], song: "楽曲情報 準備中..." },
-  { name: "前野凌",           icon: "./icons/16.png", art: "./art/16.png", links: [], song: "仮想通貨アイドル★さくらちゃん" },
+  { name: "Hina", icon: "./icons/14.png", art: "./art/14.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "LUCY", icon: "./icons/15.png", art: "./art/15.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "前野凌", icon: "./icons/16.png", art: "./art/16.png", links: [], song: "仮想通貨アイドル★さくらちゃん" }
 ];
 
 const PETIT_EVENTS_DATA = [
-  { 
-    category: "Market", 
-    title: "深き森の雑貨市場", 
-    meta: "フリー素材共有スペース", 
+  {
+    category: "Market",
+    title: "深き森の雑貨市場",
+    meta: "フリー素材共有スペース",
     desc: "出演者や視聴者全員が参加できるイベント。各自でデザインしたものを、フリー素材として公開するスペースです。",
     link: "https://luarietakamiya-dotcom.github.io/realm-market/"
   },
-  { 
-    category: "Voting", 
-    title: "アニソン投票スペース (仮)", 
-    meta: "準備中...", 
+  {
+    category: "Voting",
+    title: "アニソン投票スペース (仮)",
+    meta: "準備中...",
     desc: "参加者や視聴者が、好きなアニメソングを自由に投票して盛り上がるスペースです。（ページ制作中）",
     link: ""
   }
@@ -155,7 +152,6 @@ function renderLineup() {
     </div>
   `).join('');
 
-  // カードクリックでモーダルを開く
   root.querySelectorAll('.creator-card').forEach(card => {
     const open = () => openModal(parseInt(card.dataset.index));
     card.addEventListener('click', open);
@@ -208,7 +204,6 @@ function buildModal() {
     </div>
   `;
   document.body.appendChild(modal);
-
   document.getElementById('modal-close').addEventListener('click', closeModal);
   modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
@@ -217,16 +212,11 @@ function buildModal() {
 function openModal(index) {
   const item = LINEUP_DATA[index];
   if (!item) return;
-
   document.getElementById('modal-art').src = item.art || defaultAvatar;
   document.getElementById('modal-art').alt = item.name;
   document.getElementById('modal-name').textContent = item.name;
-
-  // 楽曲情報：改行対応
   const songEl = document.getElementById('modal-song');
   songEl.innerHTML = escapeHtml(item.song || '').replace(/\n/g, '<br>');
-
-  // リンクボタン：複数対応
   const linksEl = document.getElementById('modal-links');
   const links = item.links || [];
   if (links.length > 0) {
@@ -240,7 +230,6 @@ function openModal(index) {
     linksEl.innerHTML = '';
     linksEl.style.display = 'none';
   }
-
   const modal = document.getElementById('creator-modal');
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -263,7 +252,6 @@ function renderLiveStatus() {
   if (!statusEl || !buttonEl) return;
   const now = new Date();
   let badgeClass, badgeText, buttonClass = '', buttonText = '▶︎ LIVEを見る';
-
   if (now < EVENT_START) {
     badgeClass = 'pre-live'; badgeText = 'Coming Soon'; buttonText = '▶︎ 待機所へ';
   } else if (now <= EVENT_END) {
@@ -271,7 +259,6 @@ function renderLiveStatus() {
   } else {
     badgeClass = 'archived'; badgeText = 'Archive'; buttonClass = 'archived'; buttonText = '▶︎ アーカイブを見る';
   }
-
   statusEl.innerHTML = `<span class="live-badge ${badgeClass}"><span class="badge-dot"></span>${badgeText}</span>`;
   buttonEl.className = `live-button${buttonClass ? ' ' + buttonClass : ''}`;
   buttonEl.textContent = buttonText;
