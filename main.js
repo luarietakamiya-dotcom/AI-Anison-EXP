@@ -82,7 +82,7 @@ const LINEUP_DATA = [
 ・沈黙のカデンツァは誰の夢
 ・＃すぴ
 ・傀儡人形と白い彼岸花` },
-  { name: "Katsunn AI", icon: "./icons/13.jpeg", art: "./art/13.jpeg", links: [], song: `アニメタイトル
+  { name: "Katsunn AI", icon: "./icons/13.jpg", art: "./art/13.jpg", links: [], song: `アニメタイトル
 ・猫乙女-The Animation-
 
 楽曲
