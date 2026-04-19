@@ -76,7 +76,7 @@ const LINEUP_DATA = [
 楽曲
 ・『白銀』
 ・『真紅』ほか` },
-  { name: "Sort5691", icon: "./icons/11.png", art: "./art/11.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "Sort5691", icon: "./icons/11.jpg", art: "./art/11.png", links: [], song: "楽曲情報 準備中..." },
   { name: "ユミリアの夢案内", icon: "./icons/12.jpg", art: "./art/12.png", links: [
       { label: "相対性リボン", url: "https://www.youtube.com/watch?v=UnLB8Tib8d4" },
       { label: "沈黙のカデンツァは誰の夢", url: "https://www.youtube.com/watch?v=zgLTfTLhucI" },
