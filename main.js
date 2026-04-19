@@ -23,6 +23,8 @@ const LINEUP_DATA = [
       { label: "√MAYONAKA代表曲「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" }
     ], song: `・エデンと狼
 ・黒縄に呼ばれて` },
+
+
   { name: "五島雅", icon: "./icons/2.png", art: "./art/2.png", links: [
       { label: "アニメ解説", url: "https://x.com/miyabigoshima/status/2045502191390343325?s=20" },
       { label: "オープニング", url: "https://suno.com/s/dskYWKhqMHddJ0ae" },
@@ -30,6 +32,8 @@ const LINEUP_DATA = [
       { label: "YouTube", url: "https://www.youtube.com/@MIYABI_GOSHIMA" }
     ], song: `・NEKO METAL - Cat Princess
 ・憤怒、燃え尽きるまで - Wrath of the Crown` },
+
+
   { name: "3-Sync", icon: "./icons/3.png", art: "./art/3.png", links: [
       { label: "NOTE", url: "https://note.com/luarie_takamiya/n/ne8753ec36714?sub_rt=share_pw" },
       { label: "HP", url: "https://luarietakamiya-dotcom.github.io/luarie-takamiya/" },
@@ -38,6 +42,8 @@ const LINEUP_DATA = [
     ], song: `・3-Sync
 ・3-Sync: Error 0
 ・Sisters` },
+
+
   { name: "森川P", icon: "./icons/4.png", art: "./art/4.png", links: [
       { label: "X (Twitter)", url: "https://x.com/Moriizu_AI" },
       { label: "Note記事", url: "https://note.com/moriizu/n/nbae0cc2bf5f9" }
@@ -48,12 +54,16 @@ const LINEUP_DATA = [
 ・Nosmetipsos Domino offeremus, Hanc canticum Domino offeremus.
 ・Soulless
 ・My Precious` },
+
+
   { name: "ゆーき", icon: "./icons/5.png", art: "./art/5.png", links: [], song: `アニメタイトル
 ・「血染めの花魁」
 
 楽曲
 ・OP「血染めの花魁」
 ・ED「蒼夜遊女」` },
+
+
   { name: "ハルイロナツイロ", icon: "./icons/6.png", art: "./art/6.png", links: [
       { label: "X (Twitter)", url: "https://x.com/harunatsu_tuber" },
       { label: "YouTube", url: "https://www.youtube.com/@Harunatsu-Shiki" },
@@ -65,18 +75,34 @@ const LINEUP_DATA = [
 ・ILiDeLia 私立彩音学園高等学校 第2軽音部　/　三色のアンサンブル
 ・「タイトル未定」　/　Voyage Memory
 ・「タイトル未定」　/　楽曲未定` },
+
+
   { name: "結音", icon: "./icons/7.png", art: "./art/7.png", links: [], song: `エンディングテーマ
 『致死量の糖分と君の笑顔』` },
-  { name: "rui", icon: "./icons/8.png", art: "./art/8.png", links: [], song: "楽曲情報 準備中..." },
+
+
+  { name: "rui", icon: "./icons/8.png", art: "./art/8.png", links: [
+      { label: "X (Twitter)", url: "https://x.com/varts_works?" },
+    ], song: `「アニメタイトル」
+・罪喰いシスターズ
+` },
+
+
   { name: "トミオ", icon: "./icons/9.png", art: "./art/9.png", links: [], song: `アニメタイトル
 「放課後パレット」` },
+
+
   { name: "Felis Catus", icon: "./icons/10.jpg", art: "./art/10.jpg", links: [], song: `アニメタイトル
 ・『星護りの白銀』
 
 楽曲
 ・『白銀』
 ・『真紅』ほか` },
+
+
   { name: "Sort5691", icon: "./icons/11.jpg", art: "./art/11.png", links: [], song: "楽曲情報 準備中..." },
+
+
   { name: "ユミリアの夢案内", icon: "./icons/12.jpg", art: "./art/12.png", links: [
       { label: "相対性リボン", url: "https://www.youtube.com/watch?v=UnLB8Tib8d4" },
       { label: "沈黙のカデンツァは誰の夢", url: "https://www.youtube.com/watch?v=zgLTfTLhucI" },
@@ -88,6 +114,8 @@ const LINEUP_DATA = [
 ・沈黙のカデンツァは誰の夢
 ・＃すぴ
 ・傀儡人形と白い彼岸花` },
+
+
   { name: "Katsunn AI", icon: "./icons/13.jpg", art: "./art/13.jpg", links: [], song: `アニメタイトル
 ・猫乙女-The Animation-
 
@@ -98,6 +126,8 @@ const LINEUP_DATA = [
   { name: "LUCY", icon: "./icons/15.png", art: "./art/15.png", links: [
       { label: "X（旧Twitter）", url: "https://x.com/luxaios" },
     ], song: `・楽曲情報準備中` },
+
+
   { name: "前野凌", icon: "./icons/16.png", art: "./art/16.png", links: [], song: "仮想通貨アイドル★さくらちゃん" }
 ];
 
