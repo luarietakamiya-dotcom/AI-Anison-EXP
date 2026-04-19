@@ -23,7 +23,13 @@ const LINEUP_DATA = [
       { label: "√MAYONAKA代表曲「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" }
     ], song: `・エデンと狼
 ・黒縄に呼ばれて` },
-  { name: "五島雅", icon: "./icons/2.png", art: "./art/2.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "五島雅", icon: "./icons/2.png", art: "./art/2.png", links: [
+      { label: "アニメ解説", url: "https://x.com/miyabigoshima/status/2045502191390343325?s=20" },
+      { label: "オープニング", url: "https://suno.com/s/dskYWKhqMHddJ0ae" },
+      { label: "エンディング", url: "https://suno.com/s/qU0MxQkapRIgtF9x" },
+      { label: "YouTube", url: "https://www.youtube.com/@MIYABI_GOSHIMA" }
+    ], song: `・NEKO METAL - Cat Princess
+・憤怒、燃え尽きるまで - Wrath of the Crown` },
   { name: "3-Sync", icon: "./icons/3.png", art: "./art/3.png", links: [
       { label: "NOTE", url: "https://note.com/luarie_takamiya/n/ne8753ec36714?sub_rt=share_pw" },
       { label: "HP", url: "https://luarietakamiya-dotcom.github.io/luarie-takamiya/" },
@@ -89,7 +95,9 @@ const LINEUP_DATA = [
 ・OPテーマ曲　猫乙女
 ・EDテーマ曲　Otome Walk Journey♪` },
   { name: "Hina", icon: "./icons/14.png", art: "./art/14.png", links: [], song: "楽曲情報 準備中..." },
-  { name: "LUCY", icon: "./icons/15.png", art: "./art/15.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "LUCY", icon: "./icons/15.png", art: "./art/15.png", links: [
+      { label: "X（旧Twitter）", url: "https://x.com/luxaios" },
+    ], song: `・楽曲情報準備中` },
   { name: "前野凌", icon: "./icons/16.png", art: "./art/16.png", links: [], song: "仮想通貨アイドル★さくらちゃん" }
 ];
 
