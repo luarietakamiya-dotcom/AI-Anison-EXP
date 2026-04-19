@@ -92,7 +92,7 @@ const LINEUP_DATA = [
 「放課後パレット」` },
 
 
-  { name: "Felis Catus", icon: "./icons/10.jpg", art: "./art/10.jpg", links: [], song: `アニメタイトル
+  { name: "Felis Catus", icon: "./icons/10.jpg", art: "./art/10.JPG", links: [], song: `アニメタイトル
 ・『星護りの白銀』
 
 楽曲
