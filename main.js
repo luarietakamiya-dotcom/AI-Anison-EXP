@@ -66,15 +66,31 @@ const LINEUP_DATA = [
 
   { name: "ハルイロナツイロ", icon: "./icons/6.png", art: "./art/6.png", links: [
       { label: "X (Twitter)", url: "https://x.com/harunatsu_tuber" },
-      { label: "YouTube", url: "https://www.youtube.com/@Harunatsu-Shiki" },
+      { label: "詩季ハルナツ【春色夏色 harunatsu.ch】", url: "https://www.youtube.com/@Harunatsu-Shiki" },
       { label: "NOTE", url: "https://note.com/shiki_harunatsu" }
-    ], song: `・孤高の賢者、名もなき少年　/　ごめんね…
-・茜の空に響く空　/　茜
-・宇宙戦姫エンジェル-GLORIA HISTORY-　/　グロリア
-・きらめけ！アビス学園　/　それいけ！アビスセレナーデ！！
-・ILiDeLia 私立彩音学園高等学校 第2軽音部　/　三色のアンサンブル
-・「タイトル未定」　/　Voyage Memory
-・「タイトル未定」　/　楽曲未定` },
+    ], song: `アニメタイトル
+
+【きらめけ！アビス学園】
+　オープニングテーマ「それいけ！アビスセレナーデ！！」
+
+【宇宙戦姫エンジェル-GLORIA HISTORY-】
+　オープニングテーマ「グロリア」
+
+【蒼海のレゾナンス】
+　エンディングテーマ「Voyage Memory」
+
+【茜の空に響く空】
+　オープニングテーマ「茜」
+
+【トリック・トリニティ】
+　オープニングテーマ「Lie, Truth, Mislead」
+
+【ILiDeLia 私立彩音学園高等学校 第2軽音部】
+　エンディングテーマ「三色のアンサンブル」
+
+【孤高の賢者、名もなき少年】
+　第8話挿入・エンディングテーマ「ごめんね…」
+` },
 
 
   { name: "結音", icon: "./icons/7.png", art: "./art/7.png", links: [], song: `エンディングテーマ
