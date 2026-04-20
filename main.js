@@ -116,7 +116,7 @@ const LINEUP_DATA = [
 ・『真紅』ほか` },
 
 
-  { name: "Sort5691", icon: "./icons/11.jpg", art: "./art/11.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "Sort5691", icon: "./icons/11.jpg", art: "./art/0.png", links: [], song: "楽曲情報 準備中..." },
 
 
   { name: "ユミリアの夢案内", icon: "./icons/12.jpg", art: "./art/12.png", links: [
@@ -138,7 +138,7 @@ const LINEUP_DATA = [
 楽曲
 ・OPテーマ曲　猫乙女
 ・EDテーマ曲　Otome Walk Journey♪` },
-  { name: "Hina", icon: "./icons/14.png", art: "./art/14.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "Hina", icon: "./icons/0.png", art: "./art/0.png", links: [], song: "楽曲情報 準備中..." },
   { name: "LUCY", icon: "./icons/15.png", art: "./art/15.png", links: [
       { label: "X（旧Twitter）", url: "https://x.com/luxaios" },
     ], song: `・楽曲情報準備中` },
