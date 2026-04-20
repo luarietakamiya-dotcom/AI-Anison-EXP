@@ -158,7 +158,25 @@ const LINEUP_DATA = [
 楽曲
 ・OPテーマ曲　猫乙女
 ・EDテーマ曲　Otome Walk Journey♪` },
-  { name: "Hina", icon: "./icons/0.png", art: "./art/0.png", links: [], song: "楽曲情報 準備中..." },
+  { name: "Hina", icon: "./icons/14.png", art: "./art/14.png", links: [
+      { label: "[note]", url: "https://note.com/noctwave/n/n6c1975a8767a" },
+      { label: "[Youtube]", url: "https://www.youtube.com/@LuminaNavis" },
+      { label: "[X]", url: "https://x.com/NoctWave" }
+    ], song: `
+●アニメタイトルと概要
+GRANISS
+地方の弱小校を舞台に、挫折した主人公・風早蓮が仲間とともに再び立ち上がり、甲子園を目指す物語。
+
+●曲名リスト
+- OP：何度でも / NoctWave
+- ED：消えない火 / NoctWave
+
+●NoctWave
+AIで制作した架空の4人組バンドプロジェクト。
+
+` },
+
+
   { name: "LUCY", icon: "./icons/15.png", art: "./art/15.png", links: [
       { label: "X（旧Twitter）", url: "https://x.com/luxaios" },
     ], song: `・楽曲情報準備中` },
