@@ -67,8 +67,7 @@ const LINEUP_DATA = [
   { name: "森川P", icon: "./icons/4.png", art: "./art/4.png", links: [
       { label: "X (Twitter)", url: "https://x.com/Moriizu_AI" },
       { label: "Note記事", url: "https://note.com/moriizu/n/nbae0cc2bf5f9" }
-    ], song: `「アニメタイトル」
-永遠を抱くイヴ - A Soulless World -
+    ], song: `永遠を抱くイヴ - A Soulless World -
 
 ・無魂劇
 ・Nosmetipsos Domino offeremus, Hanc canticum Domino offeremus.
