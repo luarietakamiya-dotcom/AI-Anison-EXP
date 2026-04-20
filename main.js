@@ -39,7 +39,7 @@ const LINEUP_DATA = [
       { label: "HP", url: "https://luarietakamiya-dotcom.github.io/luarie-takamiya/" },
       { label: "X (Twitter)", url: "https://x.com/LuarieTakamiya" },
       { label: "Youtube", url: "https://www.youtube.com/@LuarieTakamiya" }
-    ], song: `・3-Sync
+    ], song: `・Sync On!
 ・3-Sync: Error 0
 ・Sisters` },
 
