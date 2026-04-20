@@ -3,11 +3,31 @@
 // --- Mock Data ---
 
 const TIMETABLE_DATA = [
-  { time: "21:00", title: "Opening Ceremony", desc: "案内人キルケによるOPと出演者紹介。AIアニソンEXPがいよいよスタート！" },
-  { time: "21:07", title: "Part 1: First Stage", desc: "案内人キルケがお送りする、ファーストステージ！" },
-  { time: "22:05", title: "Part 2: Second Stage", desc: "案内人ルアリエがお送りする、セカンドステージ！" },
-  { time: "23:05", title: "Part 3: Third Stage", desc: "案内人アリス（五島雅）がお送りする、ファイナルステージ！" },
-  { time: "23:43", title: "Ending & Announcement", desc: "案内人３人によるエンディング。テーマ曲「Never Enging Stories」" }
+  {
+    time: "21:00",
+    title: { ja: "Opening Ceremony", en: "Opening Ceremony" },
+    desc:  { ja: "案内人キルケによるOPと出演者紹介。AIアニソンEXPがいよいよスタート！", en: "Opening by host Kirke with performer introductions. AI Anison EXP begins!" }
+  },
+  {
+    time: "21:07",
+    title: { ja: "Part 1: First Stage", en: "Part 1: First Stage" },
+    desc:  { ja: "案内人キルケがお送りする、ファーストステージ！", en: "The First Stage, hosted by Kirke!" }
+  },
+  {
+    time: "22:05",
+    title: { ja: "Part 2: Second Stage", en: "Part 2: Second Stage" },
+    desc:  { ja: "案内人ルアリエがお送りする、セカンドステージ！", en: "The Second Stage, hosted by Luarie!" }
+  },
+  {
+    time: "23:05",
+    title: { ja: "Part 3: Third Stage", en: "Part 3: Third Stage" },
+    desc:  { ja: "案内人アリス（五島雅）がお送りする、ファイナルステージ！", en: "The Final Stage, hosted by Alice (Goshima Miyabi)!" }
+  },
+  {
+    time: "23:43",
+    title: { ja: "Ending & Announcement", en: "Ending & Announcement" },
+    desc:  { ja: "案内人３人によるエンディング。テーマ曲「Never Enging Stories」", en: "Ending by all three hosts. Theme song: \"Never Enging Stories\"" }
+  }
 ];
 
 // クリエイターデータ
@@ -176,12 +196,13 @@ function escapeHtml(str) {
 function renderTimetable() {
   const root = document.getElementById('timetable-root');
   if (!root) return;
+  const lang = typeof currentLang !== 'undefined' ? currentLang : 'ja';
   root.innerHTML = TIMETABLE_DATA.map(item => `
     <div class="time-row">
       <div class="time-label">${escapeHtml(item.time)}</div>
       <div class="time-content">
-        <h3 class="time-title">${escapeHtml(item.title)}</h3>
-        <p class="time-desc">${escapeHtml(item.desc)}</p>
+        <h3 class="time-title">${escapeHtml(typeof item.title === 'object' ? item.title[lang] : item.title)}</h3>
+        <p class="time-desc">${escapeHtml(typeof item.desc === 'object' ? item.desc[lang] : item.desc)}</p>
       </div>
     </div>
   `).join('');
@@ -330,12 +351,8 @@ const TRANSLATIONS = {
     "hero.desc": "AI技術と人の感性が交差する、次世代音楽フェス。\n幻想と未来が共存するステージへようこそ。",
     "hero.catchcopy": "一夜限りのアニソンフェス、ここでしか聴けない音がある",
     "archive.caption": "※配信開始前は待機所となります。終了後はアーカイブをご視聴いただけます。",
-    "archive.title": "Live <span>/ Archive</span>",
-    "timetable.title": "Time <span>Table</span>",
     "timetable.desc": "当日の進行スケジュールです。",
-    "lineup.title": "Lineup <span>& Setlist</span>",
     "lineup.desc": "出演クリエイター及び披露楽曲のご紹介",
-    "petit.title": "Petit <span>Events</span>",
     "petit.desc": "本編とあわせて楽しめる関連企画",
   },
   en: {
@@ -346,12 +363,8 @@ const TRANSLATIONS = {
     "hero.desc": "A next-gen music festival where AI meets human creativity.\nWelcome to a stage where fantasy and the future coexist.",
     "hero.catchcopy": "One night only — sounds you can only hear here.",
     "archive.caption": "※ This will serve as the waiting room before the stream. The archive will be available after the event.",
-    "archive.title": "Live <span>/ Archive</span>",
-    "timetable.title": "Time <span>Table</span>",
     "timetable.desc": "The schedule for the event day.",
-    "lineup.title": "Lineup <span>& Setlist</span>",
     "lineup.desc": "Introducing the creators and their featured tracks.",
-    "petit.title": "Petit <span>Events</span>",
     "petit.desc": "Side events to enjoy alongside the main show.",
   }
 };
@@ -368,6 +381,7 @@ function applyLang(lang) {
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.classList.toggle('active', opt.dataset.lang === lang);
   });
+  renderTimetable();
 }
 
 function initLangSwitch() {
