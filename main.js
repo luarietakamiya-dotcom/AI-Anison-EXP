@@ -330,8 +330,12 @@ const TRANSLATIONS = {
     "hero.desc": "AI技術と人の感性が交差する、次世代音楽フェス。\n幻想と未来が共存するステージへようこそ。",
     "hero.catchcopy": "一夜限りのアニソンフェス、ここでしか聴けない音がある",
     "archive.caption": "※配信開始前は待機所となります。終了後はアーカイブをご視聴いただけます。",
+    "archive.title": "Live <span>/ Archive</span>",
+    "timetable.title": "Time <span>Table</span>",
     "timetable.desc": "当日の進行スケジュールです。",
+    "lineup.title": "Lineup <span>& Setlist</span>",
     "lineup.desc": "出演クリエイター及び披露楽曲のご紹介",
+    "petit.title": "Petit <span>Events</span>",
     "petit.desc": "本編とあわせて楽しめる関連企画",
   },
   en: {
@@ -342,8 +346,12 @@ const TRANSLATIONS = {
     "hero.desc": "A next-gen music festival where AI meets human creativity.\nWelcome to a stage where fantasy and the future coexist.",
     "hero.catchcopy": "One night only — sounds you can only hear here.",
     "archive.caption": "※ This will serve as the waiting room before the stream. The archive will be available after the event.",
+    "archive.title": "Live <span>/ Archive</span>",
+    "timetable.title": "Time <span>Table</span>",
     "timetable.desc": "The schedule for the event day.",
+    "lineup.title": "Lineup <span>& Setlist</span>",
     "lineup.desc": "Introducing the creators and their featured tracks.",
+    "petit.title": "Petit <span>Events</span>",
     "petit.desc": "Side events to enjoy alongside the main show.",
   }
 };
