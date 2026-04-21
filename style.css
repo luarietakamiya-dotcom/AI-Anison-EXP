@@ -943,3 +943,16 @@ a {
   white-space: nowrap;
   max-width: 100%;
 }
+
+/* --- Footer Counter --- */
+.footer-counter {
+  margin-top: 16px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.footer-counter:hover {
+  opacity: 1;
+}
+.footer-counter img {
+  height: 20px;
+}
