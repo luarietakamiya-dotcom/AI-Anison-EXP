@@ -282,7 +282,7 @@ function buildModal() {
   modal.innerHTML = `
     <div class="modal-box">
       <button class="modal-close" id="modal-close" aria-label="閉じる">✕</button>
-      <div class="modal-art-wrap">
+      <div class="modal-art-wrap" id="modal-art-wrap">
         <img id="modal-art" src="" alt="" class="modal-art" />
       </div>
       <div class="modal-info">
@@ -301,12 +301,27 @@ function buildModal() {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 }
 
+function getYouTubeId(url) {
+  if (!url) return null;
+  const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return m ? m[1] : null;
+}
+
 function openModal(index) {
   const item = LINEUP_DATA[index];
   if (!item) return;
-  document.getElementById('modal-art').src = item.art || defaultAvatar;
-  document.getElementById('modal-art').alt = item.name;
+
   document.getElementById('modal-name').textContent = item.name;
+
+  // artがYouTube URLなら埋め込み、それ以外は画像
+  const wrap = document.getElementById('modal-art-wrap');
+  const ytId = getYouTubeId(item.art);
+  if (ytId) {
+    wrap.innerHTML = `<iframe class="modal-youtube" src="https://www.youtube.com/embed/${ytId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  } else {
+    wrap.innerHTML = `<img id="modal-art" src="${escapeHtml(item.art || defaultAvatar)}" alt="${escapeHtml(item.name)}" class="modal-art" />`;
+  }
+
   const songEl = document.getElementById('modal-song');
   songEl.innerHTML = escapeHtml(item.song || '').replace(/\n/g, '<br>');
   const linksEl = document.getElementById('modal-links');
