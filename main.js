@@ -16,7 +16,7 @@ const TIMETABLE_DATA = [
   {
     time: "22:05",
     title: { ja: "Part 2: Second Stage", en: "Part 2: Second Stage" },
-    desc:  { ja: "案内人ルアリエがお送りする、セカンドステージ！", en: "The Second Stage, hosted by Luarie!" }
+    desc:  { ja: "案内人リリエル（高宮ルアリエ）がお送りする、セカンドステージ！", en: "The Second Stage, hosted by Lirielle (Luarie Takamiya)!" }
   },
   {
     time: "23:05",
@@ -26,7 +26,7 @@ const TIMETABLE_DATA = [
   {
     time: "23:43",
     title: { ja: "Ending & Announcement", en: "Ending & Announcement" },
-    desc:  { ja: "案内人３人によるエンディング。テーマ曲「Never Enging Stories」", en: "Ending by all three hosts. Theme song: \"Never Enging Stories\"" }
+    desc:  { ja: "案内人３人によるエンディング。テーマ曲「Never Ending Stories」", en: "Ending by all three hosts. Theme song: \"Never Ending Stories\"" }
   }
 ];
 
