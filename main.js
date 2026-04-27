@@ -112,8 +112,7 @@ const LINEUP_DATA = [
 ` },
 
 
-  { name: "結音", icon: "./icons/7.png", art: "./art/7.png", links: [], song: `エンディングテーマ
-『致死量の糖分と君の笑顔』` },
+  { name: "結音", icon: "./icons/7.png", art: "./art/7.png", links: [], song: `『致死量の糖分と君の笑顔』` },
 
 
   { name: "rui", icon: "./icons/8.png", art: "./art/8.png", links: [
