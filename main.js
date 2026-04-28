@@ -115,7 +115,7 @@ const LINEUP_DATA = [
   { name: "結音", icon: "./icons/7.png", art: "./art/7.png", links: [], song: `『致死量の糖分と君の笑顔』` },
 
 
-  { name: "rui", icon: "./icons/8.png", art: "./art/8.png", links: [
+  { name: "rui | ∫varts", icon: "./icons/8.png", art: "./art/8.png", links: [
       { label: "X (Twitter)", url: "https://x.com/varts_works?" },
     ], song: `「アニメタイトル」
 ・罪喰いシスターズ
