@@ -188,6 +188,20 @@ function escapeHtml(str) {
   return d.innerHTML;
 }
 
+function escapeHtmlWithBreaks(str) {
+  return escapeHtml(str).replace(/\n/g, '<br>');
+}
+
+function getCreatorLinks(item) {
+  if (Array.isArray(item.links)) {
+    return item.links.filter(link => link && link.url);
+  }
+  if (item.url) {
+    return [{ label: '詳細はこちら →', url: item.url }];
+  }
+  return [];
+}
+
 function renderTimetable() {
   const root = document.getElementById('timetable-root');
   if (!root) return;
@@ -207,23 +221,26 @@ const defaultAvatar = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy5
 function renderLineup() {
   const root = document.getElementById('lineup-root');
   if (!root) return;
-  root.innerHTML = LINEUP_DATA.map((item, i) => `
-    <div class="card creator-card" data-index="${i}" role="button" tabindex="0" aria-label="${escapeHtml(item.name)}の詳細を見る">
-      <div class="card-header">
-        <img src="${escapeHtml(item.icon)}" alt="${escapeHtml(item.name)}" class="creator-icon" onerror="this.src='${defaultAvatar}'" />
-        <div>
-          <div class="card-category">CREATOR</div>
-          <h3 class="card-title">${escapeHtml(item.name)}</h3>
+  root.innerHTML = LINEUP_DATA.map((item, i) => {
+    const linkCount = getCreatorLinks(item).length;
+    return `
+      <div class="card creator-card" data-index="${i}" role="button" tabindex="0" aria-label="${escapeHtml(item.name)}の詳細を見る">
+        <div class="card-header">
+          <img src="${escapeHtml(item.icon)}" alt="${escapeHtml(item.name)}" class="creator-icon" onerror="this.src='${defaultAvatar}'" />
+          <div>
+            <div class="card-category">CREATOR</div>
+            <h3 class="card-title">${escapeHtml(item.name)}</h3>
+          </div>
         </div>
+        <p class="card-desc">${escapeHtmlWithBreaks(item.song)}</p>
+        <div class="card-view-hint">${linkCount ? `${linkCount}件のリンクを見る →` : 'クリックで詳細を見る →'}</div>
       </div>
-      <p class="card-desc">${escapeHtml(item.song)}</p>
-      <div class="card-view-hint">クリックで詳細を見る →</div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
   // カードクリックでモーダルを開く
   root.querySelectorAll('.creator-card').forEach(card => {
-    const open = () => openModal(parseInt(card.dataset.index));
+    const open = () => openModal(parseInt(card.dataset.index, 10));
     card.addEventListener('click', open);
     card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
   });
@@ -267,9 +284,7 @@ function buildModal() {
         <p class="modal-creator-label">CREATOR</p>
         <h2 class="modal-name" id="modal-name"></h2>
         <p class="modal-song" id="modal-song"></p>
-        <a id="modal-link" href="" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
-          詳細はこちら →
-        </a>
+        <div id="modal-links" class="modal-links"></div>
       </div>
     </div>
   `;
@@ -284,26 +299,40 @@ function openModal(index) {
   const item = LINEUP_DATA[index];
   if (!item) return;
 
-  document.getElementById('modal-art').src = item.art || defaultAvatar;
-  document.getElementById('modal-art').alt = item.name;
-  document.getElementById('modal-name').textContent = item.name;
-  document.getElementById('modal-song').textContent = item.song;
+  const modalArt = document.getElementById('modal-art');
+  const modalName = document.getElementById('modal-name');
+  const modalSong = document.getElementById('modal-song');
+  const linksRoot = document.getElementById('modal-links');
 
-  const link = document.getElementById('modal-link');
-  if (item.url) {
-    link.href = item.url;
-    link.style.display = 'inline-flex';
-  } else {
-    link.style.display = 'none';
+  if (modalArt) {
+    modalArt.src = item.art || defaultAvatar;
+    modalArt.alt = item.name || '';
+  }
+  if (modalName) modalName.textContent = item.name || '';
+  if (modalSong) modalSong.innerHTML = escapeHtmlWithBreaks(item.song || '');
+
+  if (linksRoot) {
+    const links = getCreatorLinks(item);
+    if (links.length) {
+      linksRoot.innerHTML = links.map(link => `
+        <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
+          ${escapeHtml(link.label || '詳細はこちら')} →
+        </a>
+      `).join('');
+    } else {
+      linksRoot.innerHTML = '';
+    }
   }
 
   const modal = document.getElementById('creator-modal');
+  if (!modal) return;
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   const modal = document.getElementById('creator-modal');
+  if (!modal) return;
   modal.classList.remove('open');
   document.body.style.overflow = '';
 }
@@ -388,7 +417,26 @@ function initLangSwitch() {
 
 // --- Initialization ---
 
+function injectModalLinkStyles() {
+  if (document.getElementById('modal-link-style-fix')) return;
+  const style = document.createElement('style');
+  style.id = 'modal-link-style-fix';
+  style.textContent = `
+    .modal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .modal-links .modal-link-btn {
+      margin: 0;
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  injectModalLinkStyles();
   buildModal();
   initLangSwitch();
   renderLiveStatus();

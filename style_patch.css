@@ -1,0 +1,84 @@
+/* 今日の変更：Xライブ埋め込み */
+.x-broadcast-container {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 18px 48px rgba(2, 132, 199, 0.12);
+  display: flex;
+  justify-content: center;
+}
+
+.x-broadcast-container .twitter-broadcast {
+  margin: 0 auto !important;
+}
+
+.x-broadcast-link {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.x-broadcast-link a {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent-sf) 0%, #0369a1 100%);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 8px 28px rgba(2, 132, 199, 0.28);
+}
+
+/* 今日の変更：トップのlogo3 */
+.hero-content {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.hero-key-visual {
+  display: block;
+  width: min(1100px, 100%);
+  height: auto;
+  margin: 0 auto 28px;
+  border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.18);
+}
+
+/* 今日の変更：タイムテーブル画像 */
+.timetable-image-wrap {
+  max-width: 1024px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 18px 48px rgba(2, 132, 199, 0.14);
+}
+
+.timetable-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 今日の変更：複数リンク付きモーダル */
+.modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.modal-links .modal-link-btn {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-key-visual {
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+
+  .x-broadcast-container {
+    padding: 12px;
+    border-radius: 18px;
+  }
+}
