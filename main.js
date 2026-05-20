@@ -188,18 +188,66 @@ function escapeHtml(str) {
   return d.innerHTML;
 }
 
-function escapeHtmlWithBreaks(str) {
-  return escapeHtml(str).replace(/\n/g, '<br>');
-}
-
 function getCreatorLinks(item) {
   if (Array.isArray(item.links)) {
     return item.links.filter(link => link && link.url);
   }
   if (item.url) {
-    return [{ label: '詳細はこちら →', url: item.url }];
+    return [{ label: '詳細はこちら', url: item.url }];
   }
   return [];
+}
+
+function normalizeSongLines(song) {
+  return String(song || '')
+    .split('\n')
+    .map(line => line.trim())
+    .filter(Boolean);
+}
+
+function cleanSummaryLine(line) {
+  return line
+    .replace(/^・\s*/, '')
+    .replace(/^OPテーマ曲\s*/, 'OP ')
+    .replace(/^EDテーマ曲\s*/, 'ED ')
+    .replace(/^オープニング[：:]\s*/, 'OP ')
+    .replace(/^エンディング[：:]\s*/, 'ED ');
+}
+
+function renderSongSummary(song) {
+  const skip = new Set([
+    'アニメタイトル',
+    '楽曲',
+    '曲名リスト',
+    '●アニメタイトルと概要',
+    '●曲名リスト'
+  ]);
+
+  const lines = normalizeSongLines(song)
+    .filter(line => !skip.has(line))
+    .map(cleanSummaryLine);
+
+  if (!lines.length) return '<span class="song-line">楽曲情報 準備中...</span>';
+
+  const maxLines = 3;
+  const body = lines.slice(0, maxLines)
+    .map(line => `<span class="song-line">${escapeHtml(line)}</span>`)
+    .join('');
+
+  const more = lines.length > maxLines
+    ? '<span class="song-line song-more">…クリックで全曲表示</span>'
+    : '';
+
+  return body + more;
+}
+
+function renderSongFull(song) {
+  const lines = normalizeSongLines(song);
+  if (!lines.length) return '<span class="song-line">楽曲情報 準備中...</span>';
+
+  return lines
+    .map(line => `<span class="song-line">${escapeHtml(line)}</span>`)
+    .join('');
 }
 
 function renderTimetable() {
@@ -221,6 +269,7 @@ const defaultAvatar = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy5
 function renderLineup() {
   const root = document.getElementById('lineup-root');
   if (!root) return;
+
   root.innerHTML = LINEUP_DATA.map((item, i) => {
     const linkCount = getCreatorLinks(item).length;
     return `
@@ -232,8 +281,8 @@ function renderLineup() {
             <h3 class="card-title">${escapeHtml(item.name)}</h3>
           </div>
         </div>
-        <p class="card-desc">${escapeHtmlWithBreaks(item.song)}</p>
-        <div class="card-view-hint">${linkCount ? `${linkCount}件のリンクを見る →` : 'クリックで詳細を見る →'}</div>
+        <div class="card-desc song-summary">${renderSongSummary(item.song)}</div>
+        <div class="card-view-hint">${linkCount ? `詳細・${linkCount}件のリンクを見る →` : 'クリックで詳細を見る →'}</div>
       </div>
     `;
   }).join('');
@@ -283,7 +332,7 @@ function buildModal() {
       <div class="modal-info">
         <p class="modal-creator-label">CREATOR</p>
         <h2 class="modal-name" id="modal-name"></h2>
-        <p class="modal-song" id="modal-song"></p>
+        <div class="modal-song" id="modal-song"></div>
         <div id="modal-links" class="modal-links"></div>
       </div>
     </div>
@@ -309,19 +358,17 @@ function openModal(index) {
     modalArt.alt = item.name || '';
   }
   if (modalName) modalName.textContent = item.name || '';
-  if (modalSong) modalSong.innerHTML = escapeHtmlWithBreaks(item.song || '');
+  if (modalSong) modalSong.innerHTML = renderSongFull(item.song || '');
 
   if (linksRoot) {
     const links = getCreatorLinks(item);
-    if (links.length) {
-      linksRoot.innerHTML = links.map(link => `
-        <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
-          ${escapeHtml(link.label || '詳細はこちら')} →
-        </a>
-      `).join('');
-    } else {
-      linksRoot.innerHTML = '';
-    }
+    linksRoot.innerHTML = links.length
+      ? links.map(link => `
+          <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
+            ${escapeHtml(link.label || '詳細はこちら')} →
+          </a>
+        `).join('')
+      : '';
   }
 
   const modal = document.getElementById('creator-modal');
@@ -417,17 +464,63 @@ function initLangSwitch() {
 
 // --- Initialization ---
 
-function injectModalLinkStyles() {
-  if (document.getElementById('modal-link-style-fix')) return;
+function injectLineBreakStyles() {
+  if (document.getElementById('linebreak-display-style-fix')) return;
   const style = document.createElement('style');
-  style.id = 'modal-link-style-fix';
+  style.id = 'linebreak-display-style-fix';
   style.textContent = `
+    .creator-card {
+      min-height: 295px;
+      justify-content: flex-start;
+    }
+
+    .creator-card .card-desc.song-summary {
+      margin-top: 10px !important;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .song-line {
+      display: block !important;
+      width: 100%;
+      margin: 0 0 2px;
+      white-space: normal;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .creator-card .song-summary .song-line:nth-child(n+5) {
+      display: none !important;
+    }
+
+    .song-more {
+      color: var(--accent-sf);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .modal-song {
+      text-align: left !important;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .modal-song .song-line {
+      text-align: left !important;
+    }
+
     .modal-links {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 18px;
     }
+
     .modal-links .modal-link-btn {
       margin: 0;
     }
@@ -436,7 +529,7 @@ function injectModalLinkStyles() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  injectModalLinkStyles();
+  injectLineBreakStyles();
   buildModal();
   initLangSwitch();
   renderLiveStatus();
