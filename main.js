@@ -3,198 +3,49 @@
 // --- Mock Data ---
 
 const TIMETABLE_DATA = [
-  {
-    time: "21:00",
-    title: { ja: "Opening Ceremony", en: "Opening Ceremony" },
-    desc:  { ja: "案内人キルケによるOPと出演者紹介。AIアニソンEXPがいよいよスタート！", en: "Opening by host Kirke with performer introductions. AI Anison EXP begins!" }
-  },
-  {
-    time: "21:07",
-    title: { ja: "Part 1: First Stage", en: "Part 1: First Stage" },
-    desc:  { ja: "案内人キルケがお送りする、ファーストステージ！", en: "The First Stage, hosted by Kirke!" }
-  },
-  {
-    time: "22:05",
-    title: { ja: "Part 2: Second Stage", en: "Part 2: Second Stage" },
-    desc:  { ja: "案内人リリエル（高宮ルアリエ）がお送りする、セカンドステージ！", en: "The Second Stage, hosted by Lirielle (Luarie Takamiya)!" }
-  },
-  {
-    time: "23:05",
-    title: { ja: "Part 3: Third Stage", en: "Part 3: Third Stage" },
-    desc:  { ja: "案内人アリス（五島雅）がお送りする、ファイナルステージ！", en: "The Final Stage, hosted by Alice (Goshima Miyabi)!" }
-  },
-  {
-    time: "23:43",
-    title: { ja: "Ending & Announcement", en: "Ending & Announcement" },
-    desc:  { ja: "案内人３人によるエンディング。テーマ曲「Never Ending Stories」", en: "Ending by all three hosts. Theme song: \"Never Ending Stories\"" }
-  }
+  { time: "20:00", title: "Opening Ceremony", desc: "案内人キルケによるイベント開会の挨拶。AIアニソンEXPがいよいよスタート！" },
+  { time: "20:07", title: "Part 1: First Stage", desc: "気鋭のクリエイター陣による最新AIアニソンの作品展示。" },
+  { time: "22:05", title: "Special Second Stage", desc: "案内人ルアリエによるトークに続き、第二ステージの始まりです！" },
+  { time: "23:05", title: "Part 2: Third Stage", desc: "案内人アリスによるトークに続き、第三ステージの始まりです！" },
+  { time: "23:43", title: "Ending & Announcement", desc: "案内人たちによるお礼とお別れの挨拶。そしてエンドロールです。" },
 ];
 
 // クリエイターデータ
-// icon:  アイコン画像パス
-// art:   一枚絵パス（モーダルで表示）
-// links: リンク配列 { label: ボタン表示名, url: リンク先 }（空配列の場合はボタン非表示）
-// song:  楽曲情報（長文OK、改行あり）
+// icon: アイコン画像パス
+// art:  一枚絵パス（モーダルで表示）
+// url:  HPリンク（空文字の場合はボタン非表示）
+// song: 楽曲情報
 const LINEUP_DATA = [
-  { name: "To", icon: "./icons/1.png", art: "./art/1.png", links: [
-      { label: "【エデンと狼（設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/ndfe1b8e52134?sub_rt=share_pw" },
-      { label: "【黒縄に呼ばれて（公式設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/n546762967881?sub_rt=share_pw" },
-      { label: "DIVARIAS代表曲「破天」", url: "https://youtu.be/7WJfeQmZyJ8" },
-      { label: "√MAYONAKA代表曲「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" }
-    ], song: `・エデンと狼
-・黒縄に呼ばれて` },
-
-
-  { name: "五島雅", icon: "./icons/2.png", art: "./art/2.png", links: [
-      { label: "アニメ解説", url: "https://x.com/miyabigoshima/status/2045502191390343325?s=20" },
-      { label: "オープニング", url: "https://suno.com/s/dskYWKhqMHddJ0ae" },
-      { label: "エンディング", url: "https://suno.com/s/qU0MxQkapRIgtF9x" },
-      { label: "YouTube", url: "https://www.youtube.com/@MIYABI_GOSHIMA" }
-    ], song: `・NEKO METAL - Cat Princess
-・憤怒、燃え尽きるまで - Wrath of the Crown` },
-
-
-  { name: "3-Sync", icon: "./icons/3.png", art: "./art/3.png", links: [
-      { label: "NOTE", url: "https://note.com/luarie_takamiya/n/ne8753ec36714?sub_rt=share_pw" },
-      { label: "HP", url: "https://luarietakamiya-dotcom.github.io/luarie-takamiya/" },
-      { label: "X (Twitter)", url: "https://x.com/LuarieTakamiya" },
-      { label: "Youtube", url: "https://www.youtube.com/@LuarieTakamiya" }
-    ], song: `・Sync On!
-・3-Sync: Error 0
-・Sisters` },
-
-
-  { name: "森川P", icon: "./icons/4.png", art: "./art/4.png", links: [
-      { label: "X (Twitter)", url: "https://x.com/Moriizu_AI" },
-      { label: "Note記事", url: "https://note.com/moriizu/n/nbae0cc2bf5f9" }
-    ], song: `永遠を抱くイヴ - A Soulless World -
-
-・無魂劇
-・Nosmetipsos Domino offeremus, Hanc canticum Domino offeremus.
-・Soulless
-・My Precious` },
-
-
-  { name: "ゆーき", icon: "./icons/5.png", art: "./art/5.png", links: [], song: `アニメタイトル
-・「血染めの花魁」
-
-楽曲
-・OP「血染めの花魁」
-・ED「蒼夜遊女」` },
-
-
-  { name: "ハルイロナツイロ", icon: "./icons/6.png", art: "./art/6.png", links: [
-      { label: "X (Twitter)", url: "https://x.com/harunatsu_tuber" },
-      { label: "詩季ハルナツ【春色夏色 harunatsu.ch】", url: "https://www.youtube.com/@Harunatsu-Shiki" },
-      { label: "NOTE", url: "https://note.com/shiki_harunatsu" }
-    ], song: `アニメタイトル
-
-【きらめけ！アビス学園】
-　オープニングテーマ「それいけ！アビスセレナーデ！！」
-
-【宇宙戦姫エンジェル-GLORIA HISTORY-】
-　オープニングテーマ「グロリア」
-
-【蒼海のレゾナンス】
-　エンディングテーマ「Voyage Memory」
-
-【茜の空に響く空】
-　オープニングテーマ「茜」
-
-【トリック・トリニティ】
-　オープニングテーマ「Lie, Truth, Mislead」
-
-【ILiDeLia 私立彩音学園高等学校 第2軽音部】
-　エンディングテーマ「三色のアンサンブル」
-
-【孤高の賢者、名もなき少年】
-　第8話挿入・エンディングテーマ「ごめんね…」
-` },
-
-
-  { name: "結音", icon: "./icons/7.png", art: "./art/7.png", links: [], song: `『致死量の糖分と君の笑顔』` },
-
-
-  { name: "rui | ∫varts", icon: "./icons/8.png", art: "./art/8.png", links: [
-      { label: "X (Twitter)", url: "https://x.com/varts_works?" },
-    ], song: `「アニメタイトル」
-・罪喰いシスターズ
-` },
-
-
-  { name: "トミオ", icon: "./icons/9.png", art: "./art/9.png", links: [], song: `アニメタイトル
-「放課後パレット」` },
-
-
-  { name: "Felis Catus", icon: "./icons/10.jpg", art: "./art/10.JPG", links: [], song: `アニメタイトル
-・『星護りの白銀』
-
-楽曲
-・『白銀』
-・『真紅』ほか` },
-
-
-  { name: "Sort5691", icon: "./icons/11.jpg", art: "./art/0.png", links: [], song: "楽曲情報 準備中..." },
-
-
-  { name: "ユミリアの夢案内", icon: "./icons/12.jpg", art: "./art/12.png", links: [
-      { label: "相対性リボン", url: "https://www.youtube.com/watch?v=UnLB8Tib8d4" },
-      { label: "沈黙のカデンツァは誰の夢", url: "https://www.youtube.com/watch?v=zgLTfTLhucI" },
-      { label: "＃すぴ", url: "https://www.youtube.com/watch?v=XVx3hnGfdX0" },
-      { label: "傀儡人形と白い彼岸花", url: "https://www.youtube.com/watch?v=yHdI9T2osLo" }
-    ], song: `『ユミリアの夢案内』オリジナルMV
-
-・相対性リボン
-・沈黙のカデンツァは誰の夢
-・＃すぴ
-・傀儡人形と白い彼岸花` },
-
-
-  { name: "Katsunn AI", icon: "./icons/13.jpg", art: "./art/13.jpg", links: [], song: `アニメタイトル
-・猫乙女-The Animation-
-
-楽曲
-・OPテーマ曲　猫乙女
-・EDテーマ曲　Otome Walk Journey♪` },
-  { name: "Hina", icon: "./icons/14.png", art: "./art/14.png", links: [
-      { label: "[note]", url: "https://note.com/noctwave/n/n6c1975a8767a" },
-      { label: "[Youtube]", url: "https://www.youtube.com/@LuminaNavis" },
-      { label: "[X]", url: "https://x.com/NoctWave" }
-    ], song: `
-●アニメタイトルと概要
-GRANISS
-地方の弱小校を舞台に、挫折した主人公・風早蓮が仲間とともに再び立ち上がり、甲子園を目指す物語。
-
-●曲名リスト
-オープニング：「未完成」
-エンディング：「少しだけでも」
-
-●NoctWave
-AIで制作した架空の4人組バンドプロジェクト。
-
-` },
-
-
-  { name: "LUCY", icon: "./icons/15.png", art: "./art/15.png", links: [
-      { label: "X（旧Twitter）", url: "https://x.com/luxaios" },
-    ], song: `・楽曲情報準備中` },
-
-
-  { name: "前野凌", icon: "./icons/16.png", art: "./art/16.png", links: [], song: "仮想通貨アイドル★さくらちゃん" }
+  { name: "To",                icon: "./icons/11.png", art: "./art/11.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "五島雅",            icon: "./icons/2.png",  art: "./art/2.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "高宮ルアリエ",      icon: "./icons/1.png",  art: "./art/1.png",  url: "https://x.com/LuarieTakamiya",  song: "楽曲情報 準備中..." },
+  { name: "森川P",             icon: "./icons/3.png",  art: "./art/3.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "ゆーき",            icon: "./icons/4.png",  art: "./art/4.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "ハルイロナツイロ",  icon: "./icons/5.png",  art: "./art/5.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "結音",              icon: "./icons/6.png",  art: "./art/6.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "rui",               icon: "./icons/7.png",  art: "./art/7.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "トミオ",            icon: "./icons/8.png",  art: "./art/8.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "Felis Catus",       icon: "./icons/9.png",  art: "./art/9.jpg",  url: "",  song: "楽曲情報 準備中..." },
+  { name: "Sort5691",          icon: "./icons/10.png", art: "./art/10.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "ユミリアの夢案内",  icon: "./icons/12.png", art: "./art/12.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "Katsunn AI",        icon: "./icons/13.png", art: "./art/13.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "Hina",              icon: "./icons/14.png", art: "./art/14.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "LUCY",              icon: "./icons/15.png", art: "./art/15.jpg", url: "",  song: "楽曲情報 準備中..." },
+  { name: "前野凌",            icon: "./icons/16.png", art: "./art/16.jpg", url: "",  song: "楽曲情報 準備中..." },
 ];
 
 const PETIT_EVENTS_DATA = [
-  {
-    category: "Market",
-    title: "深き森の雑貨市場",
-    meta: "フリー素材共有スペース",
+  { 
+    category: "Market", 
+    title: "深き森の雑貨市場", 
+    meta: "フリー素材共有スペース", 
     desc: "出演者や視聴者全員が参加できるイベント。各自でデザインしたものを、フリー素材として公開するスペースです。",
     link: "https://luarietakamiya-dotcom.github.io/realm-market/"
   },
-  {
-    category: "Voting",
-    title: "アニソン投票スペース (仮)",
-    meta: "準備中...",
+  { 
+    category: "Voting", 
+    title: "アニソン投票スペース (仮)", 
+    meta: "準備中...", 
     desc: "参加者や視聴者が、好きなアニメソングを自由に投票して盛り上がるスペースです。（ページ制作中）",
     link: ""
   }
@@ -212,13 +63,12 @@ function escapeHtml(str) {
 function renderTimetable() {
   const root = document.getElementById('timetable-root');
   if (!root) return;
-  const lang = typeof currentLang !== 'undefined' ? currentLang : 'ja';
   root.innerHTML = TIMETABLE_DATA.map(item => `
     <div class="time-row">
       <div class="time-label">${escapeHtml(item.time)}</div>
       <div class="time-content">
-        <h3 class="time-title">${escapeHtml(typeof item.title === 'object' ? item.title[lang] : item.title)}</h3>
-        <p class="time-desc">${escapeHtml(typeof item.desc === 'object' ? item.desc[lang] : item.desc)}</p>
+        <h3 class="time-title">${escapeHtml(item.title)}</h3>
+        <p class="time-desc">${escapeHtml(item.desc)}</p>
       </div>
     </div>
   `).join('');
@@ -238,11 +88,12 @@ function renderLineup() {
           <h3 class="card-title">${escapeHtml(item.name)}</h3>
         </div>
       </div>
-      <p class="card-desc card-song-preview">${escapeHtml((item.song || '').split('\n').find(l => l.trim()) || item.song)}</p>
+      <p class="card-desc">${escapeHtml(item.song)}</p>
       <div class="card-view-hint">クリックで詳細を見る →</div>
     </div>
   `).join('');
 
+  // カードクリックでモーダルを開く
   root.querySelectorAll('.creator-card').forEach(card => {
     const open = () => openModal(parseInt(card.dataset.index));
     card.addEventListener('click', open);
@@ -281,61 +132,43 @@ function buildModal() {
   modal.innerHTML = `
     <div class="modal-box">
       <button class="modal-close" id="modal-close" aria-label="閉じる">✕</button>
-      <div class="modal-art-wrap" id="modal-art-wrap">
+      <div class="modal-art-wrap">
         <img id="modal-art" src="" alt="" class="modal-art" />
       </div>
       <div class="modal-info">
         <p class="modal-creator-label">CREATOR</p>
         <h2 class="modal-name" id="modal-name"></h2>
-        <div class="modal-song-wrap">
-          <p class="modal-song" id="modal-song"></p>
-        </div>
-        <div class="modal-links" id="modal-links"></div>
+        <p class="modal-song" id="modal-song"></p>
+        <a id="modal-link" href="" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
+          詳細はこちら →
+        </a>
       </div>
     </div>
   `;
   document.body.appendChild(modal);
+
   document.getElementById('modal-close').addEventListener('click', closeModal);
   modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-}
-
-function getYouTubeId(url) {
-  if (!url) return null;
-  const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-  return m ? m[1] : null;
 }
 
 function openModal(index) {
   const item = LINEUP_DATA[index];
   if (!item) return;
 
+  document.getElementById('modal-art').src = item.art || defaultAvatar;
+  document.getElementById('modal-art').alt = item.name;
   document.getElementById('modal-name').textContent = item.name;
+  document.getElementById('modal-song').textContent = item.song;
 
-  // artがYouTube URLなら埋め込み、それ以外は画像
-  const wrap = document.getElementById('modal-art-wrap');
-  const ytId = getYouTubeId(item.art);
-  if (ytId) {
-    wrap.innerHTML = `<iframe class="modal-youtube" src="https://www.youtube.com/embed/${ytId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  const link = document.getElementById('modal-link');
+  if (item.url) {
+    link.href = item.url;
+    link.style.display = 'inline-flex';
   } else {
-    wrap.innerHTML = `<img id="modal-art" src="${escapeHtml(item.art || defaultAvatar)}" alt="${escapeHtml(item.name)}" class="modal-art" />`;
+    link.style.display = 'none';
   }
 
-  const songEl = document.getElementById('modal-song');
-  songEl.innerHTML = escapeHtml(item.song || '').replace(/\n/g, '<br>');
-  const linksEl = document.getElementById('modal-links');
-  const links = item.links || [];
-  if (links.length > 0) {
-    linksEl.innerHTML = links.map(link => `
-      <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
-        ${escapeHtml(link.label)} →
-      </a>
-    `).join('');
-    linksEl.style.display = 'flex';
-  } else {
-    linksEl.innerHTML = '';
-    linksEl.style.display = 'none';
-  }
   const modal = document.getElementById('creator-modal');
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -349,6 +182,8 @@ function closeModal() {
 
 // --- Live Status Logic ---
 
+const X_BROADCAST_URL = 'https://x.com/i/broadcasts/1qKVmQllldYxB';
+
 const EVENT_START = new Date('2026-05-30T21:00:00+09:00');
 const EVENT_END   = new Date('2026-05-30T23:00:00+09:00');
 
@@ -358,6 +193,7 @@ function renderLiveStatus() {
   if (!statusEl || !buttonEl) return;
   const now = new Date();
   let badgeClass, badgeText, buttonClass = '', buttonText = '▶︎ LIVEを見る';
+
   if (now < EVENT_START) {
     badgeClass = 'pre-live'; badgeText = 'Coming Soon'; buttonText = '▶︎ 待機所へ';
   } else if (now <= EVENT_END) {
@@ -365,10 +201,13 @@ function renderLiveStatus() {
   } else {
     badgeClass = 'archived'; badgeText = 'Archive'; buttonClass = 'archived'; buttonText = '▶︎ アーカイブを見る';
   }
+
   statusEl.innerHTML = `<span class="live-badge ${badgeClass}"><span class="badge-dot"></span>${badgeText}</span>`;
   buttonEl.className = `live-button${buttonClass ? ' ' + buttonClass : ''}`;
   buttonEl.textContent = buttonText;
-  buttonEl.href = '#archive';
+  buttonEl.href = X_BROADCAST_URL;
+  buttonEl.target = '_blank';
+  buttonEl.rel = 'noopener noreferrer';
 }
 
 // --- i18n ---
@@ -381,7 +220,7 @@ const TRANSLATIONS = {
     "hero.title": "AI アニソン EXP",
     "hero.desc": "AI技術と人の感性が交差する、次世代音楽フェス。\n幻想と未来が共存するステージへようこそ。",
     "hero.catchcopy": "一夜限りのアニソンフェス、ここでしか聴けない音がある",
-    "archive.caption": "※配信開始前は待機所となります。終了後はアーカイブをご視聴いただけます。",
+    "archive.caption": "※配信開始前はXライブ配信ページへの案内となります。終了後はアーカイブをご視聴いただけます。",
     "timetable.desc": "当日の進行スケジュールです。",
     "lineup.desc": "出演クリエイター及び披露楽曲のご紹介",
     "petit.desc": "本編とあわせて楽しめる関連企画",
@@ -393,7 +232,7 @@ const TRANSLATIONS = {
     "hero.title": "AI Anison EXP",
     "hero.desc": "A next-gen music festival where AI meets human creativity.\nWelcome to a stage where fantasy and the future coexist.",
     "hero.catchcopy": "One night only — sounds you can only hear here.",
-    "archive.caption": "※ This will serve as the waiting room before the stream. The archive will be available after the event.",
+    "archive.caption": "※ Before the stream, this links to the X live broadcast. The archive will be available after the event.",
     "timetable.desc": "The schedule for the event day.",
     "lineup.desc": "Introducing the creators and their featured tracks.",
     "petit.desc": "Side events to enjoy alongside the main show.",
@@ -412,7 +251,6 @@ function applyLang(lang) {
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.classList.toggle('active', opt.dataset.lang === lang);
   });
-  renderTimetable();
 }
 
 function initLangSwitch() {

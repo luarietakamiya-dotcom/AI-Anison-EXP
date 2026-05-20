@@ -797,37 +797,8 @@ a {
 .modal-song {
   font-size: 0.95rem;
   color: var(--text-secondary);
-  margin-bottom: 0;
-  line-height: 1.75;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.modal-song-wrap {
-  max-height: 200px;
-  overflow-y: auto;
   margin-bottom: 20px;
-  padding-right: 4px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(2, 132, 199, 0.25) transparent;
 }
-
-.modal-song-wrap::-webkit-scrollbar {
-  width: 4px;
-}
-
-.modal-song-wrap::-webkit-scrollbar-thumb {
-  background: rgba(2, 132, 199, 0.25);
-  border-radius: 4px;
-}
-
-/* 複数リンクボタンコンテナ */
-.modal-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
 .modal-link-btn {
   display: inline-flex;
   align-items: center;
@@ -852,8 +823,6 @@ a {
   .modal-box { border-radius: 16px; }
   .modal-info { padding: 18px 18px 22px; }
   .modal-name { font-size: 1.4rem; }
-  .modal-song-wrap { max-height: 150px; }
-  .modal-link-btn { padding: 10px 20px; font-size: 0.88rem; }
 }
 
 /* ===== Creator Card 再設計 ===== */
@@ -933,21 +902,73 @@ a {
   margin-top: 10px !important;
 }
 
-/* --- Card song preview: 1行省略 --- */
-.card-song-preview {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+
+/* --- X Broadcast Embed --- */
+.x-broadcast-container {
+  width: 100%;
+  max-width: 900px;
+  min-height: 520px;
+  margin: 0 auto;
+  border-radius: 18px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 100%;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(56, 189, 248, 0.25), transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.18), transparent 35%),
+    #050816;
+  box-shadow: 0 20px 45px rgba(2, 132, 199, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
 }
 
-/* --- Modal YouTube embed --- */
-.modal-youtube {
-  width: 100%;
-  aspect-ratio: 16 / 9;
+.x-broadcast-container .twitter-video,
+.x-broadcast-container iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.x-live-link {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 16px;
+}
+
+.x-live-link a {
+  color: var(--accent-sf);
+  font-weight: 800;
+  border-bottom: 1px solid rgba(2, 132, 199, 0.35);
+}
+
+/* --- Timetable Image --- */
+.timetable-image-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #050816;
+  box-shadow:
+    0 22px 55px rgba(2, 132, 199, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.75);
+}
+
+.timetable-image {
   display: block;
-  border: none;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .x-broadcast-container {
+    min-height: 360px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .timetable-image-wrap {
+    border-radius: 14px;
+  }
 }
