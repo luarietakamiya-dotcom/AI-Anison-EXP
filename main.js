@@ -182,8 +182,6 @@ function closeModal() {
 
 // --- Live Status Logic ---
 
-const X_BROADCAST_URL = '<blockquote class="twitter-broadcast" data-broadcast-id="1qKVmQllldYxB"><a href="https://x.com/i/broadcasts/1qKVmQllldYxB">Broadcast</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
-
 const EVENT_START = new Date('2026-05-30T21:00:00+09:00');
 const EVENT_END   = new Date('2026-05-30T23:00:00+09:00');
 
@@ -205,7 +203,7 @@ function renderLiveStatus() {
   statusEl.innerHTML = `<span class="live-badge ${badgeClass}"><span class="badge-dot"></span>${badgeText}</span>`;
   buttonEl.className = `live-button${buttonClass ? ' ' + buttonClass : ''}`;
   buttonEl.textContent = buttonText;
-  buttonEl.href = X_BROADCAST_URL;
+  buttonEl.href = 'https://x.com/i/broadcasts/1qKVmQllldYxB';
   buttonEl.target = '_blank';
   buttonEl.rel = 'noopener noreferrer';
 }
@@ -220,7 +218,7 @@ const TRANSLATIONS = {
     "hero.title": "AI アニソン EXP",
     "hero.desc": "AI技術と人の感性が交差する、次世代音楽フェス。\n幻想と未来が共存するステージへようこそ。",
     "hero.catchcopy": "一夜限りのアニソンフェス、ここでしか聴けない音がある",
-    "archive.caption": "※配信開始前はXライブ配信ページへの案内となります。終了後はアーカイブをご視聴いただけます。",
+    "archive.caption": "※表示されない場合は、下のリンクからXライブ配信をご視聴ください。",
     "timetable.desc": "当日の進行スケジュールです。",
     "lineup.desc": "出演クリエイター及び披露楽曲のご紹介",
     "petit.desc": "本編とあわせて楽しめる関連企画",
@@ -232,7 +230,7 @@ const TRANSLATIONS = {
     "hero.title": "AI Anison EXP",
     "hero.desc": "A next-gen music festival where AI meets human creativity.\nWelcome to a stage where fantasy and the future coexist.",
     "hero.catchcopy": "One night only — sounds you can only hear here.",
-    "archive.caption": "※ Before the stream, this links to the X live broadcast. The archive will be available after the event.",
+    "archive.caption": "※ If the embed does not appear, please open the X live broadcast from the link below.",
     "timetable.desc": "The schedule for the event day.",
     "lineup.desc": "Introducing the creators and their featured tracks.",
     "petit.desc": "Side events to enjoy alongside the main show.",

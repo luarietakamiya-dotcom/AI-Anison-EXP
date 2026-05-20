@@ -909,50 +909,54 @@ a {
   max-width: 900px;
   min-height: 520px;
   margin: 0 auto;
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(56, 189, 248, 0.25), transparent 35%),
-    radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.18), transparent 35%),
-    #050816;
-  box-shadow: 0 20px 45px rgba(2, 132, 199, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 20px 40px rgba(2, 132, 199, 0.1);
+  background: #000;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 24px;
+  align-items: center;
+  padding: 16px;
 }
 
-.x-broadcast-container .twitter-video,
-.x-broadcast-container iframe {
-  width: 100% !important;
-  max-width: 100% !important;
+.x-broadcast-container .twitter-broadcast {
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto !important;
 }
 
-.x-live-link {
+.x-broadcast-link {
   text-align: center;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  margin-top: 16px;
+  margin-top: 14px;
 }
 
-.x-live-link a {
-  color: var(--accent-sf);
-  font-weight: 800;
-  border-bottom: 1px solid rgba(2, 132, 199, 0.35);
+.x-broadcast-link a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent-sf) 0%, #0369a1 100%);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.x-broadcast-link a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.34);
 }
 
 /* --- Timetable Image --- */
 .timetable-image-wrap {
   max-width: 1000px;
   margin: 0 auto;
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
-  background: #050816;
-  box-shadow:
-    0 22px 55px rgba(2, 132, 199, 0.18),
-    0 0 0 1px rgba(255, 255, 255, 0.75);
+  background: #050014;
+  box-shadow: 0 20px 45px rgba(2, 132, 199, 0.14);
 }
 
 .timetable-image {
@@ -963,11 +967,10 @@ a {
 
 @media (max-width: 768px) {
   .x-broadcast-container {
-    min-height: 360px;
-    padding: 12px;
+    min-height: 420px;
+    padding: 10px;
     border-radius: 14px;
   }
-
   .timetable-image-wrap {
     border-radius: 14px;
   }
