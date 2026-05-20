@@ -157,8 +157,7 @@ AIで制作した架空の4人組バンドプロジェクト。
 
   { name: "LUCY", icon: "./icons/15.png", art: "./art/15.png", links: [
       { label: "X（旧Twitter）", url: "https://x.com/luxaios" },
-    ], song: `・無明都市｜灰街ノ詩
-　　　　　　　・ポストアポカリプス` },
+    ], song: `・楽曲情報準備中` },
 
 
   { name: "前野凌", icon: "./icons/16.png", art: "./art/16.png", links: [], song: "仮想通貨アイドル★さくらちゃん" }
