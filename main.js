@@ -182,7 +182,7 @@ function closeModal() {
 
 // --- Live Status Logic ---
 
-const X_BROADCAST_URL = 'https://x.com/i/broadcasts/1qKVmQllldYxB';
+const X_BROADCAST_URL = '<blockquote class="twitter-broadcast" data-broadcast-id="1qKVmQllldYxB"><a href="https://x.com/i/broadcasts/1qKVmQllldYxB">Broadcast</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
 
 const EVENT_START = new Date('2026-05-30T21:00:00+09:00');
 const EVENT_END   = new Date('2026-05-30T23:00:00+09:00');
