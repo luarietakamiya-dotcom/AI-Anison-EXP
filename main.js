@@ -11,29 +11,157 @@ const TIMETABLE_DATA = [
 ];
 
 // クリエイターデータ
-// icon: アイコン画像パス
-// art:  一枚絵パス（モーダルで表示）
-// url:  HPリンク（空文字の場合はボタン非表示）
-// song: 楽曲情報
+// icon:  アイコン画像パス
+// art:   一枚絵パス（モーダルで表示）
+// links: リンク配列 { label: ボタン表示名, url: リンク先 }（空配列の場合はボタン非表示）
+// song:  楽曲情報（長文OK、改行あり）
 const LINEUP_DATA = [
-  { name: "To",                icon: "./icons/1.png", art: "./art/11.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "五島雅",            icon: "./icons/2.png",  art: "./art/2.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "高宮ルアリエ",      icon: "./icons/3.png",  art: "./art/1.png",  url: "https://x.com/LuarieTakamiya",  song: "楽曲情報 準備中..." },
-  { name: "森川P",             icon: "./icons/4.png",  art: "./art/3.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "ゆーき",            icon: "./icons/5.png",  art: "./art/4.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "ハルイロナツイロ",  icon: "./icons/6.png",  art: "./art/5.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "結音",              icon: "./icons/7.png",  art: "./art/6.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "rui",               icon: "./icons/8.png",  art: "./art/7.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "トミオ",            icon: "./icons/9.png",  art: "./art/8.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "Felis Catus",       icon: "./icons/10.png",  art: "./art/9.jpg",  url: "",  song: "楽曲情報 準備中..." },
-  { name: "Sort5691",          icon: "./icons/11.png", art: "./art/10.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "ユミリアの夢案内",  icon: "./icons/12.png", art: "./art/12.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "Katsunn AI",        icon: "./icons/13.png", art: "./art/13.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "Hina",              icon: "./icons/14.png", art: "./art/14.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "LUCY",              icon: "./icons/15.png", art: "./art/15.jpg", url: "",  song: "楽曲情報 準備中..." },
-  { name: "前野凌",            icon: "./icons/16.png", art: "./art/16.jpg", url: "",  song: "楽曲情報 準備中..." },
-];
+  { name: "To", icon: "./icons/1.png", art: "./art/1.png", links: [
+      { label: "【エデンと狼（設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/ndfe1b8e52134?sub_rt=share_pw" },
+      { label: "【黒縄に呼ばれて（公式設定/主要人物紹介）】", url: "https://note.com/clear_holly626/n/n546762967881?sub_rt=share_pw" },
+      { label: "DIVARIAS代表曲「破天」", url: "https://youtu.be/7WJfeQmZyJ8" },
+      { label: "√MAYONAKA代表曲「Night Howl」", url: "https://youtu.be/dnT70ZWOsaU" }
+    ], song: `・エデンと狼
+・黒縄に呼ばれて` },
 
+
+  { name: "五島雅", icon: "./icons/2.png", art: "./art/2.png", links: [
+      { label: "アニメ解説", url: "https://x.com/miyabigoshima/status/2045502191390343325?s=20" },
+      { label: "オープニング", url: "https://suno.com/s/dskYWKhqMHddJ0ae" },
+      { label: "エンディング", url: "https://suno.com/s/qU0MxQkapRIgtF9x" },
+      { label: "YouTube", url: "https://www.youtube.com/@MIYABI_GOSHIMA" }
+    ], song: `・NEKO METAL - Cat Princess
+・憤怒、燃え尽きるまで - Wrath of the Crown` },
+
+
+  { name: "3-Sync", icon: "./icons/3.png", art: "./art/3.png", links: [
+      { label: "NOTE", url: "https://note.com/luarie_takamiya/n/ne8753ec36714?sub_rt=share_pw" },
+      { label: "HP", url: "https://luarietakamiya-dotcom.github.io/luarie-takamiya/" },
+      { label: "X (Twitter)", url: "https://x.com/LuarieTakamiya" },
+      { label: "Youtube", url: "https://www.youtube.com/@LuarieTakamiya" }
+    ], song: `・Sync On!
+・3-Sync: Error 0
+・Sisters` },
+
+
+  { name: "森川P", icon: "./icons/4.png", art: "./art/4.png", links: [
+      { label: "X (Twitter)", url: "https://x.com/Moriizu_AI" },
+      { label: "Note記事", url: "https://note.com/moriizu/n/nbae0cc2bf5f9" }
+    ], song: `永遠を抱くイヴ - A Soulless World -
+
+・無魂劇
+・Nosmetipsos Domino offeremus, Hanc canticum Domino offeremus.
+・Soulless
+・My Precious` },
+
+
+  { name: "ゆーき", icon: "./icons/5.png", art: "./art/5.png", links: [], song: `アニメタイトル
+・「血染めの花魁」
+
+楽曲
+・OP「血染めの花魁」
+・ED「蒼夜遊女」` },
+
+
+  { name: "ハルイロナツイロ", icon: "./icons/6.png", art: "./art/6.png", links: [
+      { label: "X (Twitter)", url: "https://x.com/harunatsu_tuber" },
+      { label: "詩季ハルナツ【春色夏色 harunatsu.ch】", url: "https://www.youtube.com/@Harunatsu-Shiki" },
+      { label: "NOTE", url: "https://note.com/shiki_harunatsu" }
+    ], song: `アニメタイトル
+
+【きらめけ！アビス学園】
+　オープニングテーマ「それいけ！アビスセレナーデ！！」
+
+【宇宙戦姫エンジェル-GLORIA HISTORY-】
+　オープニングテーマ「グロリア」
+
+【蒼海のレゾナンス】
+　エンディングテーマ「Voyage Memory」
+
+【茜の空に響く空】
+　オープニングテーマ「茜」
+
+【トリック・トリニティ】
+　オープニングテーマ「Lie, Truth, Mislead」
+
+【ILiDeLia 私立彩音学園高等学校 第2軽音部】
+　エンディングテーマ「三色のアンサンブル」
+
+【孤高の賢者、名もなき少年】
+　第8話挿入・エンディングテーマ「ごめんね…」
+` },
+
+
+  { name: "結音", icon: "./icons/7.png", art: "./art/7.png", links: [], song: `『致死量の糖分と君の笑顔』` },
+
+
+  { name: "rui | ∫varts", icon: "./icons/8.png", art: "./art/8.png", links: [
+      { label: "X (Twitter)", url: "https://x.com/varts_works?" },
+    ], song: `「アニメタイトル」
+・罪喰いシスターズ
+` },
+
+
+  { name: "トミオ", icon: "./icons/9.png", art: "./art/9.png", links: [], song: `アニメタイトル
+「放課後パレット」` },
+
+
+  { name: "Felis Catus", icon: "./icons/10.jpg", art: "./art/10.JPG", links: [], song: `アニメタイトル
+・『星護りの白銀』
+
+楽曲
+・『白銀』
+・『真紅』ほか` },
+
+
+  { name: "Sort5691", icon: "./icons/11.jpg", art: "./art/0.png", links: [], song: "楽曲情報 準備中..." },
+
+
+  { name: "ユミリアの夢案内", icon: "./icons/12.jpg", art: "./art/12.png", links: [
+      { label: "相対性リボン", url: "https://www.youtube.com/watch?v=UnLB8Tib8d4" },
+      { label: "沈黙のカデンツァは誰の夢", url: "https://www.youtube.com/watch?v=zgLTfTLhucI" },
+      { label: "＃すぴ", url: "https://www.youtube.com/watch?v=XVx3hnGfdX0" },
+      { label: "傀儡人形と白い彼岸花", url: "https://www.youtube.com/watch?v=yHdI9T2osLo" }
+    ], song: `『ユミリアの夢案内』オリジナルMV
+
+・相対性リボン
+・沈黙のカデンツァは誰の夢
+・＃すぴ
+・傀儡人形と白い彼岸花` },
+
+
+  { name: "Katsunn AI", icon: "./icons/13.jpg", art: "./art/13.jpg", links: [], song: `アニメタイトル
+・猫乙女-The Animation-
+
+楽曲
+・OPテーマ曲　猫乙女
+・EDテーマ曲　Otome Walk Journey♪` },
+  { name: "Hina", icon: "./icons/14.png", art: "./art/14.png", links: [
+      { label: "[note]", url: "https://note.com/noctwave/n/n6c1975a8767a" },
+      { label: "[Youtube]", url: "https://www.youtube.com/@LuminaNavis" },
+      { label: "[X]", url: "https://x.com/NoctWave" }
+    ], song: `
+●アニメタイトルと概要
+GRANISS
+地方の弱小校を舞台に、挫折した主人公・風早蓮が仲間とともに再び立ち上がり、甲子園を目指す物語。
+
+●曲名リスト
+オープニング：「未完成」
+エンディング：「少しだけでも」
+
+●NoctWave
+AIで制作した架空の4人組バンドプロジェクト。
+
+` },
+
+
+  { name: "LUCY", icon: "./icons/15.png", art: "./art/15.png", links: [
+      { label: "X（旧Twitter）", url: "https://x.com/luxaios" },
+    ], song: `・楽曲情報準備中` },
+
+
+  { name: "前野凌", icon: "./icons/16.png", art: "./art/16.png", links: [], song: "仮想通貨アイドル★さくらちゃん" }
+];
 const PETIT_EVENTS_DATA = [
   { 
     category: "Market", 
