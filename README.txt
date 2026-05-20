@@ -1,12 +1,16 @@
-重要:
-GitHubにはZIPをそのままアップロードしないでください。
-ZIPの中身を展開して、以下5ファイルをリポジトリ直下へ個別にアップロードしてください。
+正しい表示順:
+1. logo3.jpg
+2. logo.jpg
+3. X Live / Archive
 
+アップロードするもの:
 - index.html
 - style.css
 - main.js
-- mainvisual-20260520.jpg
-- timetable-20260520.png
+- logo3.jpg
+- timetable.png
 
-この版では画像名を変更してキャッシュ回避しています。
-index.html は logo3.jpg ではなく mainvisual-20260520.jpg を参照します。
+重要:
+- 既存の logo.jpg は消さずに残してください。
+- ZIPをそのままGitHubに置かず、展開して中身だけをリポジトリ直下へアップロードしてください。
+- 古い ai-anison-exp-keyvisual-20260520.jpg などは残っていても、この版では参照しません。

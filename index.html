@@ -11,7 +11,6 @@
 </head>
 <body>
 
-  <!-- Floating Nav -->
   <header class="header">
     <div class="header-inner">
       <div class="header-site-name">AI Anison EXP</div>
@@ -20,7 +19,6 @@
         <a href="#timetable" data-i18n="nav.timetable">Timetable</a>
         <a href="#lineup" data-i18n="nav.lineup">Lineup</a>
         <a href="#petit-events" data-i18n="nav.petit">Petit Events</a>
-        <!-- 言語スイッチ -->
         <button class="lang-switch" id="lang-switch" aria-label="言語切り替え">
           <span class="lang-option" data-lang="en">EN</span>
           <span class="lang-divider">|</span>
@@ -30,46 +28,60 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- 1. logo3.jpg / 2. logo.jpg -->
+  <section class="hero" id="top">
     <div class="hero-bg-elements">
       <div class="blur-circle sf-blue"></div>
       <div class="blur-circle fantasy-gold"></div>
     </div>
+
     <div class="hero-content">
-      <img src="./mainvisual-20260520.jpg" alt="AI Anison EXP key visual" class="hero-key-visual" />
-      <div class="hero-mini-logo-wrap"><img src="./logo.jpg" alt="AI Anison EXP logo" class="hero-logo" /></div>
+      <img src="./logo3.jpg" alt="AI Anison EXP メインビジュアル" class="hero-key-visual" />
+      <div class="hero-mini-logo-wrap">
+        <img src="./logo.jpg" alt="AI Anison EXP logo" class="hero-logo" />
+      </div>
+
       <h2 class="hero-subtitle" data-i18n="hero.subtitle">Generative Anime Song Festival</h2>
       <h1 class="hero-title" data-i18n="hero.title">AI Anison EXP</h1>
+
       <div class="event-date">
         <span class="date-icon">✧</span>
         <span class="date-text">2026.05.30 (Sat) 21:00 JST START</span>
       </div>
+
       <p class="hero-desc" data-i18n="hero.desc">
         AI技術と人の感性が交差する、次世代音楽フェス。<br>
         幻想と未来が共存するステージへようこそ。
       </p>
+
       <div class="live-status" id="live-status"></div>
-      <a href="#archive" class="live-button" id="live-button">▶︎ LIVEを見る</a>
+
+      <a href="https://x.com/i/broadcasts/1qKVmQllldYxB" target="_blank" rel="noopener noreferrer" class="live-button" id="live-button">
+        ▶︎ LIVEを見る
+      </a>
+
       <p class="hero-catchcopy" data-i18n="hero.catchcopy">一夜限りのアニソンフェス、ここでしか聴けない音がある</p>
     </div>
   </section>
 
-  <!-- Main Content Wrapper -->
   <main class="main-container">
 
+    <!-- 3. Archive -->
     <section id="archive" class="section">
       <div class="section-header">
         <h2 class="section-title">X Live <span>/ Archive</span></h2>
       </div>
+
       <div class="x-broadcast-container">
         <blockquote class="twitter-broadcast" data-broadcast-id="1qKVmQllldYxB">
           <a href="https://x.com/i/broadcasts/1qKVmQllldYxB">Broadcast</a>
         </blockquote>
       </div>
+
       <div class="youtube-caption" data-i18n="archive.caption">
         ※表示されない場合は、下のリンクからXライブ配信をご視聴ください。
       </div>
+
       <p class="x-broadcast-link">
         <a href="https://x.com/i/broadcasts/1qKVmQllldYxB" target="_blank" rel="noopener noreferrer">Xでライブ配信を見る →</a>
       </p>
@@ -80,8 +92,9 @@
         <h2 class="section-title">Time <span>Table</span></h2>
         <p class="section-desc" data-i18n="timetable.desc">当日の進行スケジュールです。</p>
       </div>
+
       <div class="timetable-image-wrap">
-        <img src="./timetable-20260520.png" alt="AIアニソンEXP タイムスケジュール" class="timetable-image" />
+        <img src="./timetable.png" alt="AIアニソンEXP タイムスケジュール" class="timetable-image" />
       </div>
     </section>
 
@@ -110,6 +123,5 @@
 
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script type="module" src="./main.js"></script>
-  <script src="./liveStatus.js"></script>
 </body>
 </html>
