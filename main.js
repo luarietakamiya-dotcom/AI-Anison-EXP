@@ -231,15 +231,9 @@ function renderSongSummary(song) {
   if (!lines.length) return '<span class="song-line">楽曲情報 準備中...</span>';
 
   const maxLines = 3;
-  const body = lines.slice(0, maxLines)
+  return lines.slice(0, maxLines)
     .map(line => `<span class="song-line">${escapeHtml(line)}</span>`)
     .join('');
-
-  const more = lines.length > maxLines
-    ? '<span class="song-line song-more">…クリックで全曲表示</span>'
-    : '';
-
-  return body + more;
 }
 
 function renderSongFull(song) {
@@ -484,24 +478,19 @@ function injectLineBreakStyles() {
       overflow: hidden;
     }
 
-    .song-line {
+    .creator-card .song-summary .song-line {
       display: block !important;
       width: 100%;
       margin: 0 0 2px;
-      white-space: normal;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      word-break: normal !important;
+      overflow-wrap: normal !important;
     }
 
-    .creator-card .song-summary .song-line:nth-child(n+5) {
+    .creator-card .song-summary .song-line:nth-child(n+4) {
       display: none !important;
-    }
-
-    .song-more {
-      color: var(--accent-sf);
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-top: 4px;
     }
 
     .modal-song {
@@ -512,6 +501,12 @@ function injectLineBreakStyles() {
     }
 
     .modal-song .song-line {
+      display: block !important;
+      width: 100%;
+      margin: 0 0 2px;
+      white-space: normal !important;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
       text-align: left !important;
     }
 
