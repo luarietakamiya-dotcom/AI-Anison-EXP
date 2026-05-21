@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luarietakamiya-dotcom.github.io/AI-Anison-EXP/sitemap.xml
