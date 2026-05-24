@@ -1,34 +1,13 @@
-# AI Anison EXP no-CSP SEO / Search / Security Patch
+Search Consoleのサイトマップ再取得用パッチです。
 
-CSPは入れていません。
-
-追加内容:
-- SEO / OGP / Xカード meta
-- canonical URL
-- referrer policy
-- favicon / apple-touch-icon
-- theme-color
-- schema.org Event structured data
+アップロードするもの:
+- sitemap-index.xml
 - robots.txt
-- sitemap.xml
-- 404.html
-- 404-image.png
-- liveStatus.js を index.html から読み込むよう追加
 
-アップロード方法:
-ZIPをそのままGitHubに置かず、展開して中身をリポジトリ直下へアップロードしてください。
+手順:
+1. ZIPを展開
+2. sitemap-index.xml と robots.txt をGitHubリポジトリ直下へアップロード
+3. ブラウザで https://luarietakamiya-dotcom.github.io/AI-Anison-EXP/sitemap-index.xml を開けるか確認
+4. Search Consoleのサイトマップ欄に sitemap-index.xml と入力して送信
 
-最低限アップロードするもの:
-- index.html
-- style.css
-- main.js
-- liveStatus.js
-- robots.txt
-- sitemap.xml
-- 404.html
-- 404-image.png
-- logo2.jpg
-- logo3.jpg
-- timetable.png
-
-既存の icons / art / logo.jpg フォルダ・画像は消さずに残してください。
+既存の sitemap.xml は消さなくてOKです。
