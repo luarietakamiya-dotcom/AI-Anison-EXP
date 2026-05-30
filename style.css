@@ -1118,3 +1118,27 @@ a {
     border-radius: 14px !important;
   }
 }
+
+
+/* === YouTube 16:9 Embed Fix === */
+.x-broadcast-container {
+  width: 100% !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  background: #000 !important;
+  border: none !important;
+  box-shadow: 0 20px 40px rgba(2, 132, 199, 0.10) !important;
+  display: block !important;
+}
+
+.x-broadcast-container iframe {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  border: none !important;
+  margin: 0 !important;
+}
