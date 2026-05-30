@@ -402,7 +402,7 @@ function renderLiveStatus() {
   statusEl.innerHTML = `<span class="live-badge ${badgeClass}"><span class="badge-dot"></span>${badgeText}</span>`;
   buttonEl.className = `live-button${buttonClass ? ' ' + buttonClass : ''}`;
   buttonEl.textContent = buttonText;
-  buttonEl.href = 'https://x.com/i/broadcasts/1qKVmQllldYxB';
+  buttonEl.href = 'https://www.youtube.com/watch?v=xbX-QMmdkbg';
   buttonEl.target = '_blank';
   buttonEl.rel = 'noopener noreferrer';
 }
