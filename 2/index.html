@@ -1,0 +1,1906 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>アニソンEXPSecond</title><meta name="description" content="アニソンEXPSecond。出展作品のあらすじ、みどころ、クリエイターコメントをご紹介。"><style>
+    :root {
+      --bg: #04040d;
+      --bg-2: #09091a;
+      --text: #f7f7ff;
+      --muted: #b7b8d8;
+      --dim: #77799f;
+      --main: #ffba67;
+      --sub: #ffd48d;
+      --accent: #ff7f76;
+      --gold: #ffe6a7;
+      --line: rgba(255, 255, 255, 0.14);
+      --glass: rgba(255, 255, 255, 0.065);
+      --shadow: 0 0 38px rgba(255, 186, 103, 0.32);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Meiryo", system-ui, sans-serif;
+      letter-spacing: 0.035em;
+      line-height: 1.75;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255, 186, 103, 0.26), transparent 30%),
+        radial-gradient(circle at 86% 18%, rgba(255, 212, 141, 0.20), transparent 26%),
+        radial-gradient(circle at 60% 68%, rgba(255, 127, 118, 0.13), transparent 30%),
+        linear-gradient(180deg, #03030a 0%, #080816 45%, #03030a 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -4;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.88), transparent 82%);
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      opacity: 0.32;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0px,
+          transparent 4px,
+          rgba(255,255,255,0.035) 5px,
+          transparent 7px
+        );
+      mix-blend-mode: screen;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.07;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.62'/%3E%3C/svg%3E");
+    }
+
+    #particleCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.95;
+      mix-blend-mode: screen;
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(180deg, rgba(4,4,13,0.88), rgba(4,4,13,0.38));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      position: relative;
+      background:
+        radial-gradient(circle at 35% 30%, #fff 0 4%, transparent 5%),
+        conic-gradient(from 120deg, var(--sub), var(--main), var(--accent), var(--sub));
+      box-shadow: 0 0 20px rgba(255,212,141,0.45), inset 0 0 14px rgba(255,255,255,0.24);
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border-radius: inherit;
+      background: var(--bg);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 8px 0;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 3px;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--sub), var(--accent));
+      transition: width 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      border-radius: 12px;
+      font-size: 18px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 120px 18px 72px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: min(78vw, 920px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.08), transparent 15%),
+        radial-gradient(circle, rgba(255,186,103,0.20), transparent 56%);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 0 80px rgba(255,212,141,0.06), 0 0 180px rgba(255,186,103,0.22);
+      animation: floatCircle 12s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .hero::after {
+      content: "ANISONG EXP SECOND / ANIMATION / MUSIC";
+      position: absolute;
+      bottom: 20%;
+      left: -5vw;
+      width: 110vw;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: clamp(58px, 11vw, 172px);
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.035);
+      white-space: nowrap;
+      transform: rotate(-5deg);
+      pointer-events: none;
+    }
+
+    @keyframes floatCircle {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(0, -18px, 0) scale(1.02); }
+    }
+
+    .hero-inner {
+      width: min(var(--max), 100%);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+
+    .eyebrow::after {
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .title-wrap {
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: clamp(42px, 7vw, 96px);
+      line-height: 0.98;
+      letter-spacing: 0.01em;
+      font-weight: 950;
+      text-shadow: 0 0 34px rgba(255,186,103,0.36);
+    }
+
+    .hero-title .sub-title {
+      display: block;
+      margin-top: 12px;
+      font-size: clamp(26px, 4vw, 54px);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 700;
+      color: transparent;
+      background: linear-gradient(90deg, #fff, var(--sub), var(--accent), #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter: drop-shadow(0 0 12px rgba(255,212,141,0.25));
+    }
+
+    .date-line {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      font-size: clamp(18px, 2.2vw, 30px);
+      font-weight: 900;
+      letter-spacing: 0.16em;
+    }
+
+    .date-line span {
+      padding: 4px 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.055);
+      box-shadow: 0 0 20px rgba(255,212,141,0.10);
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.6vw, 19px);
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.07);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.11em;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .button.primary {
+      background: linear-gradient(90deg, rgba(255,186,103,0.95), rgba(255,127,118,0.88));
+      box-shadow: var(--shadow);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.42);
+    }
+
+    .visual-card {
+      position: relative;
+      aspect-ratio: 0.78;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background:
+        linear-gradient(150deg, rgba(255,255,255,0.14), transparent 28%),
+        radial-gradient(circle at 50% 26%, rgba(255,212,141,0.24), transparent 24%),
+        radial-gradient(circle at 42% 62%, rgba(255,127,118,0.24), transparent 28%),
+        linear-gradient(180deg, rgba(255,186,103,0.18), rgba(255,255,255,0.04));
+      box-shadow: 0 32px 80px rgba(0,0,0,0.38), inset 0 0 40px rgba(255,255,255,0.07);
+      overflow: hidden;
+    }
+
+    .visual-card::before {
+      content: "";
+      position: absolute;
+      inset: 7%;
+      border-radius: 50% 50% 42% 42%;
+      border: 1px solid rgba(255,255,255,0.18);
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,0.18), transparent 13%),
+        linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.08) 100%);
+      clip-path: polygon(50% 0%, 64% 26%, 95% 34%, 69% 52%, 79% 88%, 50% 66%, 21% 88%, 31% 52%, 5% 34%, 36% 26%);
+      filter: drop-shadow(0 0 26px rgba(255,212,141,0.24));
+    }
+
+    .visual-card::after {
+      content: "MAIN VISUAL PLACEHOLDER";
+      position: absolute;
+      left: 24px;
+      bottom: 22px;
+      color: rgba(255,255,255,0.62);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      font-weight: 900;
+    }
+
+    .character-silhouettes {
+      position: absolute;
+      inset: auto 10% 10% 10%;
+      height: 48%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 4%;
+      opacity: 0.84;
+    }
+
+    .silhouette {
+      width: 27%;
+      height: var(--h);
+      border-radius: 999px 999px 20px 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.34), rgba(255,186,103,0.10) 44%, rgba(0,0,0,0.36));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 0 30px rgba(255,212,141,0.10);
+      filter: blur(0.1px);
+    }
+
+    .silhouette:nth-child(1) { --h: 70%; transform: rotate(-4deg); }
+    .silhouette:nth-child(2) { --h: 88%; }
+    .silhouette:nth-child(3) { --h: 76%; transform: rotate(4deg); }
+
+    section {
+      position: relative;
+      padding: 100px 18px;
+    }
+
+    .container {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-head > div {
+      min-width: 0;
+    }
+
+    .section-kicker {
+      display: block;
+      color: var(--sub);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4.6vw, 70px);
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: 0.03em;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 720px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
+      border-radius: 26px;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.25);
+      backdrop-filter: blur(18px);
+    }
+
+    .news-list {
+      overflow: hidden;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      padding: 22px 26px;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-date {
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 0.10em;
+    }
+
+    .news-text {
+      color: var(--muted);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .intro-copy {
+      padding: 34px;
+    }
+
+    .intro-copy p + p {
+      margin-top: 18px;
+    }
+
+    .tag-wall {
+      position: relative;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 28px;
+    }
+
+    .tag-wall::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,212,141,0.20), transparent 21%),
+        conic-gradient(from 180deg, transparent, rgba(255,186,103,0.28), transparent, rgba(255,127,118,0.20), transparent);
+      animation: slowSpin 18s linear infinite;
+    }
+
+    @keyframes slowSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .tag-cloud {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .tag {
+      padding: 8px 13px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(4,4,13,0.58);
+      color: rgba(255,255,255,0.82);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .story {
+      background: linear-gradient(180deg, transparent, rgba(255,186,103,0.05), transparent);
+    }
+
+    .story-card {
+      position: relative;
+      padding: clamp(30px, 5vw, 62px);
+      overflow: hidden;
+    }
+
+    .story-card::before {
+      content: "新御霊市";
+      position: absolute;
+      right: -16px;
+      bottom: -36px;
+      font-size: clamp(76px, 13vw, 190px);
+      font-weight: 950;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.035);
+      white-space: nowrap;
+    }
+
+    .story-card p {
+      position: relative;
+      max-width: 780px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.6vw, 18px);
+    }
+
+    .story-card p + p {
+      margin-top: 16px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .stat {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      min-height: 210px;
+    }
+
+    .stat::after {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      right: -70px;
+      top: -70px;
+      background: radial-gradient(circle, rgba(255,212,141,0.20), transparent 65%);
+    }
+
+    .stat-number {
+      display: block;
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: 1;
+      font-weight: 950;
+      color: transparent;
+      background: linear-gradient(120deg, #fff, var(--sub), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .stat-label {
+      display: block;
+      margin-top: 14px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .stat-text {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .track-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .track {
+      min-height: 86px;
+      padding: 13px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.045);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .track strong {
+      display: block;
+      color: var(--text);
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+
+    .guest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .guest-grid--sync {
+      margin-bottom: 88px;
+    }
+
+    .sync-card {
+      border-color: rgba(255, 207, 92, 0.22);
+      background:
+        radial-gradient(circle at 82% 15%, rgba(255, 207, 92, 0.12), transparent 34%),
+        linear-gradient(145deg, rgba(255,186,103,0.12), rgba(255,255,255,0.045));
+    }
+
+    .guest-card.sync-card:hover {
+      border-color: rgba(255, 207, 92, 0.55);
+      background:
+        radial-gradient(circle at 82% 15%, rgba(255, 207, 92, 0.2), transparent 38%),
+        linear-gradient(145deg, rgba(255,186,103,0.2), rgba(255,255,255,0.06));
+    }
+
+    .sync-card .guest-role {
+      color: #ffe18f;
+      border-color: rgba(255, 225, 143, 0.32);
+      background: rgba(255, 207, 92, 0.07);
+    }
+
+    .guest-card {
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      min-height: 176px;
+      transition: transform 190ms ease, border-color 190ms ease, background 190ms ease;
+    }
+
+    .guest-card::before {
+      content: attr(data-no);
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 950;
+      color: rgba(255,255,255,0.055);
+    }
+
+    .guest-card::after {
+      content: "";
+      position: absolute;
+      left: -30%;
+      top: 0;
+      width: 34%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: skewX(-18deg);
+      transition: left 380ms ease;
+    }
+
+    .guest-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,212,141,0.38);
+      background: linear-gradient(145deg, rgba(255,186,103,0.14), rgba(255,255,255,0.045));
+    }
+
+    .guest-card:hover::after {
+      left: 120%;
+    }
+
+    .guest-role {
+      display: inline-flex;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--sub);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      margin-bottom: 14px;
+    }
+
+    .guest-avatar {
+      position: relative;
+      width: 104px;
+      aspect-ratio: 1;
+      margin: 2px 0 18px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.24);
+      background: linear-gradient(145deg, rgba(255,212,141,0.16), rgba(255,186,103,0.16), rgba(255,127,118,0.14));
+      box-shadow: 0 0 24px rgba(255,212,141,0.12);
+    }
+
+    .guest-avatar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 18px rgba(0,0,0,0.28);
+      pointer-events: none;
+    }
+
+    .guest-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .guest-avatar--pending {
+      display: grid;
+      place-items: center;
+    }
+
+    .guest-avatar--pending span {
+      color: rgba(255,255,255,0.48);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-align: center;
+    }
+
+    .guest-name {
+      position: relative;
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 900;
+      padding-right: 34px;
+    }
+
+    .guest-track {
+      position: relative;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .guest-track span {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .character-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .character-card {
+      position: relative;
+      min-height: 360px;
+      padding: 28px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .character-card::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 32px;
+      width: 42%;
+      height: 52%;
+      transform: translateX(-50%);
+      border-radius: 999px 999px 28px 28px;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,0.30), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,186,103,0.10), rgba(0,0,0,0.20));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 0 36px rgba(255,212,141,0.12);
+    }
+
+    .character-card::after {
+      content: attr(data-bg);
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      font-size: clamp(56px, 8vw, 108px);
+      line-height: 0.9;
+      font-weight: 950;
+      color: rgba(255,255,255,0.045);
+    }
+
+    .character-card h3,
+    .character-card p {
+      position: relative;
+    }
+
+    .character-card h3 {
+      font-size: 30px;
+      letter-spacing: 0.16em;
+    }
+
+    .character-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .schedule-line {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .schedule-item {
+      padding: 22px;
+      min-height: 156px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .schedule-item::before {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--sub), transparent);
+      opacity: 0.5;
+    }
+
+    .schedule-item h3,
+    .schedule-item p,
+    .schedule-item time {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .schedule-item time {
+      display: block;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    .schedule-item h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .schedule-item p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .credit-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 18px;
+    }
+
+    .credit-logo {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 28px;
+    }
+
+    .credit-logo strong {
+      display: block;
+      font-size: clamp(28px, 4vw, 50px);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .credit-logo span {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+    }
+
+    .credit-list {
+      padding: 26px;
+    }
+
+    .credit-row {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 18px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .credit-row:last-child {
+      border-bottom: none;
+    }
+
+    .credit-row dt {
+      color: var(--sub);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .credit-row dd {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer {
+      padding: 42px 18px 56px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.18);
+      text-align: center;
+      color: var(--dim);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+    }
+
+    .footer p {
+      line-height: 1.9;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glitch {
+      position: relative;
+      display: inline-block;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .glitch::before {
+      color: var(--sub);
+      transform: translateX(-2px);
+      clip-path: inset(0 0 58% 0);
+    }
+
+    .glitch::after {
+      color: var(--accent);
+      transform: translateX(2px);
+      clip-path: inset(54% 0 0 0);
+    }
+
+    .glitch:hover::before,
+    .glitch:hover::after {
+      opacity: 0.72;
+      animation: glitchJitter 520ms steps(2, end) infinite;
+    }
+
+    @keyframes glitchJitter {
+      0% { transform: translate(0,0); }
+      25% { transform: translate(-2px,1px); }
+      50% { transform: translate(2px,-1px); }
+      75% { transform: translate(-1px,2px); }
+      100% { transform: translate(0,0); }
+    }
+
+
+
+    /* Integrated key visuals */
+    .hero-inner {
+      grid-template-columns: 0.82fr 1.18fr;
+    }
+
+    .visual-card {
+      aspect-ratio: 3 / 2;
+      border-radius: 26px;
+      padding: 8px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.18), transparent 30%),
+        radial-gradient(circle at 18% 14%, rgba(255,212,141,0.22), transparent 28%),
+        radial-gradient(circle at 84% 18%, rgba(255,127,118,0.24), transparent 30%),
+        rgba(255,255,255,0.05);
+      box-shadow: 0 34px 90px rgba(0,0,0,0.46), 0 0 70px rgba(255,186,103,0.22), inset 0 0 32px rgba(255,255,255,0.08);
+    }
+
+    .visual-card::before,
+    .visual-card::after,
+    .character-silhouettes {
+      display: none;
+    }
+
+    .visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+    }
+
+    .visual-badge {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      z-index: 3;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(4,4,13,0.64);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,0.86);
+      font-size: 10px;
+      line-height: 1;
+      letter-spacing: 0.18em;
+      font-weight: 900;
+    }
+
+    .character-visual-grid {
+      align-items: stretch;
+    }
+
+    .character-visual-grid .character-card {
+      min-height: 560px;
+      padding: 0;
+      border-radius: 28px;
+      background: rgba(4,4,13,0.72);
+      isolation: isolate;
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .character-visual-grid .character-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.32);
+      box-shadow: 0 28px 88px rgba(0,0,0,0.34), 0 0 42px rgba(255,212,141,0.12);
+    }
+
+    .character-visual-grid .character-card::before {
+      display: none;
+    }
+
+    .character-visual-grid .character-card::after {
+      z-index: 2;
+      top: 20px;
+      left: 20px;
+      color: rgba(255,255,255,0.062);
+      text-shadow: 0 0 28px rgba(255,255,255,0.08);
+      pointer-events: none;
+    }
+
+    .character-portrait {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transform: scale(1.01);
+      transition: transform 360ms ease, filter 360ms ease;
+    }
+
+    .character-card:hover .character-portrait {
+      transform: scale(1.045);
+      filter: contrast(1.04) saturate(1.08);
+    }
+
+    .character-info {
+      position: relative;
+      z-index: 4;
+      margin-top: auto;
+      padding: 150px 24px 24px;
+      background:
+        linear-gradient(180deg, transparent, rgba(4,4,13,0.76) 42%, rgba(4,4,13,0.94) 100%);
+    }
+
+    .character-role {
+      display: inline-flex;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 10px;
+      line-height: 1.4;
+      letter-spacing: 0.14em;
+      font-weight: 900;
+    }
+
+    .character-info h3 {
+      font-size: clamp(26px, 3.6vw, 40px);
+      line-height: 1.05;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 24px rgba(0,0,0,0.58);
+    }
+
+    .character-info h3 small {
+      font-size: 0.42em;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      margin-left: 8px;
+    }
+
+    .character-info p {
+      max-width: 94%;
+      color: rgba(247,247,255,0.78);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .character-card--mimi .character-role { color: #74eaff; }
+    .character-card--lua .character-role { color: #ffe6a7; }
+    .character-card--achan .character-role { color: #ff8ee6; }
+
+    @media (max-width: 1320px) {
+      .section-head {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 16px;
+      }
+
+      .section-lead {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-card {
+        max-width: 780px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .character-visual-grid .character-card {
+        min-height: 620px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .visual-card {
+        border-radius: 20px;
+        padding: 6px;
+      }
+
+      .visual-card img {
+        border-radius: 15px;
+      }
+
+      .visual-badge {
+        left: 14px;
+        bottom: 14px;
+        font-size: 9px;
+      }
+
+      .character-visual-grid .character-card {
+        min-height: 560px;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .section-head,
+      .intro-grid,
+      .credit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-card {
+        max-width: 420px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .stats-grid,
+      .guest-grid,
+      .character-grid,
+      .schedule-line {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .track-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        height: 62px;
+      }
+
+      .menu-button {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        top: 70px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(5,5,16,0.95);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .hero {
+        padding-top: 100px;
+      }
+
+      section {
+        padding: 76px 16px;
+      }
+
+      .stats-grid,
+      .guest-grid,
+      .character-grid,
+      .schedule-line,
+      .track-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-item,
+      .credit-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+
+    /* Final responsive overrides for integrated visuals */
+    @media (max-width: 980px) {
+      .visual-card { max-width: 780px; width: 100%; }
+      .character-visual-grid .character-card { min-height: 620px; }
+    }
+
+    @media (max-width: 760px) {
+      .visual-card { max-width: 100%; border-radius: 20px; padding: 6px; }
+      .visual-card img { border-radius: 15px; }
+      .visual-badge { left: 14px; bottom: 14px; font-size: 9px; }
+      .character-visual-grid .character-card { min-height: 560px; }
+    }
+
+  
+
+    /* ===== CINEMATIC REDESIGN 2026-07 ===== */
+    :root { --panel-radius: 15px; }
+    .panel { border-radius: var(--panel-radius); }
+
+    .hero { min-height: 100svh; padding-top: 92px; }
+    .hero-inner { width: min(1360px, 100%); grid-template-columns: minmax(320px,.68fr) minmax(640px,1.32fr); gap: clamp(28px,5vw,72px); align-items: center; }
+    .hero-title { font-size: clamp(48px,6.6vw,104px); }
+    .hero-copy--cinematic { font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(19px,1.7vw,27px); line-height: 1.75; letter-spacing: .08em; color: rgba(255,255,255,.92); margin-top: 26px; }
+    .hero-meta-line { display:flex; align-items:center; gap:14px; margin-top:24px; color:rgba(255,255,255,.62); font-size:11px; letter-spacing:.18em; font-weight:800; }
+    .hero-meta-line i { width:44px; height:1px; background:linear-gradient(90deg,var(--sub),var(--accent)); }
+    .visual-card { max-width:none; border-radius:14px; padding:7px; transform:none; overflow:hidden; background:linear-gradient(145deg, rgba(7,12,36,.92), rgba(20,14,46,.88)); }
+    .visual-card img { display:block; width:100%; aspect-ratio:16 / 9; min-height:0; border-radius:9px; object-fit:contain; object-position:center center; background:linear-gradient(145deg, rgba(3,8,28,.96), rgba(16,12,42,.96)); }
+    .visual-card::before { border-radius:14px; }
+
+    #intro .panel { border-radius:16px; }
+    #story .story-card { border-radius:4px 24px 4px 24px; border-left:2px solid rgba(255,230,167,.65); background:linear-gradient(90deg,rgba(255,230,167,.055),rgba(255,255,255,.025)); }
+
+    .music-cinematic { overflow:hidden; background:radial-gradient(circle at 50% 30%,rgba(255,186,103,.18),transparent 45%); }
+    .music-cinematic::before { content:"MUSIC"; position:absolute; inset:auto 0 2%; font-size:min(25vw,360px); font-weight:950; letter-spacing:.08em; color:rgba(255,255,255,.018); white-space:nowrap; pointer-events:none; }
+    .music-monument { position:relative; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:clamp(24px,4vw,60px); min-height:520px; padding:50px 0 110px; }
+    .music-figure { display:grid; grid-template-columns:auto 1fr; align-items:center; gap:24px; position:relative; z-index:1; }
+    .music-number { font-size:clamp(110px,14vw,230px); line-height:.75; font-weight:950; letter-spacing:-.08em; color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.8); text-shadow:0 0 45px rgba(255,186,103,.45); }
+    .music-figure--sync .music-number { background:linear-gradient(180deg,#fff 8%,#73eaff 88%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .music-figure--guest .music-number { background:linear-gradient(180deg,#fff 8%,#ff6ddb 88%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .music-figure b { display:block; font-size:clamp(25px,3vw,46px); letter-spacing:.08em; }
+    .music-figure small { display:block; color:var(--muted); letter-spacing:.16em; font-size:11px; margin:8px 0 18px; }
+    .music-figure p { color:var(--muted); max-width:260px; }
+    .music-cross { font-family:serif; font-size:clamp(42px,5vw,72px); color:rgba(255,255,255,.28); }
+    .music-total { position:absolute; left:50%; bottom:12px; transform:translateX(-50%); text-align:center; }
+    .music-total span { display:block; font-size:clamp(66px,8vw,124px); line-height:.8; font-weight:950; background:linear-gradient(90deg,var(--sub),#fff,var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .music-total sup { font-size:.35em; }
+    .music-total small { display:block; margin-top:14px; letter-spacing:.28em; color:var(--gold); }
+    .track-strip { display:flex; overflow:hidden; gap:30px; padding:19px 0; border-top:1px solid rgba(255,255,255,.14); border-bottom:1px solid rgba(255,255,255,.14); color:rgba(255,255,255,.28); white-space:nowrap; mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent); }
+    .track-strip span { font-size:11px; letter-spacing:.2em; }
+
+    .guest-card { border-radius:12px; position:relative; overflow:hidden; }
+    .guest-card::after { content:""; position:absolute; inset:auto 0 0; height:2px; background:linear-gradient(90deg,var(--sub),var(--main),var(--accent)); opacity:.45; transform:scaleX(.2); transform-origin:left; transition:.35s; }
+    .guest-card:hover::after { transform:scaleX(1); opacity:1; }
+
+    .character-cinematic { padding-left:0; padding-right:0; overflow:hidden; }
+    .character-cinematic > .container { padding:0 18px; }
+    .character-feature { position:relative; min-height:760px; display:grid; place-items:center; border-top:1px solid rgba(255,255,255,.08); overflow:hidden; }
+    .character-feature::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 20% 50%,var(--char-glow),transparent 44%),linear-gradient(90deg,rgba(4,4,13,.15),rgba(4,4,13,.92)); }
+    .character-feature--mimi { --char:#54dcff; --char-glow:rgba(255,212,141,.23); }
+    .character-feature--lua { --char:#ffe0a0; --char-glow:rgba(255,202,95,.22); }
+    .character-feature--achan { --char:#ff65d5; --char-glow:rgba(255,127,118,.22); }
+    .character-feature-inner { position:relative; z-index:1; width:min(1320px,calc(100% - 36px)); margin:auto; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr); align-items:center; gap:clamp(36px,6vw,90px); }
+    .character-feature-inner.reverse .character-feature-image { order:2; }
+    .character-feature-inner.reverse .character-feature-copy { order:1; }
+    .character-feature-image { height:640px; position:relative; }
+    .character-feature-image::after { content:""; position:absolute; inset:0; box-shadow:inset 0 0 70px 30px rgba(4,4,13,.7); pointer-events:none; }
+    .character-feature-image img { width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:2px 18px 2px 18px; filter:saturate(1.05) contrast(1.03); }
+    .character-feature-copy { max-width:520px; }
+    .character-index { display:block; color:var(--char); font-size:11px; letter-spacing:.24em; font-weight:900; margin-bottom:22px; }
+    .character-feature-copy h3 { line-height:.9; margin-bottom:22px; }
+    .character-feature-copy h3 em { display:block; font-style:normal; font-size:clamp(56px,7vw,110px); letter-spacing:-.04em; color:#fff; text-shadow:0 0 35px var(--char-glow); }
+    .character-feature-copy h3 small { display:block; margin-top:14px; color:var(--char); font-size:17px; letter-spacing:.12em; }
+    .character-roleline { color:var(--char); letter-spacing:.15em; font-size:12px; font-weight:900; margin-bottom:24px; }
+    .character-feature-copy > p:not(.character-roleline) { color:rgba(255,255,255,.76); font-size:16px; line-height:2; }
+    .character-keywords { display:flex; flex-wrap:wrap; gap:9px; margin-top:28px; }
+    .character-keywords span { border:1px solid color-mix(in srgb,var(--char) 45%,transparent); color:var(--char); padding:9px 13px; font-size:10px; letter-spacing:.14em; background:rgba(0,0,0,.22); }
+
+    #credit { background:linear-gradient(180deg,transparent,rgba(0,0,0,.4)); }
+
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns:1fr; }
+      .visual-card img { min-height:0; aspect-ratio:auto; }
+      .music-monument { grid-template-columns:1fr; text-align:center; gap:12px; padding-bottom:140px; }
+      .music-figure { grid-template-columns:1fr; justify-items:center; }
+      .music-figure p { max-width:none; }
+      .music-cross { transform:rotate(45deg); }
+      .character-feature { min-height:auto; padding:70px 0; }
+      .character-feature-inner,.character-feature-inner.reverse { grid-template-columns:1fr; }
+      .character-feature-inner.reverse .character-feature-image,.character-feature-inner.reverse .character-feature-copy { order:initial; }
+      .character-feature-image { height:min(115vw,700px); }
+      .character-feature-copy { max-width:760px; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding-top:76px; }
+      .hero-meta-line { flex-wrap:wrap; }
+      .music-number { font-size:38vw; }
+      .character-feature-copy h3 em { font-size:17vw; }
+      .character-feature-image { height:128vw; }
+    }
+
+  
+
+    /* Official 3-Sync logo placements */
+    .brand {
+      gap: 0;
+      min-width: 148px;
+    }
+
+    .brand-logo-image {
+      display: block;
+      width: 148px;
+      height: 44px;
+      object-fit: contain;
+      object-position: left center;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 10px rgba(255,212,141,.22));
+    }
+
+    .credit-logo {
+      overflow: hidden;
+      background: radial-gradient(circle at center, rgba(58,34,110,.25), rgba(3,5,15,.88) 72%);
+    }
+
+    .credit-logo-image {
+      display: block;
+      width: min(100%, 440px);
+      margin: 0 auto 18px;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 18px rgba(255,186,103,.22));
+    }
+
+    .credit-logo-caption {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .2em;
+    }
+
+    .footer-logo-image {
+      display: block;
+      width: min(340px, 78vw);
+      margin: 0 auto 22px;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 16px rgba(255,127,118,.18));
+    }
+
+    @media (max-width: 760px) {
+      .brand { min-width: 112px; }
+      .brand-logo-image { width: 112px; height: 36px; }
+      .credit-logo-image { width: min(100%, 320px); }
+      .footer-logo-image { width: min(280px, 76vw); }
+    }
+
+    /* Guest story viewer */
+    body.modal-open { overflow: hidden; }
+
+    .guest-card { cursor: pointer; }
+    .guest-card:focus-visible {
+      outline: 2px solid var(--sub);
+      outline-offset: 4px;
+      border-color: rgba(255,212,141,.75);
+    }
+
+    .guest-modal[hidden] { display: none; }
+    .guest-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 180ms ease;
+    }
+    .guest-modal.is-open { opacity: 1; }
+    .guest-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(1,2,10,.88);
+      backdrop-filter: blur(12px);
+    }
+    .guest-modal-dialog {
+      position: relative;
+      width: min(1040px, 100%);
+      max-height: calc(100svh - 48px);
+      padding-top: var(--guest-toolbar-height, 142px);
+      overflow: auto;
+      overscroll-behavior: contain;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255,212,141,.12), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(255,127,118,.12), transparent 28%),
+        rgba(5,6,18,.98);
+      box-shadow: 0 32px 120px rgba(0,0,0,.7), 0 0 45px rgba(255,186,103,.16);
+      transform: none;
+      transition: none;
+    }
+    .guest-modal.is-open .guest-modal-dialog { transform: none; }
+    .guest-modal-close {
+      position: absolute;
+      z-index: 7;
+      top: 12px;
+      right: 14px;
+      width: 44px;
+      height: 44px;
+      margin: 0;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(3,4,13,.78);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+    .guest-modal-close:hover,
+    .guest-modal-close:focus-visible { border-color: var(--sub); outline: none; }
+    .guest-modal-inner { padding: clamp(22px,4vw,48px); }
+    .guest-modal-header { margin: 0 58px 24px 0; }
+    .guest-modal-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--sub);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .22em;
+    }
+    .guest-modal-title {
+      font-size: clamp(28px,4vw,52px);
+      line-height: 1.2;
+      letter-spacing: .03em;
+    }
+    .guest-modal-media {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 14px;
+      background: rgba(0,0,0,.32);
+      box-shadow: 0 18px 52px rgba(0,0,0,.28);
+    }
+    .guest-modal-video-stage {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255,186,103,.18), transparent 48%),
+        #02030a;
+    }
+    .guest-modal-video,
+    .guest-modal-poster {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .guest-modal-video { z-index: 2; background: #000; }
+    .guest-modal-video-stage.is-x { height: min(72svh, 720px); aspect-ratio: auto; }
+    .guest-modal-video.is-x { background: #fff; }
+    .guest-modal-poster { object-fit: contain; background: rgba(0,0,0,.22); }
+    .guest-modal-poster[hidden],
+    .guest-modal-video[hidden] { display: none; }
+    .guest-video-pending {
+      position: relative;
+      z-index: 1;
+      padding: 10px 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.62);
+      background: rgba(3,4,14,.72);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .16em;
+    }
+    .guest-video-pending[hidden] { display: none; }
+    .guest-media-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(90deg, rgba(255,212,141,.05), rgba(255,186,103,.08), rgba(255,127,118,.05));
+    }
+    .guest-audio-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255,255,255,.055);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+    .guest-audio-button:hover:not(:disabled),
+    .guest-audio-button:focus-visible {
+      border-color: var(--sub);
+      background: rgba(255,212,141,.1);
+      outline: none;
+    }
+    .guest-audio-button.is-playing {
+      border-color: var(--accent);
+      background: linear-gradient(100deg, rgba(255,212,141,.18), rgba(255,127,118,.2));
+      box-shadow: 0 0 22px rgba(255,127,118,.14);
+    }
+    .guest-audio-button:disabled { opacity: .42; cursor: not-allowed; }
+    .guest-audio-icon { font-size: 19px; line-height: 1; }
+    .guest-media-help {
+      color: rgba(255,255,255,.52);
+      font-size: 12px;
+      letter-spacing: .05em;
+    }
+    .guest-modal-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .guest-modal-tab {
+      min-height: 52px;
+      padding: 12px 18px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 8px;
+      color: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.045);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+    .guest-modal-tab:hover,
+    .guest-modal-tab:focus-visible {
+      color: #fff;
+      border-color: rgba(255,212,141,.6);
+      outline: none;
+    }
+    .guest-modal-tab[aria-selected="true"] {
+      color: #fff;
+      border-color: transparent;
+      background: linear-gradient(100deg, rgba(255,212,141,.28), rgba(255,186,103,.32), rgba(255,127,118,.24));
+      box-shadow: 0 0 24px rgba(255,186,103,.16);
+    }
+    .guest-modal-content {
+      margin-top: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 12px;
+      background: rgba(0,0,0,.3);
+    }
+    .guest-modal-content[hidden] { display: none; }
+    .guest-content-grid {
+      display: grid;
+      grid-template-columns: minmax(260px,.8fr) minmax(0,1.4fr);
+      align-items: start;
+      animation: guestPanelIn 220ms ease both;
+    }
+    @keyframes guestPanelIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .guest-content-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 0;
+      aspect-ratio: 1;
+      align-self: start;
+      overflow: hidden;
+      border-right: 1px solid rgba(255,255,255,.12);
+      background: radial-gradient(circle at 50% 35%, rgba(255,186,103,.15), transparent 54%), rgba(0,0,0,.32);
+    }
+    .guest-content-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .guest-content-image[hidden] { display: none; }
+    .guest-content-image-pending {
+      color: rgba(255,255,255,.5);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-align: center;
+    }
+    .guest-content-image-pending[hidden] { display: none; }
+    .guest-content-reader {
+      position: relative;
+      min-width: 0;
+      background: rgba(255,255,255,.025);
+    }
+    .guest-modal-empty {
+      display: grid;
+      place-items: center;
+      min-height: 560px;
+      padding: 32px;
+      color: rgba(255,255,255,.55);
+      text-align: center;
+      font-size: 14px;
+      letter-spacing: .08em;
+    }
+    .guest-modal-empty[hidden] { display: none; }
+    .guest-modal-frame {
+      display: block;
+      width: 100%;
+      height: min(74svh, 760px);
+      border: 0;
+      background: #fff;
+    }
+    .guest-modal-frame[hidden] { display: none; }
+    .guest-modal-frame.is-note {
+      width: min(100%, 494px);
+      height: 400px;
+      margin: 0 auto;
+      background: transparent;
+    }
+    .guest-modal-frame.is-reader {
+      height: min(80svh, 920px);
+      background: #fff;
+    }
+    .guest-modal-external {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      min-height: 46px;
+      padding: 10px 18px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      color: var(--sub);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      background: rgba(4,5,16,.96);
+    }
+    .guest-modal-external.is-visible { display: flex; }
+
+    .guest-link-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-content: center;
+      gap: 12px;
+      min-height: 560px;
+      padding: clamp(24px, 6vw, 64px);
+    }
+    .guest-link-list[hidden] { display: none; }
+    .guest-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 64px;
+      padding: 16px 18px;
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: 10px;
+      color: #fff;
+      background: linear-gradient(115deg, rgba(255,212,141,.09), rgba(255,186,103,.12), rgba(255,127,118,.08));
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      transition: 160ms ease;
+    }
+    .guest-link-item::after {
+      content: "↗";
+      color: var(--sub);
+      font-size: 18px;
+    }
+    .guest-link-item:hover,
+    .guest-link-item:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(255,212,141,.58);
+      background: linear-gradient(115deg, rgba(255,212,141,.17), rgba(255,186,103,.2), rgba(255,127,118,.14));
+      outline: none;
+    }
+
+    @media (max-width: 640px) {
+      .guest-modal { padding: 0; }
+      .guest-modal-dialog { width: 100%; max-height: 100svh; border-radius: 0; border-left: 0; border-right: 0; }
+      .guest-modal-inner { padding: 20px 14px 36px; }
+      .guest-modal-header { margin-bottom: 18px; }
+      .guest-media-controls { align-items: stretch; flex-direction: column; }
+      .guest-audio-button { width: 100%; }
+      .guest-media-help { text-align: center; }
+      .guest-modal-tabs { gap: 6px; }
+      .guest-modal-tab { min-height: 48px; padding: 10px 6px; font-size: 13px; letter-spacing: .05em; }
+      .guest-content-grid { grid-template-columns: 1fr; min-height: 0; }
+      .guest-content-visual { min-height: 0; aspect-ratio: 1; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+      .guest-content-image { height: 100%; }
+      .guest-modal-empty { min-height: 280px; }
+      .guest-modal-frame { height: 72svh; }
+      .guest-modal-frame.is-reader { height: 76svh; }
+      .guest-link-list { grid-template-columns: 1fr; min-height: 280px; padding: 24px 18px; }
+    }
+
+    .guest-modal-inner { padding-top: 0; }
+    .guest-modal-header { padding-top: clamp(22px,4vw,48px); }
+    .guest-reading-toolbar {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      z-index: 1100;
+      width: min(1040px, calc(100vw - 48px));
+      margin: 0;
+      transform: translateX(-50%);
+      padding: 10px clamp(62px,5vw,72px) 10px clamp(22px,4vw,48px);
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      background: rgba(5,6,18,.97);
+      box-shadow: 0 10px 28px rgba(0,0,0,.34);
+      backdrop-filter: blur(14px);
+    }
+    .guest-reading-toolbar .guest-media-controls { margin: 0; }
+    .guest-reading-toolbar .guest-modal-tabs { margin: 8px 0 0; }
+    .guest-modal-frame.is-reader { height: 800px; }
+    .guest-content-visual { margin: 0; }
+    .guest-image-expand { position: absolute; bottom: 8px; right: 8px; padding: 10px 14px; border: 1px solid #888; border-radius: 8px; background: #101020e8; color: white; cursor: pointer; }
+    .guest-content-visual:has(.guest-content-image[hidden]) .guest-image-expand { display: none; }
+    .guest-image-dialog { width: min(94vw, 1100px); max-height: 94svh; padding: 48px 12px 12px; border: 1px solid #777; border-radius: 12px; background: #080914; color: white; }
+    .guest-image-dialog::backdrop { background: #000c; }
+    .guest-image-dialog img { display: block; max-width: 100%; max-height: 78svh; object-fit: contain; margin: auto; }
+    .guest-image-dialog button { position: absolute; right: 8px; top: 4px; width: 44px; height: 44px; background: transparent; color: white; border: 0; font-size: 28px; cursor: pointer; }
+    @media (max-width: 640px) {
+      .guest-content-visual { width: 120px; height: 120px; aspect-ratio: 1; margin: 12px; }
+      .guest-image-expand { inset: 0; background: transparent; font-size: 0; border: 0; }
+      .guest-image-expand::after { content: '拡大'; position: absolute; bottom: 4px; right: 4px; background: #080914dd; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+      .guest-reading-toolbar .guest-media-help { display: none; }
+      .guest-modal-inner { padding-top: 0; }
+      .guest-modal-header { padding-top: 20px; }
+      .guest-reading-toolbar {
+        width: 100vw;
+        margin: 0;
+        padding: 8px 58px 8px 14px;
+      }
+    }
+    #intro .section-head { grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
+    #intro .section-title { font-size: clamp(28px, 5.5vw, 72px); overflow-wrap: anywhere; }
+    #intro .section-lead { max-width: none; margin: 0; }
+    .illustration-gallery { overflow: hidden; min-width: 0; background: #080b18; display: flex; flex-direction: column; }
+    .illustration-stage { min-height: 320px; flex: 1; position: relative; }
+    .illustration-stage img { position: absolute; width: 100%; height: 100%; object-fit: contain; }
+    .illustration-controls { display: flex; justify-content: center; align-items: center; gap: 16px; padding: 8px; }
+    .illustration-controls button { min-width: 44px; min-height: 44px; color: white; background: #20263e; border: 1px solid #566080; border-radius: 8px; cursor: pointer; }
+    @media (max-width: 640px) { .illustration-stage { min-height: 260px; } }
+  .works-tools{display:flex;gap:18px;align-items:center;margin-bottom:28px;font-size:12px}.works-tools input{background:transparent;border:1px solid var(--line);padding:14px 16px;width:min(380px,60%);font:inherit;color:var(--ink);border-radius:0}.works-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.work-card{border:1px solid var(--line);background:#faf9f5;min-width:0;display:flex;flex-direction:column}.work-card[hidden]{display:none}.card-art{aspect-ratio:1.85;display:flex;align-items:center;justify-content:space-between;padding:25px;overflow:hidden;background:var(--purple);color:#fff}.card-art span{font-size:100px;line-height:1;letter-spacing:-7px;font-weight:900;opacity:.7}.card-art b{font-size:12px;line-height:1.6;letter-spacing:1px;transform:rotate(-90deg)}.tone-1{background:var(--lime);color:var(--ink)}.tone-2{background:#202026;color:#d0c8ff}.tone-3{background:#e6e1fc;color:var(--purple)}.card-body{padding:24px;display:flex;flex-direction:column;flex:1}.genre{font-size:10px;color:#65616f;line-height:1.6;margin:0 0 14px}.work-card h3{font-size:21px;line-height:1.5;margin:0 0 10px;overflow-wrap:anywhere}.author{font-size:12px;margin:0 0 16px}.summary{font-size:12px;line-height:1.9;margin:0 0 24px}.work-open{display:none;justify-content:space-between;width:100%;padding:14px 0 0;border:0;border-top:1px solid var(--line);background:transparent;font:inherit;font-size:12px;font-weight:700;text-align:left;cursor:pointer;margin-top:auto}.js-ready .work-open{display:flex}.js-ready .fallback{display:none}.pending{border-top:1px solid var(--line);margin-top:45px;padding-top:30px}.pending h3{font-size:21px}.pending p{font-size:13px;line-height:1.9}.pending-note{color:#777}dialog{border:0;background:var(--bg);color:var(--ink);width:min(780px,calc(100% - 32px));max-height:85vh;padding:45px;overflow:auto}dialog::backdrop{background:#17151acc;backdrop-filter:blur(6px)}.dialog-close{position:sticky;top:0;float:right;padding:9px 14px;font:inherit;border:1px solid var(--line);background:var(--bg);cursor:pointer}.modal-title{clear:both;font-size:32px;line-height:1.5;margin:28px 0 12px}.modal-author{font-size:14px;color:#555}.modal-section{border-top:1px solid var(--line);padding-top:20px;margin-top:25px}.modal-section h3{font-size:12px;letter-spacing:1px}.modal-section p{font-size:14px;line-height:2;white-space:pre-wrap;overflow-wrap:anywhere}body.modal-open{overflow:hidden}@media(max-width:1050px){.works-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){.works-grid{grid-template-columns:1fr}.works-tools{flex-wrap:wrap;gap:12px}.works-tools input{width:100%;order:3}.brand{font-size:14px}nav{gap:10px;font-size:8px}.card-art{aspect-ratio:2.2}dialog{padding:25px}.modal-title{font-size:25px}}
+
+
+:root{--bg:#080c18;--bg-2:#101a2d;--ink:var(--text);--purple:var(--main);--lime:#ffd48d}html{scroll-padding-top:90px}body{background:radial-gradient(ellipse at 5% 8%,#73523730,transparent 45%),radial-gradient(ellipse at 94% 25%,#913d3930,transparent 45%),#080c18}.reveal{opacity:1;transform:none}.site-header{background:#080c18dc}.brand{letter-spacing:.01em;font-size:18px}.brand em{font-family:Georgia,serif;color:var(--gold);font-size:23px}a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:5px}.hero-inner{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);width:min(1360px,100%)}.hero-title{font-family:Arial,sans-serif;font-size:clamp(42px,6.5vw,94px);line-height:1.05;overflow-wrap:anywhere}.hero-title .sub-title{font-size:clamp(54px,7.5vw,108px);line-height:1.1}.hero .visual-card{aspect-ratio:1.2;display:grid;place-items:center;min-width:0;overflow:hidden;background:radial-gradient(circle at 50% 40%,#4d342c,#131b30 65%);position:relative;isolation:isolate}.poster-orbit{width:65%;aspect-ratio:1;border:1px solid #ffbc7066;position:absolute;transform:rotate(-28deg) scaleY(.8);border-radius:50%;box-shadow:0 0 60px #ffb66918}.poster-orbit:nth-child(2){transform:rotate(35deg) scaleY(.8);width:86%}.poster-text{text-align:center;z-index:2}.poster-text small{font-size:10px;letter-spacing:.4em;color:var(--gold)}.poster-text strong{font-size:clamp(35px,5vw,74px);line-height:1.1;display:block;letter-spacing:-.05em;margin:28px 0 5px;font-family:Arial,sans-serif}.poster-text em{display:block;font-size:clamp(55px,7vw,100px);font-family:Georgia,serif;background:linear-gradient(100deg,#fff4d9,#ffbc71,#ff8680);color:transparent;background-clip:text}.poster-text p{margin-top:28px;font-size:12px;letter-spacing:.25em}.intro-mini{display:grid;place-items:center;padding:35px;text-align:center;min-height:260px}.intro-mini strong{font-size:80px;color:var(--gold);font-family:Georgia,serif}.intro-mini p{font-size:12px;color:var(--muted)}.exp-section{max-width:1212px;margin:auto;padding:100px 16px}.exp-section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:40px}.exp-section-head h2{font-family:Arial,sans-serif;font-size:clamp(34px,4vw,54px);line-height:1.3}.kicker{font-size:10px;letter-spacing:.18em;color:var(--gold)}.exp-section-head>p{font-size:13px;color:var(--muted)}.work-card{background:linear-gradient(145deg,#ffffff08,#ffffff02);border-radius:15px;cursor:auto}.work-card:before,.work-card:after{display:none}.card-art{background:linear-gradient(145deg,#50363a,#201d31);border-bottom:1px solid var(--line);color:#ffcc95}.tone-1{background:linear-gradient(145deg,#374350,#152136);color:#fbe4b8}.tone-2{background:linear-gradient(145deg,#50392d,#1b1d31);color:#ffb991}.tone-3{background:linear-gradient(145deg,#4b3141,#1b1c2d);color:#ffc4bc}.genre,.summary,.modal-author{color:var(--muted)}.works-tools input{color:var(--text)}.work-card h3{font-size:20px}.work-open:hover{color:var(--gold)}.work-open{color:var(--text)}.pending p{color:var(--muted)}dialog{background:#0d1526;border:1px solid var(--line);border-radius:18px;width:min(1080px,calc(100% - 32px));color:var(--text);padding:25px}.dialog-close{color:var(--text);z-index:2}.modal-layout{display:grid;grid-template-columns:.75fr 1fr;gap:35px;clear:both;padding:20px}.modal-art{position:sticky;top:45px;align-self:start;min-height:390px;background:linear-gradient(135deg,#583d34,#192136);border:1px solid #ffbc7044;border-radius:12px;display:flex;justify-content:center;align-items:center;flex-direction:column}.modal-art span{font-family:Arial,sans-serif;font-size:70px;font-weight:900;letter-spacing:-.05em}.modal-art b{font-family:Georgia,serif;font-size:50px;font-style:italic;color:var(--gold)}.modal-art small{margin-top:30px;font-size:9px;letter-spacing:.2em}.modal-title{font-size:26px;margin:15px 0}.modal-section{padding:20px 0 0}.modal-section p{color:var(--muted)}.footer{max-width:1180px;margin:auto;padding:35px 16px;display:flex;justify-content:space-between;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}.watch-copy{text-align:center;padding:50px 25px}.watch-copy h3{font-size:27px;margin-bottom:12px}.watch-copy p{color:var(--muted);font-size:13px}.schedule-note{color:var(--muted);font-size:13px;padding:25px}.hero-actions .button{font-size:12px}@media(max-width:980px){.hero-inner{grid-template-columns:1fr}.hero .visual-card{width:100%;max-width:700px}.hero-title{font-size:65px}.hero-title .sub-title{font-size:80px}}@media(max-width:760px){.brand{font-size:15px}.brand em{font-size:20px}.exp-section{padding:76px 16px}.exp-section-head{display:block}.modal-layout{grid-template-columns:1fr;padding:5px;gap:22px}.modal-art{position:static;min-height:190px}.modal-art span{font-size:50px}.modal-art b{font-size:40px}.modal-art small{margin-top:10px}.hero-title{font-size:clamp(40px,11vw,68px)}.hero-title .sub-title{font-size:clamp(56px,15vw,90px)}.hero .visual-card{aspect-ratio:1.15}.footer{gap:15px;flex-wrap:wrap}.exp-section-head>p{margin-top:15px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style></head><body><div class="noise" aria-hidden="true"></div><header class="site-header"><nav class="nav" aria-label="メインメニュー"><a class="brand" href="#top">アニソンEXP<em>Second</em></a><button class="menu-button" aria-label="メニューを開く" aria-controls="navLinks" aria-expanded="false">☰</button><div class="nav-links" id="navLinks"><a href="#intro">Introduction</a><a href="#works">Works</a><a href="#schedule">Information</a><a href="#watch">Watch</a></div></nav></header><main id="top"><section class="hero"><div class="hero-inner"><div class="hero-text"><div class="eyebrow">AI Animation × Anisong</div><h1 class="hero-title">アニソンEXP<span class="sub-title">Second</span></h1><p class="hero-copy hero-copy--cinematic">その物語に、<br>主題歌を。</p><div class="hero-meta-line"><span>ANIMATION</span><i></i><span>MUSIC</span></div><div class="hero-actions"><a class="button" href="#works">出展作品を見る ↗</a><a class="button" href="#schedule">開催情報</a></div></div><div class="visual-card" aria-label="アニソンEXPSecond タイトルビジュアル案"><div class="poster-orbit"></div><div class="poster-orbit"></div><div class="poster-text"><small>ANIMATION × MUSIC</small><strong>ANISONG EXP</strong><em>Second</em><p>その物語に、主題歌を。</p></div><div class="visual-badge">TITLE VISUAL / DESIGN DRAFT</div></div></div></section><section id="intro"><div class="container"><div class="section-head"><div><span class="section-kicker">The Beginning</span><h2 class="section-title">INTRODUCTION</h2></div><p class="section-lead">物語の世界と、そこに響く歌。</p></div><div class="intro-grid"><div class="panel intro-copy"><p>アニメの世界と、そこに響くアニソン。<br>それぞれの創作が出会う、アニソンEXPSecond。</p><p>学園異能バトル、青春ファンタジー、宇宙を巡るSF、夢の世界の幻想譚。さまざまな物語と、その世界を彩る音楽をご紹介します。</p><p>作品カードから、あらすじ・みどころ・出展者のコメントをお楽しみください。</p></div><div class="panel intro-mini"><div><strong>Second.</strong><p>新しい物語、新しい歌との出会い。</p></div></div></div></div></section><section class="exp-section" id="works"><div class="exp-section-head"><div><span class="kicker">03 / FEATURED WORKS</span><h2>WORKS</h2></div><p>物語と、その世界に響く歌。</p></div><div class="works-tools"><label for="work-search">作品を探す</label><input id="work-search" type="search" placeholder="作品名・出展者・ジャンル" autocomplete="off"><span id="work-count" role="status">17作品</span></div><div class="works-grid"><article class="work-card panel guest-card" data-search="BREAK EDGE（ブレイク・エッジ）ブレイクエッジ製作委員会（ありしき）学園異能バトル／ダークサスペンス"><div class="card-art tone-0" aria-hidden="true"><span>01</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">学園異能バトル／ダークサスペンス</p><h3>BREAK EDGE（ブレイク・エッジ）</h3><p class="author">ブレイクエッジ製作委員会（ありしき）</p><p class="summary">能力者を育成する巨大校・南港学園。久我拓真たちは、学園の裏で行われる非合法能力バトル「闇のゲーム」に巻き込まれ、仲間と力を合わせながら、隠された真実へ近づいていく。</p><button class="work-open" data-index="0">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>能力者を育成する巨大校・南港学園。久我拓真たちは、学園の裏で行われる非合法能力バトル「闇のゲーム」に巻き込まれ、仲間と力を合わせながら、隠された真実へ近づいていく。</p><p>正面突破の拓真、先を読む智貴、仲間を守る遥香。異なる力を持つ三人が、互いの弱点を補いながら強敵へ挑む連携バトルが見どころです。</p><p>ブレイクエッジ製作委員会（ありしき）／王道の能力バトルに、学園の裏側をめぐるサスペンスを詰め込みました。三人の連携を楽しんでください！</p></details></div></article><article class="work-card panel guest-card" data-search="にょきにょき★だそくパレードHenumnパペットアニメ"><div class="card-art tone-1" aria-hidden="true"><span>02</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">パペットアニメ</p><h3>にょきにょき★だそくパレード</h3><p class="author">Henumn</p><p class="summary">蛇には足がない。そんな当たり前に気づいた少女の、ちょっと不思議な夢物語</p><button class="work-open" data-index="1">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>蛇には足がない。そんな当たり前に気づいた少女の、ちょっと不思議な夢物語</p><p>パペットたちが繰り広げる、予測不能なパレードをお楽しみください！</p><p>Henumn　足りなければ足せばいいんじゃない？</p></details></div></article><article class="work-card panel guest-card" data-search="わたしはアリス五島 雅異世界童話ファンタジー"><div class="card-art tone-2" aria-hidden="true"><span>03</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">異世界童話ファンタジー</p><h3>わたしはアリス</h3><p class="author">五島 雅</p><p class="summary">クリスマス前夜、孤独な少女アリスは、壊れた古い端末から呼び出された“電脳サンタ”に導かれ、雪の降りしきるワンダーランドへ迷い込む。住民たちは「アリスこそ世界を終わらせる鍵」だと言う。</p><button class="work-open" data-index="2">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>クリスマス前夜、孤独な少女アリスは、壊れた古い端末から呼び出された“電脳サンタ”に導かれ、雪の降りしきるワンダーランドへ迷い込む。住民たちは「アリスこそ世界を終わらせる鍵」だと言う。</p><p>いままでアリスが着たほぼすべての衣装を映像化して収録。その名も「アリス三十変化」！</p><p>五島 雅　とにかくアリスの美しさを追求しました！</p></details></div></article><article class="work-card panel guest-card" data-search="君と世界の色を知るHina青春恋愛ファンタジー"><div class="card-art tone-3" aria-hidden="true"><span>04</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">青春恋愛ファンタジー</p><h3>君と世界の色を知る</h3><p class="author">Hina</p><p class="summary">海辺の町で、色を失った少年・透は、記憶の痕跡「残彩」を見る少女・ひかりと出会う。人々の記憶を救うたび、自分の記憶を失っていく彼女と過ごす、ひと夏の物語。</p><button class="work-open" data-index="3">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>海辺の町で、色を失った少年・透は、記憶の痕跡「残彩」を見る少女・ひかりと出会う。人々の記憶を救うたび、自分の記憶を失っていく彼女と過ごす、ひと夏の物語。</p><p>カメラ越しにひかりを見つめていた透が、ひと夏の時間を重ね、最後にカメラを下ろして自分の目で彼女を見る瞬間が見どころです。</p><p>Hina カメラ越しだった世界が、君と出会って色づいていく——そんなひと夏のきらめきを詰め込みました。</p></details></div></article><article class="work-card panel guest-card" data-search="Void BoundRukeSFホラーアクション？"><div class="card-art tone-0" aria-hidden="true"><span>05</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">SFホラーアクション？</p><h3>Void Bound</h3><p class="author">Ruke</p><p class="summary">ヴォイド侵食によって崩壊した近未来都市。特殊潜入エージェント・ニクスは、管制塔のオペレーター アッシュ の支援を受け、立入禁止区域へ潜入する。しかし暗闇の奥で待っていたのは、人類の常識を覆す未知の敵だった。  この世界の闇とは……</p><button class="work-open" data-index="4">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>ヴォイド侵食によって崩壊した近未来都市。特殊潜入エージェント・ニクスは、管制塔のオペレーター アッシュ の支援を受け、立入禁止区域へ潜入する。しかし暗闇の奥で待っていたのは、人類の常識を覆す未知の敵だった。  この世界の闇とは……</p><p>OPとEDは気合い入ってます！！アニメ本編は？となりますがドローンがトランスフォームなかなかしてくれなくて苦労した覚えがあります。</p><p>Ruke:ぜってぇ見てくれよなぁ？</p></details></div></article><article class="work-card panel guest-card" data-search="CODE:RIXIA 荒廃都市の迷い子さとしきSFファンタジー"><div class="card-art tone-1" aria-hidden="true"><span>06</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">SFファンタジー</p><h3>CODE:RIXIA 荒廃都市の迷い子</h3><p class="author">さとしき</p><p class="summary">複数の分岐世界を観測する時空調査隊RIXIA。世界を漂流する謎の生命反応を追い、スズとBK2-Rは無人兵器に支配された封鎖都市へ向かう。</p><button class="work-open" data-index="5">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>複数の分岐世界を観測する時空調査隊RIXIA。世界を漂流する謎の生命反応を追い、スズとBK2-Rは無人兵器に支配された封鎖都市へ向かう。</p><p>日常から異世界、探索、戦闘、救出へと次々に状況が変化していくSFアニメらしいテンポのある展開が見どころ。</p><p>さとしき　CODE:RIXIAの世界観を少しでも伝えられたら嬉しいです！よろしくお願いします！</p></details></div></article><article class="work-card panel guest-card" data-search="Sailor SummerESFD海洋アドベンチャー"><div class="card-art tone-2" aria-hidden="true"><span>07</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">海洋アドベンチャー</p><h3>Sailor Summer</h3><p class="author">ESFD</p><p class="summary">海と星に導かれ、4人の少女たちは帆船アクア・ステラで未知の海へ。港町や島、遺跡を巡りながら、友情と冒険に満ちた夏の航海が始まる――。</p><button class="work-open" data-index="6">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>海と星に導かれ、4人の少女たちは帆船アクア・ステラで未知の海へ。港町や島、遺跡を巡りながら、友情と冒険に満ちた夏の航海が始まる――。</p><p>青い海と港町、未知の島々を舞台に、個性の異なる4人の少女たちが帆船アクア・ステラで冒険へ旅立ちます。爽やかな夏の空気感と、仲間たちの表情豊かなやり取り、スピード感のある航海シーンを通して、アニメのオープニングらしいワクワク感と壮大な世界観を楽しんでいただけたら嬉しいです。</p><p>ESFD：音楽と映像が一緒に駆け抜けていくような作品を目指して制作しました。細かな表情や演出にもこだわっているので、最後まで楽しんでもらえたら嬉しいです😊</p></details></div></article><article class="work-card panel guest-card" data-search="ユミリアの夢案内ユミリアの夢案内あなたを深い眠りの彼方へご案内する夢案内幻想譚"><div class="card-art tone-3" aria-hidden="true"><span>08</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">あなたを深い眠りの彼方へご案内する夢案内幻想譚</p><h3>ユミリアの夢案内</h3><p class="author">ユミリアの夢案内</p><p class="summary">夢の世界に迷い込んだ人々を、夢案内人ユミリアが出口へ導く。少し不器用で、誰かの痛みにそっと寄り添う彼女自身の心も描かれていく幻想譚。</p><button class="work-open" data-index="7">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>夢の世界に迷い込んだ人々を、夢案内人ユミリアが出口へ導く。少し不器用で、誰かの痛みにそっと寄り添う彼女自身の心も描かれていく幻想譚。</p><p>砂糖菓子の月や無数の扉が彩る不思議で幻想的な夢世界。</p><p>ユミリアの夢案内　夢に迷ったとき、きっとあなたの前にも夢案内人が現れるでしょう</p></details></div></article><article class="work-card panel guest-card" data-search="戦交双軌アルバノクス一倉緑SF、ロボット"><div class="card-art tone-0" aria-hidden="true"><span>09</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">SF、ロボット</p><h3>戦交双軌アルバノクス</h3><p class="author">一倉緑</p><p class="summary">戦争が続く世界。基地で働く清掃員の少年は襲撃に巻き込まれ、倒れたパイロットから鍵を託される。生き延びるため、新型人型兵器アルバヴィアを起動する。</p><button class="work-open" data-index="8">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>戦争が続く世界。基地で働く清掃員の少年は襲撃に巻き込まれ、倒れたパイロットから鍵を託される。生き延びるため、新型人型兵器アルバヴィアを起動する。</p><p>敵として出会った二機が、戦いの果てに同じ敵へ向かうまでを、疾走感あるロボットアニメOP風MVで描きました。</p><p>出展者名「一倉緑」、コメント「架空のロボットアニメをイメージして、主題歌MVを作りました！」</p></details></div></article><article class="work-card panel guest-card" data-search="RAB!T!!高宮ルアリエハイパーSF能力バトル！！"><div class="card-art tone-1" aria-hidden="true"><span>10</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">ハイパーSF能力バトル！！</p><h3>RAB!T!!</h3><p class="author">高宮ルアリエ</p><p class="summary">汐凪シティで出会った六花、元軍人のレイ、術師のセナ。3人はバンド「RAB!T」を結成し、バンドと戦いを重ねながら、やがて自由を取り戻す物語。</p><button class="work-open" data-index="9">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>汐凪シティで出会った六花、元軍人のレイ、術師のセナ。3人はバンド「RAB!T」を結成し、バンドと戦いを重ねながら、やがて自由を取り戻す物語。</p><p>ちょーかっこいいOPになったから見てね☆彡</p><p>高宮ルアリエ　私がきたああああああああ！！</p></details></div></article><article class="work-card panel guest-card" data-search="悪食竜の料理人To命について考える料理ファンタジー"><div class="card-art tone-2" aria-hidden="true"><span>11</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">命について考える料理ファンタジー</p><h3>悪食竜の料理人</h3><p class="author">To</p><p class="summary">聖なるものが死するとき「災厄」となる世界。「災厄」を喰らう悪食竜「クゥデリア」と専属料理人の「イブキ」。今日も二人は世界のどこかでさよならを託した命に手を合わせる。</p><button class="work-open" data-index="10">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>聖なるものが死するとき「災厄」となる世界。「災厄」を喰らう悪食竜「クゥデリア」と専属料理人の「イブキ」。今日も二人は世界のどこかでさよならを託した命に手を合わせる。</p><p>OPを作りました！美しくも残酷な世界でいただきます！</p><p>To / 精霊って美味しいのかな？</p></details></div></article><article class="work-card panel guest-card" data-search="『青春異常論 — Anomalous Youth Network』Loki@低めの猫青春群像劇、SNS異能力SF"><div class="card-art tone-3" aria-hidden="true"><span>12</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">青春群像劇、SNS異能力SF</p><h3>『青春異常論 — Anomalous Youth Network』</h3><p class="author">Loki@低めの猫</p><p class="summary">誰もインストールした覚えのない匿名SNS「AYN」。それは、息苦しさを抱えた若者の端末にだけ現れる。数字、進路、同調圧力――それぞれの「異常」を映す不思議なUIを通して、名も顔も知らない誰かの言葉が、孤独な夜をつないでいく。</p><button class="work-open" data-index="11">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>誰もインストールした覚えのない匿名SNS「AYN」。それは、息苦しさを抱えた若者の端末にだけ現れる。数字、進路、同調圧力――それぞれの「異常」を映す不思議なUIを通して、名も顔も知らない誰かの言葉が、孤独な夜をつないでいく。</p><p>「青春を楽しめない自分はおかしいのか」。そんな息苦しさを抱えた若者たちが、匿名SNS「AYN」を通して誰かの言葉に出会っていく物語です。音楽とともに変化していく彼らの心情に注目していただけたら嬉しいです。</p><p>Loki@低めの猫「初参加です！ 小説として作った『青春異常論』を、今回は音楽とアニメーションで映像化しました。楽しんでいただけたら嬉しいです！」</p></details></div></article><article class="work-card panel guest-card" data-search="PENDULUM BREAKトミオSFバトルアクション"><div class="card-art tone-0" aria-hidden="true"><span>13</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">SFバトルアクション</p><h3>PENDULUM BREAK</h3><p class="author">トミオ</p><p class="summary">巨大システムに時刻を管理された都市・刻環市。0.7秒のずれを抱える高校生・黒瀬レンは、仲間と時間異常に立ち向かう。やがて街に隠された真実を追い、決められた未来に抗う戦いへ踏み出す。</p><button class="work-open" data-index="12">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>巨大システムに時刻を管理された都市・刻環市。0.7秒のずれを抱える高校生・黒瀬レンは、仲間と時間異常に立ち向かう。やがて街に隠された真実を追い、決められた未来に抗う戦いへ踏み出す。</p><p>時計都市の世界観、時間能力を駆使した変身バトル、仲間との絆。0.7秒の謎を追い、自分の未来を選ぶ少年たちの物語です。</p><p>トミオ「3ピースバンド「toMion」、初のアニソンタイアップを自分たちで実現！音楽から生まれたアニメの世界を楽しんでください！」</p></details></div></article><article class="work-card panel guest-card" data-search="星屑の鎧 -Guardian Genome-JACKPOT031SF群像劇"><div class="card-art tone-1" aria-hidden="true"><span>14</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">SF群像劇</p><h3>星屑の鎧 -Guardian Genome-</h3><p class="author">JACKPOT031</p><p class="summary">人類の未来を開くため、自らの未来を閉じた戦士たち。 たとえ命が尽きても、記憶は遺伝子となり、次代へ継がれていく。 いつか、この鎧を継ぐ必要がなくなる日を夢に見ながら。</p><button class="work-open" data-index="13">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>人類の未来を開くため、自らの未来を閉じた戦士たち。 たとえ命が尽きても、記憶は遺伝子となり、次代へ継がれていく。 いつか、この鎧を継ぐ必要がなくなる日を夢に見ながら。</p><p>決して明るくはない戦況のなか、それぞれがそれぞれの役割を果たそうとする姿。</p><p>JACKPOT031　ずっと温めていた構想を映像化しました。</p></details></div></article><article class="work-card panel guest-card" data-search="どぱざぁこエルフエルフなんよ癒し系アニメ"><div class="card-art tone-2" aria-hidden="true"><span>15</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">癒し系アニメ</p><h3>どぱざぁこエルフ</h3><p class="author">エルフなんよ</p><p class="summary">エルフがモルモット部でモルモットをかわいがる。</p><button class="work-open" data-index="14">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>エルフがモルモット部でモルモットをかわいがる。</p><p>モルモットがかわいい</p><p>エルフなんよです。このアニメを公開できたことを光栄におもいます。</p></details></div></article><article class="work-card panel guest-card" data-search="星尘之界　エコーズスターダストSTOSFファンタジー × 音楽ドラマ（ミュージカルSF）"><div class="card-art tone-3" aria-hidden="true"><span>16</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">SFファンタジー × 音楽ドラマ（ミュージカルSF）</p><h3>星尘之界　エコーズスターダスト</h3><p class="author">STO</p><p class="summary">感情を失った仮想アイドル・零は、分断された宇宙で失われた記憶・忆と再会する。初めて涙と温もりを知った彼女の歌は、星尘となって世界を越え、離れた心を再び繋いでいく。</p><button class="work-open" data-index="15">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>感情を失った仮想アイドル・零は、分断された宇宙で失われた記憶・忆と再会する。初めて涙と温もりを知った彼女の歌は、星尘となって世界を越え、離れた心を再び繋いでいく。</p><p>涙が星尘と花へ変わり、歌が分断された宇宙を繋ぐ幻想的なクライマックス。</p><p>STO   なんとなく勢いで参加！</p></details></div></article><article class="work-card panel guest-card" data-search="影に咲く花Resonance Divaダークファンタジー"><div class="card-art tone-0" aria-hidden="true"><span>17</span><b>ANISONG<br>EXPSecond</b></div><div class="card-body"><p class="genre">ダークファンタジー</p><h3>影に咲く花</h3><p class="author">Resonance Diva</p><p class="summary">記憶が存在を左右する世界。記憶を消す青年レイは、消えない少女ユナと出会う。彼女の中には、レイが消したはずの過去と罪が眠っていた。</p><button class="work-open" data-index="16">作品紹介を読む <span aria-hidden="true">↗</span></button><details class="fallback"><summary>あらすじ・みどころ</summary><p>記憶が存在を左右する世界。記憶を消す青年レイは、消えない少女ユナと出会う。彼女の中には、レイが消したはずの過去と罪が眠っていた。</p><p>記憶を消す青年と、消えない少女。二人の出会いが、失われた過去と隠された真実を呼び覚ます。</p><p>Resonance Diva　記憶と存在をテーマに作りました！</p></details></div></article></div><p id="empty-search" hidden>一致する作品が見つかりませんでした。</p><div class="pending"><span class="kicker">MORE CREATORS</span><h3>作品情報は、順次公開。</h3><p>floatingwalker ／ る～なん ／ シノニム(Synonym)</p><p class="pending-note">作品紹介の準備中です。</p></div></section>
+<section id="schedule"><div class="container"><div class="section-head"><div><span class="section-kicker">Event Information</span><h2 class="section-title">INFORMATION</h2></div><p class="section-lead">開催・配信について</p></div><div class="panel news-list"><div class="news-item"><span class="news-date">開催日時</span><p class="news-text">詳細は後日お知らせします</p></div><div class="news-item"><span class="news-date">視聴方法</span><p class="news-text">詳細は後日お知らせします</p></div></div></div></section><section id="watch"><div class="container"><div class="section-head"><div><span class="section-kicker">Watch Together</span><h2 class="section-title">WATCH</h2></div><p class="section-lead">物語と音楽を、一緒に。</p></div><div class="panel watch-copy"><h3>視聴情報は、近日公開。</h3><p>配信先・視聴リンクは、決まり次第こちらでお知らせします。</p></div></div></section></main><footer class="footer"><span>アニソンEXPSecond</span><span>制作案・掲載内容は準備中</span><a href="#top">BACK TO TOP ↑</a></footer><dialog id="work-dialog" aria-labelledby="modal-title"><button class="dialog-close" autofocus>閉じる ×</button><div class="modal-layout"><div class="modal-art" aria-hidden="true"><span>EXP</span><b>Second</b><small>ANIMATION × MUSIC</small></div><div class="modal-reading"><p class="kicker" id="modal-genre"></p><h2 class="modal-title" id="modal-title"></h2><p class="modal-author" id="modal-author"></p><section class="modal-section"><h3>あらすじ</h3><p id="modal-story"></p></section><section class="modal-section"><h3>みどころ</h3><p id="modal-highlight"></p></section><section class="modal-section"><h3>出展者からのコメント</h3><p id="modal-comment"></p></section></div></div></dialog>
+<script>
+const works = [{"title": "BREAK EDGE（ブレイク・エッジ）", "story": "能力者を育成する巨大校・南港学園。久我拓真たちは、学園の裏で行われる非合法能力バトル「闇のゲーム」に巻き込まれ、仲間と力を合わせながら、隠された真実へ近づいていく。", "highlight": "正面突破の拓真、先を読む智貴、仲間を守る遥香。異なる力を持つ三人が、互いの弱点を補いながら強敵へ挑む連携バトルが見どころです。", "authorComment": "ブレイクエッジ製作委員会（ありしき）／王道の能力バトルに、学園の裏側をめぐるサスペンスを詰め込みました。三人の連携を楽しんでください！", "genre": "学園異能バトル／ダークサスペンス", "author": "ブレイクエッジ製作委員会（ありしき）"}, {"title": "にょきにょき★だそくパレード", "story": "蛇には足がない。そんな当たり前に気づいた少女の、ちょっと不思議な夢物語", "highlight": "パペットたちが繰り広げる、予測不能なパレードをお楽しみください！", "authorComment": "Henumn　足りなければ足せばいいんじゃない？", "genre": "パペットアニメ", "author": "Henumn"}, {"title": "わたしはアリス", "story": "クリスマス前夜、孤独な少女アリスは、壊れた古い端末から呼び出された“電脳サンタ”に導かれ、雪の降りしきるワンダーランドへ迷い込む。住民たちは「アリスこそ世界を終わらせる鍵」だと言う。", "highlight": "いままでアリスが着たほぼすべての衣装を映像化して収録。その名も「アリス三十変化」！", "authorComment": "五島 雅　とにかくアリスの美しさを追求しました！", "genre": "異世界童話ファンタジー", "author": "五島 雅"}, {"title": "君と世界の色を知る", "story": "海辺の町で、色を失った少年・透は、記憶の痕跡「残彩」を見る少女・ひかりと出会う。人々の記憶を救うたび、自分の記憶を失っていく彼女と過ごす、ひと夏の物語。", "highlight": "カメラ越しにひかりを見つめていた透が、ひと夏の時間を重ね、最後にカメラを下ろして自分の目で彼女を見る瞬間が見どころです。", "authorComment": "Hina カメラ越しだった世界が、君と出会って色づいていく——そんなひと夏のきらめきを詰め込みました。", "genre": "青春恋愛ファンタジー", "author": "Hina"}, {"title": "Void Bound", "story": "ヴォイド侵食によって崩壊した近未来都市。特殊潜入エージェント・ニクスは、管制塔のオペレーター アッシュ の支援を受け、立入禁止区域へ潜入する。しかし暗闇の奥で待っていたのは、人類の常識を覆す未知の敵だった。  この世界の闇とは……", "highlight": "OPとEDは気合い入ってます！！アニメ本編は？となりますがドローンがトランスフォームなかなかしてくれなくて苦労した覚えがあります。", "authorComment": "Ruke:ぜってぇ見てくれよなぁ？", "genre": "SFホラーアクション？", "author": "Ruke"}, {"title": "CODE:RIXIA 荒廃都市の迷い子", "story": "複数の分岐世界を観測する時空調査隊RIXIA。世界を漂流する謎の生命反応を追い、スズとBK2-Rは無人兵器に支配された封鎖都市へ向かう。", "highlight": "日常から異世界、探索、戦闘、救出へと次々に状況が変化していくSFアニメらしいテンポのある展開が見どころ。", "authorComment": "さとしき　CODE:RIXIAの世界観を少しでも伝えられたら嬉しいです！よろしくお願いします！", "genre": "SFファンタジー", "author": "さとしき"}, {"title": "Sailor Summer", "story": "海と星に導かれ、4人の少女たちは帆船アクア・ステラで未知の海へ。港町や島、遺跡を巡りながら、友情と冒険に満ちた夏の航海が始まる――。", "highlight": "青い海と港町、未知の島々を舞台に、個性の異なる4人の少女たちが帆船アクア・ステラで冒険へ旅立ちます。爽やかな夏の空気感と、仲間たちの表情豊かなやり取り、スピード感のある航海シーンを通して、アニメのオープニングらしいワクワク感と壮大な世界観を楽しんでいただけたら嬉しいです。", "authorComment": "ESFD：音楽と映像が一緒に駆け抜けていくような作品を目指して制作しました。細かな表情や演出にもこだわっているので、最後まで楽しんでもらえたら嬉しいです😊", "genre": "海洋アドベンチャー", "author": "ESFD"}, {"title": "ユミリアの夢案内", "story": "夢の世界に迷い込んだ人々を、夢案内人ユミリアが出口へ導く。少し不器用で、誰かの痛みにそっと寄り添う彼女自身の心も描かれていく幻想譚。", "highlight": "砂糖菓子の月や無数の扉が彩る不思議で幻想的な夢世界。", "authorComment": "ユミリアの夢案内　夢に迷ったとき、きっとあなたの前にも夢案内人が現れるでしょう", "genre": "あなたを深い眠りの彼方へご案内する夢案内幻想譚", "author": "ユミリアの夢案内"}, {"title": "戦交双軌アルバノクス", "story": "戦争が続く世界。基地で働く清掃員の少年は襲撃に巻き込まれ、倒れたパイロットから鍵を託される。生き延びるため、新型人型兵器アルバヴィアを起動する。", "highlight": "敵として出会った二機が、戦いの果てに同じ敵へ向かうまでを、疾走感あるロボットアニメOP風MVで描きました。", "authorComment": "出展者名「一倉緑」、コメント「架空のロボットアニメをイメージして、主題歌MVを作りました！」", "genre": "SF、ロボット", "author": "一倉緑"}, {"title": "RAB!T!!", "story": "汐凪シティで出会った六花、元軍人のレイ、術師のセナ。3人はバンド「RAB!T」を結成し、バンドと戦いを重ねながら、やがて自由を取り戻す物語。", "highlight": "ちょーかっこいいOPになったから見てね☆彡", "authorComment": "高宮ルアリエ　私がきたああああああああ！！", "genre": "ハイパーSF能力バトル！！", "author": "高宮ルアリエ"}, {"title": "悪食竜の料理人", "story": "聖なるものが死するとき「災厄」となる世界。「災厄」を喰らう悪食竜「クゥデリア」と専属料理人の「イブキ」。今日も二人は世界のどこかでさよならを託した命に手を合わせる。", "highlight": "OPを作りました！美しくも残酷な世界でいただきます！", "authorComment": "To / 精霊って美味しいのかな？", "genre": "命について考える料理ファンタジー", "author": "To"}, {"title": "『青春異常論 — Anomalous Youth Network』", "story": "誰もインストールした覚えのない匿名SNS「AYN」。それは、息苦しさを抱えた若者の端末にだけ現れる。数字、進路、同調圧力――それぞれの「異常」を映す不思議なUIを通して、名も顔も知らない誰かの言葉が、孤独な夜をつないでいく。", "highlight": "「青春を楽しめない自分はおかしいのか」。そんな息苦しさを抱えた若者たちが、匿名SNS「AYN」を通して誰かの言葉に出会っていく物語です。音楽とともに変化していく彼らの心情に注目していただけたら嬉しいです。", "authorComment": "Loki@低めの猫「初参加です！ 小説として作った『青春異常論』を、今回は音楽とアニメーションで映像化しました。楽しんでいただけたら嬉しいです！」", "genre": "青春群像劇、SNS異能力SF", "author": "Loki@低めの猫"}, {"title": "PENDULUM BREAK", "story": "巨大システムに時刻を管理された都市・刻環市。0.7秒のずれを抱える高校生・黒瀬レンは、仲間と時間異常に立ち向かう。やがて街に隠された真実を追い、決められた未来に抗う戦いへ踏み出す。", "highlight": "時計都市の世界観、時間能力を駆使した変身バトル、仲間との絆。0.7秒の謎を追い、自分の未来を選ぶ少年たちの物語です。", "authorComment": "トミオ「3ピースバンド「toMion」、初のアニソンタイアップを自分たちで実現！音楽から生まれたアニメの世界を楽しんでください！」", "genre": "SFバトルアクション", "author": "トミオ"}, {"title": "星屑の鎧 -Guardian Genome-", "story": "人類の未来を開くため、自らの未来を閉じた戦士たち。 たとえ命が尽きても、記憶は遺伝子となり、次代へ継がれていく。 いつか、この鎧を継ぐ必要がなくなる日を夢に見ながら。", "highlight": "決して明るくはない戦況のなか、それぞれがそれぞれの役割を果たそうとする姿。", "authorComment": "JACKPOT031　ずっと温めていた構想を映像化しました。", "genre": "SF群像劇", "author": "JACKPOT031"}, {"title": "どぱざぁこエルフ", "story": "エルフがモルモット部でモルモットをかわいがる。", "highlight": "モルモットがかわいい", "authorComment": "エルフなんよです。このアニメを公開できたことを光栄におもいます。", "genre": "癒し系アニメ", "author": "エルフなんよ"}, {"title": "星尘之界　エコーズスターダスト", "story": "感情を失った仮想アイドル・零は、分断された宇宙で失われた記憶・忆と再会する。初めて涙と温もりを知った彼女の歌は、星尘となって世界を越え、離れた心を再び繋いでいく。", "highlight": "涙が星尘と花へ変わり、歌が分断された宇宙を繋ぐ幻想的なクライマックス。", "authorComment": "STO   なんとなく勢いで参加！", "genre": "SFファンタジー × 音楽ドラマ（ミュージカルSF）", "author": "STO"}, {"title": "影に咲く花", "story": "記憶が存在を左右する世界。記憶を消す青年レイは、消えない少女ユナと出会う。彼女の中には、レイが消したはずの過去と罪が眠っていた。", "highlight": "記憶を消す青年と、消えない少女。二人の出会いが、失われた過去と隠された真実を呼び覚ます。", "authorComment": "Resonance Diva　記憶と存在をテーマに作りました！", "genre": "ダークファンタジー", "author": "Resonance Diva"}];
+const dialog=document.querySelector('#work-dialog');
+if(typeof dialog.showModal==='function'){
+ document.body.classList.add('js-ready');
+ document.querySelectorAll('.work-open').forEach(button=>button.addEventListener('click',()=>{
+  const w=works[Number(button.dataset.index)];
+  for(const [id,value] of Object.entries({'modal-title':w.title,'modal-genre':w.genre,'modal-author':w.author,'modal-story':w.story,'modal-highlight':w.highlight,'modal-comment':w.authorComment}))document.getElementById(id).textContent=value;
+  dialog.showModal();document.body.classList.add('modal-open');
+ }));
+ dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('close',()=>document.body.classList.remove('modal-open'));
+ dialog.addEventListener('click',ev=>{const r=dialog.getBoundingClientRect();if(ev.target===dialog&&(ev.clientX<r.left||ev.clientX>r.right||ev.clientY<r.top||ev.clientY>r.bottom))dialog.close()});
+}
+document.querySelector('#work-search').addEventListener('input',ev=>{
+ const q=ev.target.value.normalize('NFKC').toLocaleLowerCase().trim();let n=0;
+ document.querySelectorAll('.work-card').forEach(card=>{card.hidden=!card.dataset.search.normalize('NFKC').toLocaleLowerCase().includes(q);if(!card.hidden)n++});
+ document.querySelector('#work-count').textContent=n+'作品';document.querySelector('#empty-search').hidden=n>0;
+});
+</script>
+<script>const menu=document.querySelector('.menu-button');const nav=document.querySelector('#navLinks');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');nav.classList.toggle('is-open',open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','メニューを開く')}));</script></body></html>
